@@ -47,6 +47,7 @@ if($row = mysqli_fetch_array($query))
     </div>
 </div>
 <?php } ?>
+
 <?php include 'footer.php'; ?>
 
 
