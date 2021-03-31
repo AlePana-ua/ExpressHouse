@@ -38,17 +38,15 @@ if($row = mysqli_fetch_array($query))
                 echo get_house_cards(1, 1, 1, 1);
             }
         }else {
-            echo "<h3> Error al mostrar las casa</h3>"
+            echo "<h3> Error al mostrar las casa</h3>";
         }
         ?>
     </div>
     <div class="col-sm-2">
         
     </div>
-    
-
 </div>
-
+<?php } ?>
 <?php include 'footer.php'; ?>
 
 
