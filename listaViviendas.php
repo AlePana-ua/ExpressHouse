@@ -13,21 +13,27 @@
 
         require_once 'utils.php';
 
-        $totalDias = 0;
+        $totalDias = 10;
         
-        //$query =$link -> query("SELECT idVivienda, foto, descripcion from Anuncio where minimo_de_dias='".$totalDias."'");
-
-        if(True)//$row = mysqli_fetch_array($query))
+        $query = $link->query("SELECT idVivienda, foto, descripcion from Anuncio");
+        if ($query->num_rows == 0)
         {
-            for($i=0; $i <= 3; $i++) {
-                echo get_house_cards(1, 1, 1, 1);
+            echo "Lo sentimos no hay casas.";
+        } else 
+        {
+            if($row = mysqli_fetch_array($query))
+            {
+                for($i=0; $i <= 3; $i++) {
+                    echo get_house_cards(1, 1, 1, 1);
+                }
+            }else {
+                echo "<h3> Error al mostrar las casa, intente de nuevo mas tarde</h3>";
             }
-        }else {
-            echo "<h3> Error al mostrar las casa</h3>";
         }
         ?>
     </div>
 </div>
+<?php include_once "desconexionBD.inc"; ?>
 <?php include 'footer.php'; ?>
 
 
