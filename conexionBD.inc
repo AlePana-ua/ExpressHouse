@@ -1,6 +1,6 @@
 <?php 
 
- $link=new mysqli("bbdd.dlsi.ua.es","",".stela.","xStela");
+ $link = new mysqli("","","","");
  if(!$link)
 	die("Error:no pudo conectar");
 

@@ -1,18 +1,5 @@
 <?php include 'header.php'; ?>
-
-<?php 
-
-include_once "conexionBD.inc";
-
-$email = $_GET['email'];
-$query =$link -> query("SELECT nombre,foto from Alumno where email='".$email."'");
-
-if($row = mysqli_fetch_array($query))
-{
-       $nombre = $row['nombre'];
-       $foto=$row['foto'];
-
-?>
+<?php include_once "conexionBD.inc"; ?>
 
 <div class="row h-auto">
     <div class="col-sm-10">
@@ -28,12 +15,10 @@ if($row = mysqli_fetch_array($query))
 
         $totalDias = 0;
         
-        $query =$link -> query("SELECT idVivienda, foto, descripcion from Anuncio where minimo_de_dias='".$totalDias."'");
+        //$query =$link -> query("SELECT idVivienda, foto, descripcion from Anuncio where minimo_de_dias='".$totalDias."'");
 
-        if($row = mysqli_fetch_array($query))
+        if(True)//$row = mysqli_fetch_array($query))
         {
-            $nombre = $row['nombre'];
-            $foto=$row['foto'];
             for($i=0; $i <= 3; $i++) {
                 echo get_house_cards(1, 1, 1, 1);
             }
@@ -46,8 +31,6 @@ if($row = mysqli_fetch_array($query))
         
     </div>
 </div>
-<?php } ?>
-
 <?php include 'footer.php'; ?>
 
 
