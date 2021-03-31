@@ -1,0 +1,59 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.navbar-custom{
+    background-color: #ff5d55;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text{
+    color: #ffffff;
+}
+
+.navbar-custom .navbar-nav .nav-link{
+    color: #ffffff;
+}
+
+.social-icons li {
+    display: inline;
+}
+
+.search-div {
+    position: relative;
+    width:100%;
+    background-image: url('../img/Vista_de_Alicante.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.search-box {
+    width: 40%;
+    height: 100px;
+    border-radius: 20px 20px 20px 20px; 
+    background-color: #ffffff;
+    box-shadow: #4444447a;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.input-group.date {
+    width: 20%;
+}
+
+.btn_custom {
+    width: 100px;
+    background-color: #ff5d55;
+    color: #ffffff;
+    border-radius: 15px 15px 15px 15px;
+    font-family: "Helvetica";
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
