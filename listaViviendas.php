@@ -2,7 +2,7 @@
 <?php include_once "conexionBD.inc"; ?>
 
 <div class="row h-auto">
-  <div class="col-sm-10">
+  <div class="col-sm-12">
     <?php
 			require_once 'utils.php';
 

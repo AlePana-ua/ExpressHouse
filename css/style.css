@@ -65,9 +65,16 @@ html, body {
     background: rgba(110, 110, 110, 0.5);
   }
 
+#city-card, #city-card-img {
+    height: 250px;
+    width: 250px;
+    border: none;
+    border-radius: 15px;
+}
 
-.card, .card-img {
-    height: 200px;
+#type-card, #type-card-img {
+    min-height: 200px;
+    min-width: 200px;
     border: none;
     border-radius: 15px;
 }
