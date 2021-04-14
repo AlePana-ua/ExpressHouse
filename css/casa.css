@@ -91,43 +91,43 @@ hr {
 }
 
 .buttons .cart {
-    border-color: #ff7676;
-    color: #ff7676
+    border-color: #ff5d55;
+    color: #ff5d55
 }
 
 .buttons .cart:hover {
-    background-color: #e86464 !important;
+    background-color:#ff5d55 !important;
     color: #fff
 }
 
 .buttons .buy {
     color: #fff;
-    background-color: #ff7676;
-    border-color: #ff7676
+    background-color: #ff5d55;
+    border-color: #ff5d55
 }
 
 .buttons .buy:focus,
 .buy:active {
     color: #fff;
-    background-color: #ff7676;
-    border-color: #ff7676;
+    background-color: #ff5d55;
+    border-color: #ff5d55;
     box-shadow: none
 }
 
 .buttons .buy:hover {
     color: #fff;
-    background-color: #e86464;
-    border-color: #e86464
+    background-color: #ff5d55;
+    border-color: #ff5d55
 }
 
 .buttons .wishlist {
     background-color: #fff;
-    border-color: #ff7676
+    border-color: #ff5d55
 }
 
 .buttons .wishlist:hover {
-    background-color: #e86464;
-    border-color: #e86464;
+    background-color: #ff5d55;
+    border-color: #ff5d55;
     color: #fff
 }
 
@@ -136,7 +136,7 @@ hr {
 }
 
 .buttons .wishlist i {
-    color: #ff7676
+    color: #ff5d55
 }
 
 .comment-ratings i {
