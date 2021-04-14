@@ -42,7 +42,7 @@
                     <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1 font-weight-bold">4.6</span>
                 </div>
                 <hr>
-                <div class="badges"> <span class="badge bg-dark ">All (230)</span> <span class="badge bg-dark "> <i class="fa fa-image"></i> 23 </span> <span class="badge bg-dark "> <i class="fa fa-comments-o"></i> 23 </span> <span class="badge bg-warning"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <span class="ml-1">2,123</span> </span> </div>
+                <div class="badges"> <span class="badge">All (230)</span> <span class="badge bg-dark "> <i class="fa fa-image"></i> 23 </span> <span class="badge bg-dark "> <i class="fa fa-comments-o"></i> 23 </span> <span class="badge bg-warning"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <span class="ml-1">2,123</span> </span> </div>
                 <hr>
                 <div class="comment-section">
                     <div class="d-flex justify-content-between align-items-center">
@@ -85,12 +85,13 @@
                             <b>WiFi: </b>Sí</br>
                         </div>
                         <!-- Tabla reservar -->
+                        
                     </div>
                     <div class="buttons"> 
-                    <button class="btn btn-outline-warning btn-long cart">Compartir</button>
-                    <button class="btn btn-outline-warning btn-long cart">MG</button>
-                    <button class="btn btn-outline-warning btn-long cart">Denunciar</button> 
-                    <button class="btn btn-outline-warning btn-long cart">Mensaje</button>
+                    <button class="btn btn-outline-warning btn-long wishlist">Compartir</button>
+                    <button class="btn btn-light wishlist"> <i class="fa fa-heart"></i> </button>
+                    <button class="btn btn-outline-warning btn-long wishlist">Denunciar</button> 
+                    <button class="btn btn-outline-warning btn-long wishlist">Mensaje</button>
                     </div>
                
                     
