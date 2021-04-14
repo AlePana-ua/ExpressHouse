@@ -5,11 +5,7 @@
   <head>
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Vista casa</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/casa.css" rel="stylesheet">
   </head>
 
@@ -43,7 +39,7 @@
             <div class="card mt-2">
                 <h6>Reviews</h6>
                 <div class="d-flex flex-row">
-                    <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1 font-weight-bold">4.6</span>
+                    <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1 font-weight-bold">4.6</span>
                 </div>
                 <hr>
                 <div class="badges"> <span class="badge bg-dark ">All (230)</span> <span class="badge bg-dark "> <i class="fa fa-image"></i> 23 </span> <span class="badge bg-dark "> <i class="fa fa-comments-o"></i> 23 </span> <span class="badge bg-warning"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <span class="ml-1">2,123</span> </span> </div>
@@ -72,7 +68,7 @@
         <div class="col-md-7">
             <div class="card">
                 <div class="d-flex flex-row align-items-center">
-                    <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1">5.0 ESTRELLAS</span>
+                    <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1">5.0</span>
                 </div>
                 <div class="about"> <span class="font-weight-bold">Casa bonita</span>
                 </div>
@@ -97,6 +93,7 @@
                     <button class="btn btn-outline-warning btn-long cart">Mensaje</button>
                     </div>
                
+                    
                 </div>
             </div>
             <div class="card mt-2"> <span>Similar items:</span>
