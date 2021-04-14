@@ -72,7 +72,7 @@
         <div class="col-md-7">
             <div class="card">
                 <div class="d-flex flex-row align-items-center">
-                    <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1">5.0</span>
+                    <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1">5.0 ESTRELLAS</span>
                 </div>
                 <div class="about"> <span class="font-weight-bold">Casa bonita</span>
                 </div>
@@ -80,6 +80,14 @@
                 <div class="product-description">
                        <div class="mt-2"> <span class="font-weight-bold">Description</span>
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                        <div>
+                            <b>Habitaciones: </b>4</br>
+                            <b>Baños: </b>2</br>
+                            <b>Categoría: </b>Montaña</br>
+                            <b>Fiestas: </b>Sí</br>
+                            <b>Mascotas: </b>Sí</br>
+                            <b>WiFi: </b>Sí</br>
+                        </div>
                         <!-- Tabla reservar -->
                     </div>
                     <div class="buttons"> 
