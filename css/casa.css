@@ -40,7 +40,8 @@ hr {
 
 .badge {
     padding: 5px !important;
-    padding-bottom: 6px !important
+    padding-bottom: 6px !important;
+    background-color: #ff5d55;
 }
 
 .badge i {
@@ -109,4 +110,3 @@ hr {
     font-size: 9px;
     color: #d6d4d4
 }
-

@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="card mt-2">
-                <h6>Reviews</h6>
+                <h6>Reseñas</h6>
                 <div class="d-flex flex-row">
                     <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="ml-1 font-weight-bold">4.6</span>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex flex-row align-items-center"> <img src="https://i.imgur.com/tmdHXOY.jpg" class="rounded-circle profile-image">
                             <div class="d-flex flex-column ml-1 comment-profile">
-                                <div class="comment-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div> <span class="username">Timona Simaung</span>
+                                <div class="comment-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"> </i> </div> <span class="username">Timona Simaung</span>
                             </div>
                         </div>
                         <div class="date"> <span class="text-muted">12 May</span> </div>
@@ -85,8 +85,38 @@
                             <b>WiFi: </b>Sí</br>
                         </div>
                         <!-- Tabla reservar -->
-                        
+                        <div class="reserva">
+                            <!-- Inicio Buscador -->
+                                <div class="h-75 d-inline-block border">
+                                    <form action="listaViviendas.php" method="POST">
+                                    <div class="form-row align-items-center">
+                                        <div class="col">
+                                        <label for="Name">Llegada</label>
+                                        <input id="datepicker" width="200" placeholder="¿Cuándo?" name="fecha-llegada"/>
+                                        </div>
+                                        <div class="col">
+                                        <label for="Name">Salida</label>
+                                        <input id="datepicker1" width="200" placeholder="¿Cuándo?" name="fecha-salida"/>
+                                        </div>
+                                        <div class="col">
+                                        <button type="submit" class="btn btn_custom">Buscar</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                                <script>      
+                                    $('#datepicker').datepicker({
+                                        uiLibrary: 'bootstrap'
+                                    });
+                                    $('#datepicker1').datepicker({
+                                        uiLibrary: 'bootstrap'
+                                    });
+                                </script>
+                                </div>
+                                <!-- Fin Buscador -->
+                        </div> 
                     </div>
+
                     <div class="buttons"> 
                     <button class="btn btn-light wishlist"> <i class="fa fa-share-alt"></i> </button>
                     <button class="btn btn-light wishlist"> <i class="fa fa-heart-o"></i> </button>
@@ -106,7 +136,7 @@
                     </button>
                     <button class="btn-light wishlist" style="width: 9rem;margin-right: 3px; border-radius: 10px;"> <img src="https://i.imgur.com/GwiUmQA.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h6 class="card-title">$1,699</h6>
+                            <h6 class="car*<d-title">$1,699</h6>
                         </div>
                     </button>
                     <button class="btn-light wishlist" style="width: 9rem;margin-right: 3px; border-radius: 10px;"> <img src="https://i.imgur.com/c9uUysL.jpg" class="card-img-top" alt="...">
