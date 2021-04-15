@@ -88,42 +88,42 @@
                         
                     </div>
                     <div class="buttons"> 
-                    <button class="btn btn-outline-warning btn-long wishlist">Compartir</button>
-                    <button class="btn btn-light wishlist"> <i class="fa fa-heart"></i> </button>
-                    <button class="btn btn-outline-warning btn-long wishlist">Denunciar</button> 
-                    <button class="btn btn-outline-warning btn-long wishlist">Mensaje</button>
+                    <button class="btn btn-light wishlist"> <i class="fa fa-share-alt"></i> </button>
+                    <button class="btn btn-light wishlist"> <i class="fa fa-heart-o"></i> </button>
+                    <button class="btn btn-light wishlist"><i class="	fa fa-exclamation-triangle"></i></button> 
+                    <button class="btn btn-light wishlist"><i class="fa fa-envelope-o"></i></button>
                     </div>
                
                     
                 </div>
             </div>
-            <div class="card mt-2"> <span>Similar items:</span>
-                <div class="similar-products mt-2 d-flex flex-row">
-                    <div class="card border p-1" style="width: 9rem;margin-right: 3px;"> <img src="https://i.imgur.com/KZpuufK.jpg" class="card-img-top" alt="...">
+            <div class="card mt-2"> <span>Casas similares:</span>
+                <div class="buttons mt-2 d-flex flex-row">
+                    <button class="btn-light wishlist" style="width: 9rem;margin-right: 3px; border-radius: 10px;"> <img src="https://i.imgur.com/KZpuufK.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h6 class="card-title">$1,999</h6>
                         </div>
-                    </div>
-                    <div class="card border p-1" style="width: 9rem;margin-right: 3px;"> <img src="https://i.imgur.com/GwiUmQA.jpg" class="card-img-top" alt="...">
+                    </button>
+                    <button class="btn-light wishlist" style="width: 9rem;margin-right: 3px; border-radius: 10px;"> <img src="https://i.imgur.com/GwiUmQA.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h6 class="card-title">$1,699</h6>
                         </div>
-                    </div>
-                    <div class="card border p-1" style="width: 9rem;margin-right: 3px;"> <img src="https://i.imgur.com/c9uUysL.jpg" class="card-img-top" alt="...">
+                    </button>
+                    <button class="btn-light wishlist" style="width: 9rem;margin-right: 3px; border-radius: 10px;"> <img src="https://i.imgur.com/c9uUysL.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h6 class="card-title">$2,999</h6>
                         </div>
-                    </div>
-                    <div class="card border p-1" style="width: 9rem;margin-right: 3px;"> <img src="https://i.imgur.com/kYWqL7k.jpg" class="card-img-top" alt="...">
+                    </button>
+                    <button class="btn-light wishlist" style="width: 9rem;margin-right: 3px; border-radius: 10px;"> <img src="https://i.imgur.com/kYWqL7k.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h6 class="card-title">$3,999</h6>
                         </div>
-                    </div>
-                    <div class="card border p-1" style="width: 9rem;"> <img src="https://i.imgur.com/DhKkTrG.jpg" class="card-img-top" alt="...">
+                    </button>
+                    <button class="btn-light wishlist" style="width: 9rem;margin-right: 3px; border-radius: 10px;"> <img src="https://i.imgur.com/DhKkTrG.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h6 class="card-title">$999</h6>
                         </div>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
