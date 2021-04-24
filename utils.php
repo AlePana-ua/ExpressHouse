@@ -20,12 +20,28 @@
         </script>';
     }
 
-    function get_cities_cards($city) {
-        echo '<div class="col-12 col-sm-8 col-md-6 col-lg-4">
-                <div class="card">
-                    <img class="card-img" src="img/Alicante.jpg">
+    function get_cities_cards($city, $num) {
+        echo '<br>
+              <div class="col-12 col-sm-4 col-md-2 col-lg-2">
+                <div id="city-card" class="card">
+                    <img id="city-card-img" class="card-img" src="img/landscape_'.$num.'.jpg">
                     <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-                    <h2 class="card-title">'.$city.'</h2>
+                    <h3 class="card-title">'.$city.'</h3>
+                    <div class="link d-flex">
+                        <a href="#" class="card-link text-warning">Read More</a>
+                    </div>
+                    </div>
+                </div>
+            </div>';
+    }
+
+    function get_house_type_cards($type) {
+        echo '<br>
+              <div class="col-12 col-sm-4 col-md-2 col-lg-2">
+                <div id="type-card" class="card">
+                    <img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
+                    <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+                    <h3 class="card-title">'.$type.'</h3>
                     <div class="link d-flex">
                         <a href="#" class="card-link text-warning">Read More</a>
                     </div>
@@ -56,5 +72,12 @@
                 </div>
                 <hr>
             </div>';
+    }
+
+    function house_not_found() {
+        echo '<div class="col-md-12">
+            <h3> No se encontraron casas.</h3>
+            <img class="card-img" src="img/Vista_de_Alicante.JPG">
+        </div>';
     }
 ?>

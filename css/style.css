@@ -4,6 +4,8 @@ html, body {
   padding: 0;
   margin: 0;
 }
+
+/* Estilo barra de navegación superior*/
 .navbar-custom{
     background-color: #ff5d55;
 }
@@ -20,6 +22,7 @@ html, body {
     display: inline;
 }
 
+/* Estilo para la página inicial */
 .search-div {
     position: relative;
     width:100%;
@@ -30,11 +33,12 @@ html, body {
 }
 
 .search-box {
-    width: 40%;
-    height: 100px;
-    border-radius: 20px 20px 20px 20px; 
+    width: 45%;
+    min-height: 100px;
+    border-radius: 90px 90px 90px 90px;
     background-color: #ffffff;
-    box-shadow: #4444447a;
+    display:flex;
+    padding: 10px;
     /* Center vertically and horizontally */
     position: absolute;
     top: 50%;
@@ -43,10 +47,42 @@ html, body {
     text-align: center;
 }
 
-.input-group.date {
-    width: 20%;
+#lista-ciudades, #llegada, #salida, #cities-title, #zone-type {
+    color: #5c5c5c;
+}
+#lista-ciudades, #llegada, #salida {
+    font-weight: bold;
 }
 
+#city, #datepicker, #datepicker1 {
+    min-width: 150px;
+    border: none;
+}
+
+#verticle-line {
+    width: 0.5px;
+    min-height: 40px;
+    background: rgba(110, 110, 110, 0.5);
+  }
+
+#city-card, #city-card-img {
+    height: 250px;
+    width: 250px;
+    border: none;
+    border-radius: 15px;
+}
+
+#type-card, #type-card-img {
+    min-height: 200px;
+    min-width: 200px;
+    border: none;
+    border-radius: 15px;
+}
+
+
+
+
+/* Modificación para todos los botones*/
 .btn_custom {
     width: 100px;
     background-color: #ff5d55;
