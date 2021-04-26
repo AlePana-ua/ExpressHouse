@@ -1,5 +1,5 @@
 <?php include 'header.php';
-  /*include_once "conexionBD.inc";*/ 
+  //include_once "conexionBD.inc"; 
 ?>
 
 <!-- Inicio Buscador -->
@@ -52,21 +52,31 @@
     <div class="card-deck">
       <?php require_once 'utils.php';
         // Seleccionamos las cinco primeras ciudades con mas viviendas
-        $query = $link->query("SELECT nombre, COUNT(nombre) AS repeticiones FROM ciudad GROUP BY nombre ORDER BY repeticiones DESC LIMIT 5;");
+        /*$query = $link->query("SELECT nombre, COUNT(nombre) AS repeticiones FROM ciudad GROUP BY nombre ORDER BY repeticiones DESC LIMIT 5;");
         if ($query->num_rows == 0) {
-					echo "<h2>No se encontro ninguna ciudad</h2>";
+		    echo "<h2>No se encontro ninguna ciudad</h2>";
         } else {
             if($row = mysqli_fetch_array($query)) {
-              $cities_array = array("Alicante", "Valencia", "Madrid", "1", "2");
-              $num_city = 0;
-              foreach ($cities_array as $city) {
-                echo get_cities_cards($city, $num_city);
-                $num_city += 1;
-              }
+                $cities_array = array("Alicante", "Valencia", "Madrid", "1", "2");
+                $num_city = 0;
+                foreach ($cities_array as $city) {
+                    echo get_cities_cards($city, $num_city);
+                    $num_city += 1;
+                }
             }else {
                 echo "<h3> Error al mostrar las ciudades, intente de nuevo mas tarde</h3>";
             }
-        }
+        }*/
+
+        /* En caso que la conexión falle, comentar el código anterior
+        * y utilizar el siguiente.
+        */
+        $cities_array = array("Alicante", "Valencia", "Madrid", "Barcelona", "San Sebastián");
+        $num_city = 0;
+            foreach ($cities_array as $city) {
+                echo get_cities_cards($city, $num_city);
+                $num_city += 1;
+            }
       ?>
     </div>
   </div>
@@ -82,10 +92,9 @@
   <div class="row">
     <div class="card-deck">
       <?php require_once 'utils.php';
-        // Esto podría ser una llamada que obtenga las ciudades
-        $house_type_array = array("playa", "montana", "ciudad");
-        
-        $query = $link->query("SELECT idVivienda, foto, descripcion from Anuncio");
+    
+        /*
+        $query = $link->query("SELECT DISTINCT tipo FROM Vivienda ;");
         if ($query->num_rows == 0) {
 					echo "<h2>No se encontro ninguna zona</h2>";
         } else {
@@ -96,6 +105,14 @@
             }else {
                 echo "<h3> Error al mostrar las zonas, intente de nuevo mas tarde</h3>";
             }
+        }*/
+
+        /* En caso que la conexión falle, comentar el código anterior
+        * y utilizar el siguiente.
+        */
+        $house_type_array = array("playa", "montana", "ciudad");
+        foreach ($house_type_array as $house_type) {
+          echo get_house_type_cards($house_type);
         }
       ?>
     </div>

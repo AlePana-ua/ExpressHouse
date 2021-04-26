@@ -9,6 +9,7 @@ html, body {
 .navbar-custom{
     background-color: #ff5d55;
 }
+
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text{
     color: #ffffff;
@@ -29,7 +30,6 @@ html, body {
     background-image: url('../img/Vista_de_Alicante.JPG');
     background-size: cover;
     background-repeat: no-repeat;
-    
 }
 
 .search-box {
@@ -79,9 +79,6 @@ html, body {
     border-radius: 15px;
 }
 
-
-
-
 /* Modificación para todos los botones*/
 .btn_custom {
     width: 100px;
@@ -93,3 +90,24 @@ html, body {
     font-size: 14px;
     text-align: center;
 }
+
+.btn-detalles {
+    border: #ff5d55 solid 1px;
+    background-color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    color:#5c5c5c;
+    font-family: "Helvetica";
+    font-size: 14px;
+    text-align: center;
+}
+.btn-detalles:hover {
+    border: #ff5d55 solid 2px;
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: inline-block;
+  }
