@@ -34,31 +34,32 @@
 
     function get_house_type_cards($type) {
 			echo '<br>
-						<div class="col-12 col-sm-4 col-md-2 col-lg-2">
-							<div id="type-card" class="card">
-									<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
-									<div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-									<h3 class="card-title">'.$type.'</h3>
-									<div class="link d-flex">
-											<a href="#" class="card-link text-warning">Read More</a>
-									</div>
-									</div>
-							</div>
+					<div class="col-12 col-sm-4 col-md-2 col-lg-2">
+						<div id="type-card" class="card">
+								<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
+								<div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+								<h3 class="card-title">'.$type.'</h3>
+								<div class="link d-flex">
+										<a href="#" class="card-link text-warning">Read More</a>
+								</div>
+								</div>
+						</div>
 					</div>';
     }
-		/**
-		 * Esta función se eencarga de devolver las tarjetas de las casas.
-		 * 
-		 * 
-		 *  
-		 * @param integer $idVivienda Identificador de la vivienda.
-		 * @param string $foto URL de las fotos de la vivienda
-		 * @param string $descripcion Descripción de la vivienda.
-		 * @param integer $precioDia Precio por día de estadia en la vivienda.
-		 * @param string $ubicacion Ciudad de unicación de la vivienda. 
-		 * 
-		 * @return str
-		 */
+
+	/**
+	 * Esta función se eencarga de devolver las tarjetas de las casas.
+	 * 
+	 * 
+	 *  
+	 * @param integer $idVivienda Identificador de la vivienda.
+	 * @param string $foto URL de las fotos de la vivienda
+	 * @param string $descripcion Descripción de la vivienda.
+	 * @param integer $precioDia Precio por día de estadia en la vivienda.
+	 * @param string $ubicacion Ciudad de unicación de la vivienda. 
+	 * 
+	 * @return str
+	 */
     function get_house_cards($idVivienda, $foto, $descripcion, $precioDia, $ubicacion){
 			echo '<div class="col-md-8">
 							<div class="row p-2 bg-white">
@@ -92,6 +93,6 @@
 			echo '<div class="col-md-12">
 					<h3> No se encontraron casas.</h3>
 					<img class="card-img" src="img/Vista_de_Alicante.JPG">
-			</div>';
+				</div>';
     }
 ?>
