@@ -38,7 +38,7 @@
                 </div>
                 <!-- Fin cuadro con las imagenes -->
                 <br>
-                <!-- Inicio reseñas -->
+                <!-- Inicio reseñas --
                 <div class="card">
                     <div class="card-header">
                         <h6>Reseñas</h6>
