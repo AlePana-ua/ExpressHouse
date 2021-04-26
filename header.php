@@ -30,7 +30,7 @@
                 <a href="registrar.php" class="nav-link">Registrarse</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Cuenta</a>
+                <a href="cuenta.php" class="nav-link">Cuenta</a>
             </li>
         </ul>
     </nav>

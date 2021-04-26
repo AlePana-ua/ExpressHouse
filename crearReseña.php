@@ -2,7 +2,7 @@
  <!-- Masthead -->
 <div class="row h-100">
   <div class="col-sm-12 my-auto">
-    <div class="card card-block w-25 mx-auto" >
+    <div class="card card-block w-50 mx-auto" >
       <div class="card-body" >
           <h2 class="title" style="text-align: center;">Crear Reseña</h2>
           <hr>

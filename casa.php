@@ -136,7 +136,7 @@
                     </button>
                     <button class="btn-light wishlist" style="width: 9rem;margin-right: 3px; border-radius: 10px;"> <img src="https://i.imgur.com/GwiUmQA.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h6 class="car*<d-title">$1,699</h6>
+                            <h6 class="card-title">$1,699</h6>
                         </div>
                     </button>
                     <button class="btn-light wishlist" style="width: 9rem;margin-right: 3px; border-radius: 10px;"> <img src="https://i.imgur.com/c9uUysL.jpg" class="card-img-top" alt="...">

@@ -1,5 +1,5 @@
 <?php include 'header.php';
-  include_once "conexionBD.inc"; 
+  /*include_once "conexionBD.inc";*/ 
 ?>
 
 <!-- Inicio Buscador -->
@@ -104,5 +104,5 @@
 </div>
 <!-- Fin lista de zonas -->
 
-<?php include_once "desconexionBD.inc"; ?>
+<?php //include_once "desconexionBD.inc"; ?>
 <?php include 'footer.php'; ?>
