@@ -88,18 +88,22 @@ hr {
 
 .buttons .wishlist {
     color: #ff5d55;
-    background-color: #fff;
-    border-color: #ff5d55
+    background-color: #ffff;
+    border-color: #ff5d55;
     
 }
 .buttons .wishlist:hover {
-    color: #fff;
+    color: #ffff;
     background-color: #ff5d55;
-    border-color: #ff5d55
+    border-color: #ff5d55;
 }
 
 .buttons .wishlist i {
     color: #ff5d55
+}
+
+.buttons .wishlist:hover i {
+    color: #ffff
 }
 
 .comment-ratings i {

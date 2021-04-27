@@ -110,7 +110,7 @@
         /* En caso que la conexión falle, comentar el código anterior
         * y utilizar el siguiente.
         */
-        $house_type_array = array("playa", "montana", "ciudad");
+        $house_type_array = array("playa", "montana", "ciudad", "Pueblo", "Camping");
         foreach ($house_type_array as $house_type) {
           echo get_house_type_cards($house_type);
         }
