@@ -2,7 +2,7 @@
  <!-- Masthead -->
 <div class="row h-100">
   <div class="col-sm-12 my-auto">
-    <div class="card card-block w-25 mx-auto" >
+    <div class="card card-block w-50 mx-auto" >
             
 
       <div class="card-body" >
@@ -12,8 +12,8 @@
             <h2 class="title" style="text-align: center;">Reseñas pendientes </h2>
             <table>
                 <tr>
-                <td> <img src="img/Alicante.jpg" style="margin: 10px 10px 10px 0px;float: left; "  width="200px"> </td>
-                <td>     <a href = "crearReseña.php"> Escribir reseña </a> </td>
+                <td><img src="img/Alicante.jpg" style="margin: 10px 10px 10px 0px;float: left; "  width="200px"></td>
+                <td><a href="crearReseña.php"> Escribir reseña </a></td>
 
             </table>
             
@@ -57,7 +57,6 @@
 
 <?php include 'footer.php'; ?>
 
-
-
 <!-- https://es.stackoverflow.com/questions/126046/valoracion-estrellas-1-5-dise%C3%B1o-estrellas-php-html 
 http://w3.unpocodetodo.info/css3/estrellas.php -->
+

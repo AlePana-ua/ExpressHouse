@@ -138,7 +138,7 @@
                     <div class="card-footer buttons"> 
                         <button class="btn btn-light wishlist"><i class="fa fa-share-alt"></i></button>
                         <button class="btn btn-light wishlist"><i class="fa fa-heart-o"></i></button>
-                        <button class="btn btn-light wishlist"><i class="	fa fa-exclamation-triangle"></i></button> 
+                        <button class="btn btn-light wishlist"><i class="fa fa-exclamation-triangle"></i></button> 
                         <button class="btn btn-light wishlist"><i class="fa fa-envelope-o"></i></button>
                     </div>
                     <!-- Fin botones casa -->

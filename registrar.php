@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div style="text-align: center">
-                        <input type="checkbox" required> Acepto los términos y condiciones de este servicio </input>
+                        <input type="checkbox" required> Acepto los <a href="./terminos_y_condiciones.php"> términos y condiciones </a> de este servicio </input>
                     </div>
                     <div class="form-row" style="justify-content: center; text-align: center; margin-top: 20px">
                         <div class="form-group col-md-6">
@@ -41,7 +41,7 @@
                     <div class="form-row" style="justify-content: center">
                         
                         <div class="form-group col-md-6" style="text-align: center;">
-                            <a href="/ExpressHouse/login.php"> ¿Ya estás registrado? </a>
+                            <a href="./login.php"> ¿Ya estás registrado? </a>
                         </div>
                     </div>
                     <div class="form-row" style="justify-content: center; text-align: center; margin-top: 20px">
