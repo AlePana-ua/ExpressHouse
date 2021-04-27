@@ -26,18 +26,18 @@
           <label id="salida" for="Name">Salida</label>
           <input id="datepicker1"  placeholder="¿Cuándo?" name="fecha-salida"/>
         </div>
-        <div class="col">
-          <button type="submit" class="btn btn_custom">Buscar</button>
+        <div>
+          <button type="submit" class="btn btn_buscador">Buscar</button>
         </div>
       </div>
     </form>
   </div>
   <script>      
     $('#datepicker').datepicker({
-        uiLibrary: 'bootstrap'
+      uiLibrary: 'bootstrap'
     });
     $('#datepicker1').datepicker({
-        uiLibrary: 'bootstrap'
+      uiLibrary: 'bootstrap'
     });
   </script>
 </div>
@@ -93,7 +93,6 @@
     <div class="row">
       <div class="card-deck">
         <?php require_once 'utils.php';
-      
           /*
           $query = $link->query("SELECT DISTINCT tipo FROM Vivienda ;");
           if ($query->num_rows == 0) {
@@ -111,7 +110,7 @@
           /* En caso que la conexión falle, comentar el código anterior
           * y utilizar el siguiente.
           */
-          $house_type_array = array("playa", "montana", "ciudad", "Pueblo", "Camping");
+          $house_type_array = array("Playa", "Montana", "Ciudad", "Pueblo", "Camping");
           foreach ($house_type_array as $house_type) {
             echo get_house_type_cards($house_type);
           }
@@ -127,7 +126,7 @@
     <div class="row align-items-center">
       <div class="col-10">
         <div id="hazte-anfitrion-container" class="card">
-          <img id="hazte-anfitrion-img" class="card-img" src="img/tipo_montana.jpg">
+          <img id="hazte-anfitrion-img" class="card-img" src="img/tipo_Montana.jpg">
           <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
             <h1 class="card-title">Hazte anfitrión</h1>
             <p>Sácate un extra y abre la puerta a todo un mundo de oportunidades compartiendo tu alojamiento.</p>

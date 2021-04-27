@@ -57,6 +57,7 @@ html, body {
 }
 
 
+
 #lista-ciudades, #llegada, #salida, #cities-title, #zone-type {
     color: #5c5c5c;
 }
@@ -78,12 +79,12 @@ html, body {
 
 /* Tarjetas de las ciudades de la vista de inicio*/
 #city-card, #city-card-img {
-    height: 240px;
-    width: 240px;
+    height: 200px;
+    width: 200px;
     border: none;
     border-radius: 15px;
     margin-top: 15px;
-    margin-right: 44px;
+    margin-right: 45px;
 }
 
 #city-card:hover {
@@ -114,6 +115,17 @@ html, body {
     border-radius: 15px;
 }
 
+.btn_buscador{
+    width: 100px;
+    background-color: #ff5d55;
+    color: #ffffff;
+    border-radius: 10px 10px 10px 10px;
+    font-family: "Helvetica";
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
 /* Modificación para todos los botones*/
 .btn_custom {
     width: 100px;
@@ -125,6 +137,8 @@ html, body {
     font-size: 14px;
     text-align: center;
 }
+
+
 
 .btn-detalles {
     border: #ff5d55 solid 1px;

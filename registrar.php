@@ -41,7 +41,7 @@
                     <div class="form-row" style="justify-content: center">
                         
                         <div class="form-group col-md-6" style="text-align: center;">
-                            <a href="/ExpressHouse/login.php"> ¿Ya estás registrado? </a>
+                            <a href="./login.php"> ¿Ya estás registrado? </a>
                         </div>
                     </div>
                     <div class="form-row" style="justify-content: center; text-align: center; margin-top: 20px">

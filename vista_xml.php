@@ -1,6 +1,7 @@
 <?php include 'header.php'; 
     //include_once "conexionBD.inc"; 
 ?>
+<!-- SOLO el ADMIN pueede acceder a esta página, si NO es ADMIN se volvera al inicio-->
 <div class="container-fluid row">
     <div class="col-md-4">
         <div class="row">
