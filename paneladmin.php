@@ -1,6 +1,5 @@
 <?php include 'header.php'; ?>
-<link href="css/admin.css"
-      rel="stylesheet" type="text/css">
+<link href="css/admin.css" rel="stylesheet" type="text/css">
 <main>
   <aside class="sidebar">
     <nav>

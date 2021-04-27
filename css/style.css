@@ -47,6 +47,16 @@ html, body {
     text-align: center;
 }
 
+#lista-ciudades {
+    width: 200px;
+}
+
+.search-box .col:hover{
+    border-radius: 40px;
+    background-color:#5c5c5c25;
+}
+
+
 #lista-ciudades, #llegada, #salida, #cities-title, #zone-type {
     color: #5c5c5c;
 }
@@ -57,6 +67,7 @@ html, body {
 #city, #datepicker, #datepicker1 {
     min-width: 150px;
     border: none;
+    background-color:#ffffff00;
 }
 
 #verticle-line {
@@ -71,7 +82,8 @@ html, body {
     width: 240px;
     border: none;
     border-radius: 15px;
-    margin-right: 15px;
+    margin-top: 15px;
+    margin-right: 44px;
 }
 
 #city-card:hover {
@@ -81,16 +93,25 @@ html, body {
 
 /* Tarjetas de los tipos de casa de la vista de inicio*/
 #type-card, #type-card-img {
-    min-height: 200px;
-    min-width: 200px;
+    min-height: 240px;
+    min-width: 240px;
     border: none;
     border-radius: 15px;
-    margin-right: 15px;
+    margin-top: 15px;
+    margin-right: 10px;
 }
 
 #type-card:hover {
     box-shadow: 0 40px 60px -20px rgba(29, 29, 29, 0.3);
     transform: scale(1.01);
+}
+
+#hazte-anfitrion-container, #hazte-anfitrion-img {
+    min-width: 400px;
+    min-height: 200px;
+    width: auto;
+    height: auto;
+    border-radius: 15px;
 }
 
 /* Modificación para todos los botones*/
@@ -117,6 +138,16 @@ html, body {
 
 .btn-detalles:hover {
     border: #ff5d55 solid 2px;
+}
+
+.btn_anfitrion {
+    width: 200px;
+    background-color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    color:#000000;
+    font-family: "Helvetica";
+    font-size: 20px;
+    text-align: center; 
 }
 
 .dot {

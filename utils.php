@@ -1,4 +1,9 @@
 <?php
+	function set_url( $url )
+	{
+		echo("<script>history.replaceState({},'','$url');</script>");
+	}
+	
     function get_list_of_cities() {
         echo '<option value="Alicante">Alicante</option>';
     }
@@ -29,13 +34,13 @@
 		echo 	'<br>
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
 					<div id="city-card" class="card">
-							<img id="city-card-img" class="card-img" src="img/landscape_'.$num.'.jpg">
-							<div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-								<h3 class="card-title">'.$city.'</h3>
-								<div class="link d-flex">
-										<a href="#" class="card-link text-warning">Read More</a>
-								</div>
+						<img id="city-card-img" class="card-img" src="img/landscape_'.$num.'.jpg">
+						<div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+							<h3 class="card-title">'.$city.'</h3>
+							<div class="link d-flex">
+								<a href="#" class="card-link text-warning">Read More</a>
 							</div>
+						</div>
 					</div>
 				</div>';
     }
@@ -52,13 +57,13 @@
 		echo 	'<br>
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
 					<div id="type-card" class="card">
-							<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
-							<div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-								<h3 class="card-title">'.$type.'</h3>
-								<div class="link d-flex">
-									<a href="#" class="card-link text-warning">Read More</a>
-								</div>
+						<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
+						<div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+							<h3 class="card-title">'.$type.'</h3>
+							<div class="link d-flex">
+								<a href="#" class="card-link text-warning">Read More</a>
 							</div>
+						</div>
 					</div>
 				</div>';
     }
