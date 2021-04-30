@@ -35,11 +35,8 @@
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
 					<div id="city-card" class="card">
 						<img id="city-card-img" class="card-img" src="img/landscape_'.$num.'.jpg">
-						<div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+						<div class="card-body">
 							<h3 class="card-title">'.$city.'</h3>
-							<div class="link d-flex">
-								<a href="#" class="card-link text-warning">Read More</a>
-							</div>
 						</div>
 					</div>
 				</div>';
@@ -58,11 +55,8 @@
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
 					<div id="type-card" class="card">
 						<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
-						<div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+						<div class="card-body">
 							<h3 class="card-title">'.$type.'</h3>
-							<div class="link d-flex">
-								<a href="#" class="card-link text-warning">Read More</a>
-							</div>
 						</div>
 					</div>
 				</div>';
@@ -79,30 +73,35 @@
 	 * 
 	 * @return string Con el código HTML de la tarjeta que muestra una vivienda.
 	 */
-    function get_house_cards($idVivienda, $foto, $descripcion, $precioDia, $ubicacion){
+    function get_house_cards($idVivienda, $foto, $numHuespedes, $dormitorios, $aseos, $descripcion, $precioDia, $ubicacion){
 		echo 	'<div class="col-md-8">
 					<div class="row p-2 bg-white">
-						<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="img/Alicante.jpg"></div>
-						<div class="col-md-6 mt-1">
-							<h5>'.$idVivienda.'</h5>
-							<div class="d-flex flex-row">
-								<div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>'.$ubicacion.'</span>
+						
+							<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="img/Alicante.jpg"></div>
+							<div class="col-md-6 mt-1">
+								<p>'.$idVivienda.'<p>
+								<h5>Casa</h5>
+								<div class="d-flex flex-row">
+									<div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>'.$ubicacion.'</span>
+								</div>
+								<hr style="width:50px; background: rgba(110, 110, 110, 0.5); margin-left:0;">
+								<div class="mt-1 mb-1 spec-1">
+									<span>'.$numHuespedes.' huéspedes </span><span>&#183;</span><span> '.$dormitorios.' dormitorios </span><span>&#183;</span><span> '.$aseos.' baño</span>
+								</div>
+								<p class="text-justify text-truncate para mb-0">'.$descripcion.'.<br><br></p>
 							</div>
-							<div class="mt-1 mb-1 spec-1">
-								<span>Lorem ipsum</span><span>&#183;</span><span>Lorem ipsum</span><span>&#183;</span><span>Lorem ipsum<br></span>
+							<div class="align-items-center align-content-center col-md-3 mt-1">
+								<div class="d-flex flex-row align-items-center">
+									<h4 class="mr-1">'.$precioDia.'€</h4><span class="strike-text">/noche</span>
+								</div>
+								<br>
+								<div class="d-flex flex-column mt-4">
+									<form action="casa.php" method="POST">
+									<button class="btn btn-sm btn-detalles" type="submit" method="POST">Detalles</button>
+									</form>
+								</div>
 							</div>
-							<p class="text-justify text-truncate para mb-0">'.$descripcion.'.<br><br></p>
-						</div>
-						<div class="align-items-center align-content-center col-md-3 mt-1">
-							<div class="d-flex flex-row align-items-center">
-								<h4 class="mr-1">'.$precioDia.'€</h4><span class="strike-text">/noche</span>
-							</div>
-							<div class="d-flex flex-column mt-4">
-								<form action="casa.php">
-										<button class="btn btn-sm btn-detalles" type="submit" method="POST">Detalles</button>
-								</form>
-							</div>
-						</div>
+						
 					</div>
 					<hr>
 				</div>';
@@ -111,7 +110,22 @@
     function house_not_found() {
 			echo '<div class="col-md-12">
 					<h3> No se encontraron casas.</h3>
-					<img class="card-img" src="img/Vista_de_Alicante.JPG">
 				</div>';
-    }
+	}
+	/** 
+	 * Esta función deevueelve eel número de días entre dos fechas.
+	 * 
+	 * @param string $date1 Fecha inicial.
+	 * @param string $date1 Fecha final.
+	 * 
+	 * @return integer $interval Número de dias entre ambas fechas. 
+	*/
+	
+	function get_days_between_dates($date1, $date2) {
+		$start  = date_create($date1);
+		$end    = date_create($date2); // Current time and date
+		$diff   = date_diff($start, $end);
+
+		return $diff->days;
+	}
 ?>
