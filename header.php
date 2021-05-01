@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php session_start(); 
+    $usuario = $_SESSION["usuario"];
+    $esAdmin = $_SESSION["admin"];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +26,9 @@
             Express House
         </a>   
         <ul class="nav navbar-nav ml-auto">
+            <?php
+                if($usuario == False) {
+            ?>
             <li class="nav-item">
                 <a href="#" class="nav-link">Ser anfitrión</a>
             </li>
@@ -30,8 +36,34 @@
                 <a href="registrar.php" class="nav-link">Registrarse</a>
             </li>
             <li class="nav-item">
-                <a href="cuenta.php" class="nav-link">Cuenta</a>
+                <a href="login.php" class="nav-link">Login</a>
             </li>
+            <?php
+                }else {
+                    if($esAdmin == False) {
+            ?>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Ser anfitrión</a>
+            </li>
+            <li class="nav-item">
+                <a href="cuenta.php" class="nav-link">Hola, <?php echo $_SESSION["usuario"]?></a>
+            </li>
+            <?php 
+                    }else {
+            ?>
+            <li class="nav-item">
+                <a href="paneladmin.php" class="nav-link">Panel Admin</a>
+            </li>
+            <li class="nav-item">
+                <a href="control_db.php" class="nav-link">Control DB</a>
+            </li>
+            <li class="nav-item">
+                <a href="cuenta.php" class="nav-link">Hola, <?php echo $_SESSION["usuario"]?></a>
+            </li>
+            <?php
+                    }
+                }
+            ?>
         </ul>
     </nav>
 

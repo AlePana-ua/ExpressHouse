@@ -1,25 +1,31 @@
 <?php
-	function set_url( $url )
-	{
-		echo("<script>history.replaceState({},'','$url');</script>");
-	}
-	
-    function get_list_of_cities() {
-        echo '<option value="Alicante">Alicante</option>';
+	/**
+	 * Función que recibe una ciudad y devuelve una option con 
+	 * los datos de esta.
+	 * 
+	 * @param String $ciudad Nombre de la ciudad.
+	 * 
+	 * @return String Con código HTML de la option 
+	 */
+    function get_list_of_cities($ciudad) {
+        echo '<option value="'.utf8_encode($ciudad).'">'.utf8_encode($ciudad).'</option>';
     }
 
+	/**
+	 * 
+	 */
     function get_date_picker($id) {
         echo '<div class="input-group date" id="datetimepicker">
-        <input type="text" class="form-control" />
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-        </span>  
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $("#datetimepicker").datetimepicker();
-            });
-        </script>';
+        		<input type="text" class="form-control" />
+        		<span class="input-group-addon">
+            		<span class="glyphicon glyphicon-calendar"></span>
+        		</span>  
+       		</div>
+			<script type="text/javascript">
+				$(function () {
+					$("#datetimepicker").datetimepicker();
+				});
+			</script>';
     }
 
 	/**
@@ -33,11 +39,15 @@
     function get_cities_cards($city, $num) {
 		echo 	'<br>
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
-					<div id="city-card" class="card">
+					<div id="type-card" class="card">
 						<img id="city-card-img" class="card-img" src="img/landscape_'.$num.'.jpg">
 						<div class="card-body">
-							<h3 class="card-title">'.$city.'</h3>
-						</div>
+							<form action="listaViviendas.php" method="POST">
+								<h3 class="card-title">'.$city.'</h3>		
+								<input type="hidden" name="destino" value="'.$city.'">
+								<button type="submit" class="btn btn-listas">Ver</button>
+							</form>
+						</div>	
 					</div>
 				</div>';
     }
@@ -56,7 +66,11 @@
 					<div id="type-card" class="card">
 						<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
 						<div class="card-body">
-							<h3 class="card-title">'.$type.'</h3>
+							<form action="listaViviendas.php" method="POST">
+								<h3 class="card-title">'.$type.'</h3>
+								<input type="hidden" name="tipo-casa" value="'.$type.'">
+								<button type="submit" class="btn btn-listas">Ver</button>
+							</form>
 						</div>
 					</div>
 				</div>';
@@ -73,13 +87,12 @@
 	 * 
 	 * @return string Con el código HTML de la tarjeta que muestra una vivienda.
 	 */
-    function get_house_cards($idVivienda, $foto, $numHuespedes, $dormitorios, $aseos, $descripcion, $precioDia, $ubicacion){
+    function get_house_cards($idVivienda, $foto, $descripcion, $ubicacion, $precioDia, $dormitorios, $aseos, $numHuespedes ){
 		echo 	'<div class="col-md-8">
 					<div class="row p-2 bg-white">
 						
 							<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="img/Alicante.jpg"></div>
 							<div class="col-md-6 mt-1">
-								<p>'.$idVivienda.'<p>
 								<h5>Casa</h5>
 								<div class="d-flex flex-row">
 									<div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>'.$ubicacion.'</span>
@@ -97,7 +110,8 @@
 								<br>
 								<div class="d-flex flex-column mt-4">
 									<form action="casa.php" method="POST">
-									<button class="btn btn-sm btn-detalles" type="submit" method="POST">Detalles</button>
+										<p name="id-vivienda">'.$idVivienda.'<p>
+										<button class="btn btn-sm btn-detalles" type="submit" method="POST">Detalles</button>
 									</form>
 								</div>
 							</div>
@@ -107,11 +121,15 @@
 				</div>';
     }
 
+	/**
+	 * 
+	 */
     function house_not_found() {
-			echo '<div class="col-md-12">
-					<h3> No se encontraron casas.</h3>
-				</div>';
+		echo '<div class="col-md-12">
+				<h3> No se encontraron casas.</h3>
+			</div>';
 	}
+
 	/** 
 	 * Esta función deevueelve eel número de días entre dos fechas.
 	 * 
@@ -120,10 +138,9 @@
 	 * 
 	 * @return integer $interval Número de dias entre ambas fechas. 
 	*/
-	
 	function get_days_between_dates($date1, $date2) {
 		$start  = date_create($date1);
-		$end    = date_create($date2); // Current time and date
+		$end    = date_create($date2); 
 		$diff   = date_diff($start, $end);
 
 		return $diff->days;

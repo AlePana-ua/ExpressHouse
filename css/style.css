@@ -33,7 +33,7 @@ html, body {
 }
 
 .search-box {
-    width: 45%;
+    width: fit-content;
     min-height: 100px;
     border-radius: 90px 90px 90px 90px;
     background-color: #ffffff;
@@ -84,13 +84,13 @@ html, body {
 /* Tarjetas */
 #city-card, #type-card{
     min-height: 100px;
-    min-width: 150px;
+    min-width: 50px;
     height: 300px;
-    width: 250px;
+    width: 225px;
     border: none;
     border-radius: 15px;
-    margin-top: 15px;
-    margin-right: 45px;
+    /*margin-top: 15px;
+    margin-right: 45px;*/
 }
 
 #city-card:hover, #type-card:hover {
@@ -100,14 +100,13 @@ html, body {
 
 /* Imagenes de las tarjetas */
 #city-card-img, #type-card-img {
-    min-height: 100px;
-    min-width: 150px;
+    min-height: 50px;
+    min-width: 50px;
     height: 200px;
-    width: 250px;
+    width: 225px;
     border: none;
     border-radius: 15px;
-    margin-top: 15px;
-    margin-right: 10px;
+    margin-left: 0px;
 }
 
 #hazte-anfitrion-container, #hazte-anfitrion-img {
@@ -162,7 +161,7 @@ html, body {
 .btn-detalles:hover {
     border: #ff5d55 solid 2px;
 }
-
+/* Boton tarjeta de haztee anfitrion del index */
 .btn_anfitrion {
     width: 200px;
     background-color: #ffffff;
@@ -173,7 +172,24 @@ html, body {
     text-align: center; 
 }
 .btn_anfitrion:hover {
-    background-color: #c5c5c5;
+    transform: scale(1.04);
+}
+
+ /* Estilo botones tarjetas de index */
+.btn-listas {
+    width: fit-content;
+    background-color: transparent;
+    border: #000000 solid 0.5px;
+    border-radius: 5px 5px 5px 5px;
+    color:#000000;
+    font-family: "Helvetica";
+    font-size: 15px;
+    text-align: center; 
+}
+
+.btn-listas:hover {
+    color: #ffffff;
+    background-color: #000000;
 }
 
 .dot {

@@ -1,5 +1,9 @@
-<?php include 'header.php';?>
-<?php include "conexionBD.inc"; ?>
+<?php 
+    session_start();
+    include 'header.php';
+    include "conexionBD.inc"; 
+    include 'utils.php';
+?>
 
 <!-- Inicio Buscador -->
 <div class="h-75 d-inline-block search-div">
@@ -9,9 +13,20 @@
         <div class="col">
           <label id="lista-ciudades" for="Name">Ciudad</label>
           <select class="custom-select" id="city" name="destino">
-            <option value="">Buscar ciudad ...</option>
-            <?php require_once 'utils.php';
-              echo get_list_of_cities();
+            <option selected="selected" disabled="disabled">Buscar ciudad ...</option>
+            <?php 
+              // Seleccionamos el nombre de todas las ciudades con viviendas.
+              $query_cities = "SELECT nombre FROM ciudad;";
+              if ($query = $link->query($query_cities)) {
+                if ($query->num_rows == 0) {
+                  echo "<option disabled=\"disabled\">No hay ciudades</option>";
+                } else {
+                  while($row = mysqli_fetch_array($query)) {  
+                    echo get_list_of_cities($row[0]);
+                  }
+                }
+                $query->close();
+              }
             ?> 
           </select>
         </div>
@@ -50,21 +65,19 @@
     <br>
     <div class="row">
       <div class="card-deck">
-        <?php require_once 'utils.php';
+        <?php
+          $query_ciudades = "SELECT nombre, COUNT(nombre) AS repeticiones FROM ciudad GROUP BY nombre ORDER BY repeticiones DESC LIMIT 5;";
           // Seleccionamos las cinco primeras ciudades con mas viviendas registradas.
-          if ($query = $link->query("SELECT nombre, COUNT(nombre) AS repeticiones FROM ciudad GROUP BY nombre ORDER BY repeticiones DESC LIMIT 5;")) {
+          if ($query = $link->query($query_ciudades)) {
             if ($query->num_rows == 0) {
               echo "<h2>No se encontro ninguna ciudad</h2>";
             } else {
-                if($row = mysqli_fetch_array($query)) {
-                    $cities_array = array("Alicante", "Valencia", "Madrid", "Barcelona", "San Sebastián");
-                    $num_city = 0;
-                    foreach ($cities_array as $city) {
-                        echo get_cities_cards($city, $num_city);
-                        $num_city += 1;
-                    }
-                }else {
-                    echo "<h3> Error al mostrar las ciudades, intente de nuevo mas tarde</h3>";
+                $num_city = 0;
+                while($row = mysqli_fetch_array($query)) {
+                   
+                    echo get_cities_cards(utf8_encode($row[0]), $num_city);
+                    $num_city += 1;
+                
                 }
             }
             $query->close();
@@ -76,10 +89,10 @@
           /*
           $cities_array = array("Alicante", "Valencia", "Madrid", "Barcelona", "San Sebastián");
           $num_city = 0;
-              foreach ($cities_array as $city) {
-                  echo get_cities_cards($city, $num_city);
-                  $num_city += 1;
-              }
+          foreach ($cities_array as $city) {
+              echo get_cities_cards($city, $num_city);
+              $num_city += 1;
+          }
           */
         ?>
       </div>
@@ -95,9 +108,9 @@
     <br>
     <div class="row">
       <div class="card-deck">
-        <?php require_once 'utils.php';
-  
-          if ($query = $link->query("SELECT DISTINCT tipo FROM Vivienda ;")) {
+        <?php
+          // Seleccionamos una lista de tipos de vivienda
+          if ($query = $link->query("SELECT DISTINCT tipo FROM Vivienda;")) {
             if ($query->num_rows == 0) {
               echo "<h2>No se encontro ninguna zona</h2>";
             } else {
@@ -113,13 +126,11 @@
             /* En caso que la conexión falle, comentar el código anterior
             * y utilizar el siguiente.
             */
-            /*
             $house_type_array = array("Playa", "Montana", "Ciudad", "Pueblo", "Camping");
             foreach ($house_type_array as $house_type) {
               echo get_house_type_cards($house_type);
             
             }
-            */
           }
         ?>
       </div>
@@ -147,5 +158,7 @@
 
 </div>
 
-<?php include "desconexionBD.inc"; ?>
-<?php include 'footer.php'; ?>
+<?php 
+  include "desconexionBD.inc";
+  include "footer.php"; 
+?>
