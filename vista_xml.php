@@ -51,7 +51,7 @@
             $nombreCliente = 4;
             $direccion = 5;
             $metodoPago = 6;
-            $importeTotal = 7;
+            $importeTotal = 500;
 
             $fechaInicio = 8;
             $fechaFin = 9;
@@ -65,7 +65,8 @@
             //Añadir una tabla con el IVA
             $IVA = 21;
             //Calculamos el importe sin IVA y el el IVA a pagar.
-            $importeSinIVA = $importeTotal/$IVA;
+            $importeSinIVA = $importeTotal / (1+($IVA/100));
+            
             $importeIVA = $importeTotal - $importeSinIVA;
             
             // Se tienen que añadir estos elementos a la base de datos
@@ -74,8 +75,8 @@
         
             $xml = "<?xml version=\"1.0\"  encoding=\"UTF-8\" standalone=\"no\"?><?xml-stylesheet href=\"./xml_files/gi_expresshouse.xsl\" type=\"text/xsl\" ?> <!DOCTYPE factura SYSTEM \"./xml_files/gi_expresshouse.dtd\">";
 
-            $xml .="<factura>";
-            $xml .="<datos_empresa>".utf8_encode($datosEmpresa)."</datos_empresa>";
+            $xml .= "<factura>";
+            $xml .= "<datos_empresa>".utf8_encode($datosEmpresa)."</datos_empresa>";
             $xml .= "<idFactura>".$idFactura."</idFactura>";
             $xml .= "<nombre>".utf8_encode($nombreCliente)."</nombre>";
             $xml .= "<fecha>".$fechaEmision."</fecha>";

@@ -14,7 +14,7 @@
     $resultados_por_pagina = 20;
     $start_from = ($page-1) * $resultados_por_pagina;
 ?>
-<div class="h-100 container-fluid">
+<div class="h-auto container-fluid">
     <div class="row d-flex justify-content-left"> 
         <form method="POST" action="paneladmin.php">
             <button type="submit">Volver panel Admin</button>
@@ -50,8 +50,8 @@
                     <td><?php echo utf8_encode($apellidos);?></td>
                     <td><?php echo utf8_encode($correo);?></td>
                     <td><?php echo utf8_encode($telefono);?></td>
-                    <td><a href='editarUser.php?user=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;"><img src="img/iconoBorrar.jpg"></a></td>
-                    <td><a href='borrarUser.php?user=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;"><img src="img/iconoBorrar.jpg"></a></td>
+                    <td><a href='.php?user=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;"><img class="" src="img/update_icon.png" width="40" height="40"></a></td>
+                    <td><a href='confirmarBorradoUsuario.php?correo=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;"><img class="" src="img/delete_icon.png" width="40" height="40"></a></td>
                 </tr>
         <?php           
                 }
@@ -61,7 +61,9 @@
         ?>
             </tbody>
         </table>
-
+    </div>
+    <br>
+    <div class="row d-flex justify-content-center">
         <?php
             $query_paginas = "SELECT COUNT(id_user) AS total FROM Usuario";
             if($query2 = $link->query($query_paginas)){
