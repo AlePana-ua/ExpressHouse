@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php 
+  include 'header.php'; 
+  include 'seguridadAdmin.php'
+?>
 <link href="css/admin.css" rel="stylesheet" type="text/css">
 <main>
   <aside class="sidebar">

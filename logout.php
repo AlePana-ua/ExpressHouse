@@ -1,8 +1,8 @@
 <?php
     session_start();
 
-    $_SESSION['usuario']=false;
-    $_SESSION['passwd']=false;
-    $_SESSION['admin']=false;
+    unset($_SESSION['usuario']);
+    unset($_SESSION['passwd']);
+    unset($_SESSION['admin']);
     header("location: index.php");
 ?>

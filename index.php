@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    $pageTitle = 'Inicio';
     include 'header.php';
     include "conexionBD.inc"; 
     include 'utils.php';
@@ -33,12 +34,12 @@
         <div id="verticle-line"></div>
         <div class="col">
           <label id="llegada" for="Name">Llegada</label>
-          <input id="datepicker" placeholder="¿Cuándo?" name="fecha-llegada"/>
+          <input required id="datepicker" placeholder="¿Cuándo?" name="fecha-llegada"/>
         </div>
         <div id="verticle-line"></div>
         <div class="col">
           <label id="salida" for="Name">Salida</label>
-          <input id="datepicker1"  placeholder="¿Cuándo?" name="fecha-salida"/>
+          <input required id="datepicker1"  placeholder="¿Cuándo?" name="fecha-salida"/>
         </div>
         <div >
           <button type="submit" class="btn btn_buscador">Buscar</button>

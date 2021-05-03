@@ -2,11 +2,10 @@
     session_start();
     $usuario = $_SESSION['usuario'];
     $esAdmin = $_SESSION['admin'];
-    //validamos si se ha hecho o no el inicio de sesion correctamente
-    if(isset($usuario)) {
-        if($esAdmin == False) {
-            //Si el usurio es admin
-            header('Location: paneladmin.php');
-        }
+    // Validamos si se ha hecho o no el inicio de sesion correctamente
+    // Si el usuario no esta asignado o no es admin.
+    if((!isset($usuario) || $esAdmin == False)) {
+        //Si el usuario NO es admin se le manda al index
+        header('Location: index.php');
     }
 ?>

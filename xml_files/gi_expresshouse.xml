@@ -9,7 +9,7 @@
     <nombre>Dr. Philip Sherman</nombre>
     <fecha>29/01/2020</fecha>
     <metodo_pago>Tarjeta </metodo_pago>
-    <domicilio>Calle Wallaby 42, Sidney, Australia</domicilio>
+    <domicilio> 4Calle Wallaby 42, Sidney, Australia</domicilio>
     <iva>21%</iva>
     <importe_sin_iva>413.22</importe_sin_iva>
     <importe_iva>86.77</importe_iva>

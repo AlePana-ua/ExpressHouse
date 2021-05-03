@@ -9,7 +9,7 @@
 <body>
     <center>
         <!--Mostramos los detalles de una factura-->
-        <table style="border-radius:2px; font-family:'Helvetica'; font-size:15px; border: .5px black solid">
+        <table style="border-radius:3px; font-family:'Helvetica'; font-size:15px; border: .5px black solid">
             <title><strong>FACTURA</strong></title>
             <tr> 
                 <td colspan="2" style="font-size:18px"><strong>Datos Empresa</strong></td>

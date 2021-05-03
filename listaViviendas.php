@@ -1,4 +1,5 @@
 <?php 
+	$pageTitle = 'Lista viviendas';
 	include 'header.php';
 	include "conexionBD.inc"; 
 ?>
