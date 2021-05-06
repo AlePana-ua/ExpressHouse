@@ -4,20 +4,20 @@
 
     $pageTitle = 'Eliminar usuario'; 
 
-    if(isset($_GET['correo'])){
-        $correo = $_GET['correo'];
-    }
+    $idResenya = $_GET['idResenya'];
 
-    if($query= $link ->query("DELETE from Usuario where correo='".$correo."'")){
+    $query_resenya = "DELETE from resenya where id_resenya='".$idResenya."'";
+
+    if($query = $link ->query($query_resenya)){
 ?>
         <div class="alert alert-success alert-dismissable">
-            <h2><strong>Felicidades!</strong> Usuario borrado</h2>
+            <h2><strong>Felicidades!</strong> Reseña eliminada</h2>
         </div>
 <?php
     }else {
 ?>
         <div class="alert alert-success alert-dismissable"> 
-            <h2><strong>Error!</strong> al borrar el usuario</h2>
+            <h2><strong>Error!</strong> al eliminar la reseña</h2>
         </div>
 <?php
     }

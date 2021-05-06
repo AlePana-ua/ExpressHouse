@@ -123,15 +123,18 @@ html, body {
     color: #5c5c5c;
 }
 
-.btn_buscador{
-    width: 100px;
-    background-color: #ff5d55;
+.btn-buscador{
+    width: 60px;
     color: #ffffff;
-    border-radius: 10px 10px 10px 10px;
-    font-family: "Helvetica";
+    background-color: #ff5d55;
+    border-radius: 50px 50px 50px 50px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 30px;
     text-align: center;
+}
+
+.btn-buscador:hover{
+    transform: scale(1.05);
 }
 
 /* Modificación para todos los botones*/
@@ -150,7 +153,7 @@ html, body {
 
 .btn-detalles {
     border: #ff5d55 solid 1px;
-    background-color: #ffffff;
+    background-color: transparent;
     border-radius: 5px 5px 5px 5px;
     color:#5c5c5c;
     font-family: "Helvetica";
@@ -190,6 +193,25 @@ html, body {
 .btn-listas:hover {
     color: #ffffff;
     background-color: #000000;
+}
+
+/*Estilo boton buscar facturas XML*/
+.btn-buscar-factura, .btn-volver {
+    width: fit-content;
+    color:#ff5d55;
+    font-family: "Helvetica";
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    border: #ff5d55 solid 0.5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.btn-buscar-factura:hover, .btn-volver:hover {
+    color:#ffffff;
+    background-color: #ff5d55;
+    border: #ff5d55 solid 0.5px;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .dot {

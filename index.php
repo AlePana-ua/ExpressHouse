@@ -42,7 +42,7 @@
           <input required id="datepicker1"  placeholder="¿Cuándo?" name="fecha-salida"/>
         </div>
         <div >
-          <button type="submit" class="btn btn_buscador">Buscar</button>
+          <button type="submit" class="btn btn-buscador">&#8981</button>
         </div>
       </div>
     </form>

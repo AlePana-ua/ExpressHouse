@@ -14,20 +14,31 @@
             if($row["contrasenya"] == $clave) {
                 $esAdmin = False;
                 // Una vez comprobado sus credenciales comprobamos si es Admin, Huesped o Anfitrion.
-                $query_user_type = "SELECT u.nombre 
+                $query_user_admin = "SELECT u.nombre 
                                     FROM Usuario u, Administrador a 
                                     WHERE a.id_user = u.id_user 
                                     AND u.correo = '$usuario';";
                 // Comprobamos si es administrador
-                if($query2 = $link ->query($query_user_type)) {
+                if($query2 = $link ->query($query_user_admin)) {
                     if($query2->num_rows == 1) {
                         $esAdmin = True;
+                    }
+                }
+
+                $query_user_afitrion = "SELECT u.nombre 
+                                    FROM Usuario u, Anfitrion a 
+                                    WHERE a.id_user = u.id_user 
+                                    AND u.correo = '$usuario';";
+                if($query3 = $link ->query($query_user_afitrion)) {
+                    if($query3->num_rows == 1) {
+                        $esAnfitrion = True;
                     }
                 }
                 
                 //Almacenamos el nombre de usuario en una variable de sesión usuario
                 $_SESSION["usuario"] = $usuario;
                 $_SESSION["admin"] = $esAdmin;
+                $_SESSION["anfitrion"] = $esAnfitrion;
                 //Redireccionamos a la pagina: admin.php
                 header('Location: index.php');
             }

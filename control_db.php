@@ -6,7 +6,7 @@
     include "seguridadAdmin.php";
     
 ?>
-
+<br>
 <!-- Vista exclusiva para el administrador -->
 <div class="container-fluid center">
     <div class="row">
@@ -20,8 +20,8 @@
                         }
                     }
                 ?>
-                <h2><?php echo $totalUsuarios; ?></h2>
-                <h1>Usuarios</h1>
+                <h2 class="db-data-font"><?php echo $totalUsuarios; ?></h2>
+                <h1 class="db-data-font">Usuarios</h1>
             </div>
         </div>
         <div class="col-12 col-sm-2">
@@ -161,8 +161,14 @@
         <!-- Tamaño de la base de datos -->
         <div class="col-12 col-sm-3">
             <div class="table-responsive db-data" align="center">
-                <h2><?php echo $databaseSize; ?> MB</h2>
-                <h1>Tamaño base de datos</h1>
+                <h2 class="db-data-font"><?php echo $databaseSize; ?> MB</h2>
+                <h1 class="db-data-font">Tamaño base de datos</h1>
+            </div>
+        </div>
+        <div class="col-12 col-sm-3">
+            <div class="table-responsive db-data" align="center">
+                <h2 class="db-data-font"><?php echo $databaseSize; ?> MB</h2>
+                <h1 class="db-data-font">Tamaño base de datos</h1>
             </div>
         </div>
     </div>

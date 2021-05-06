@@ -5,7 +5,7 @@
     include 'header.php'; 
     
     // Titulo que se muestra en la pestaña del navegador.
-    $pageTitle = 'Lista Usuarios';
+    $pageTitle = 'Lista Reseñas';
 
     // Comprobamos en que página de la lista estamos. 
     if(isset($_GET['page'])) {
@@ -29,37 +29,39 @@
     </div>
     <!-- Lista de usuarios extraidos de la base de datos -->
     <div class="row d-flex justify-content-center">
-        <h2>Lista de usuarios</h2>
+        <h2>Lista de Reseñas</h2>
         <?php
-            $query_usuarios = "SELECT * FROM Usuario ORDER BY id_user ASC LIMIT $start_from, $resultados_por_pagina;";
-            if($query = $link->query($query_usuarios)){
+            $query_resenyas= "SELECT * FROM resenya ORDER BY id_resenya ASC LIMIT $start_from, $resultados_por_pagina;";
+            if($query = $link->query($query_resenyas)){
         ?>
         <table class="table table-sm table-striped">
             <thead class="table-light">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo</th>
-                    <th>Teléfono</th>
-                    <th>Editar</th>
+                    <th>Usuario</th>
+                    <th>Vivienda</th>
+                    <th>Fecha</th>
+                    <th>Putuación</th>
+                    <th>Descripción</th>
                     <th>Borrar</th>
                 </tr>
             </thead>
             <tbody>
             <?php
                 while($row = mysqli_fetch_array($query)) {
-                    $nombre = $row['nombre'];
-                    $apellidos = $row['apellido'];
-                    $correo = $row['correo'];
-                    $telefono = $row['telefono'];
+                    $id_resenya = $row['id_reseña'];
+                    $id_usuario = $row['id_usuario'];
+                    $id_vivienda = $row['id_vivienda'];
+                    $fecha = $row['fecha'];
+                    $puntuacion = $row['puntuacion'];
+                    $descripcion = $row['descripcion'];
             ?>
                 <tr>
-                    <td><?php echo utf8_encode($nombre);?></td>
-                    <td><?php echo utf8_encode($apellidos);?></td>
-                    <td><?php echo utf8_encode($correo);?></td>
-                    <td><?php echo utf8_encode($telefono);?></td>
-                    <td><a href='.php?user=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;"><img class="" src="img/update_icon.png" width="40" height="40"></a></td>
-                    <td><a href='confirmarBorradoUsuario.php?correo=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;"><img class="" src="img/delete_icon.png" width="40" height="40"></a></td>
+                    <td><?php echo utf8_encode($id_usuario);?></td>
+                    <td><?php echo utf8_encode($id_vivienda);?></td>
+                    <td><?php echo utf8_encode($fecha);?></td>
+                    <td><?php echo utf8_encode($puntuacion);?></td>
+                    <td><?php echo utf8_encode($descripcion);?></td>
+                    <td><a href='confirmarBorrarResenya.php?id=<?=$id_resenya?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;"><img class="" src="img/delete_icon.png" width="40" height="40"></a></td>
                 </tr>
             <?php           
                 }
@@ -75,7 +77,7 @@
     <!-- Lista de páginas con usuarios -->
     <div class="row d-flex justify-content-center">
         <?php
-            $query_paginas = "SELECT COUNT(id_user) AS total FROM Usuario";
+            $query_paginas = "SELECT COUNT(id_resenya) AS total FROM resenya";
             if($query2 = $link->query($query_paginas)){
                 while($row = mysqli_fetch_array($query2)) {
                     $total_pages = ceil( $row['total']/ $resultados_por_pagina);
@@ -84,6 +86,8 @@
                     echo "<a href=\"lista_usuarios.php?page=$i\">$i&nbsp</a>";
                     
                 }
+            }else {
+                echo $link->error;
             }
         ?>
     </div>
