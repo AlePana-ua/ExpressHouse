@@ -15,6 +15,8 @@
             <!-- Inicio columna izquierda -->
             <div class="col-md-5 pr-2">
                 <!-- Inicio cuadro con las imagenes -->
+                <!-- $id_Anuncio = $_POST['id'];
+                     $query = $link->query("SELECT * from Anuncio where id_Anuncio = $id_Anuncio")-->
                 <div class="card">
                     <div class="demo">
                         <ul id="lightSlider">
@@ -136,10 +138,14 @@
                     <br>
                     <!-- Inicio botones casa -->                
                     <div class="card-footer buttons"> 
-                        <button class="btn btn-light wishlist"><i class="fa fa-share-alt"></i></button>
-                        <button class="btn btn-light wishlist"><i class="fa fa-heart-o"></i></button>
-                        <button class="btn btn-light wishlist"><i class="fa fa-exclamation-triangle"></i></button> 
-                        <button class="btn btn-light wishlist"><i class="fa fa-envelope-o"></i></button>
+                    <!-- COMPARTIR -->
+                        <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-share-alt"></i></button>
+                        <!-- FAVORITO -->
+                        <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-heart-o"></i></button>
+                        <!-- DENUNCIAR, pasar id como parámetro -->
+                        <button class="btn btn-light wishlist" href="/ExpressHouse/denunciar.php"><i class="fa fa-exclamation-triangle"></i></button>
+                        <!-- ENVIAR MENSAJE, pasar id como parámetro --> 
+                        <button class="btn btn-light wishlist" href="/ExpressHouse/mensaje.php"><i class="fa fa-envelope-o"></i></button>
                     </div>
                     <!-- Fin botones casa -->
                 </div>
