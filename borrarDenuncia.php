@@ -1,23 +1,24 @@
 <?php
     include "conexionBD.inc";
     include "seguridadAdmin.php";
+    
+    // Titulo de la página
+    $pageTitle = 'Eliminar Denuncia'; 
 
-    $pageTitle = 'Eliminar usuario'; 
-
-    if(isset($_GET['correo'])){
-        $correo = $_GET['correo'];
+    if(isset($_GET['id'])){
+        $idDenuncia = $_GET['id'];
     }
 
-    if($query= $link ->query("DELETE from Usuario where correo='".$correo."'")){
+    if($query= $link ->query("DELETE from Denuncia where id_denuncia='".$idDenuncia."'")){
 ?>
         <div class="alert alert-success alert-dismissable">
-            <h2><strong>Felicidades!</strong> Usuario borrado</h2>
+            <h2><strong>Felicidades!</strong> Anuncio borrado</h2>
         </div>
 <?php
     }else {
 ?>
         <div class="alert alert-warning alert-dismissable"> 
-            <h2><strong>Error!</strong> al borrar el usuario</h2>
+            <h2><strong>Error!</strong> al borrar el anuncio</h2>
         </div>
 <?php
     }
@@ -31,6 +32,7 @@ function cargar(){
     window.close();
 }
 </script>
+
 <?php 
     include "desconexionBD.inc";
 ?>

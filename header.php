@@ -32,6 +32,7 @@
         <!-- example 7 - center on mobile 2  fixed-top-->
         <nav class="navbar navbar-expand-sm navbar-custom">
             <a class="navbar-brand" href="/ExpressHouse/">
+                <img src="./img/Logo_ExpressHouse.png" height="35" alt="Express House"/>
                 Express House
             </a>   
             <ul class="nav navbar-nav ml-auto">

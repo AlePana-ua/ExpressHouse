@@ -41,7 +41,7 @@
 								,Vivienda.habitaciones
 								,Vivienda.aseos
 						FROM Anuncio
-						INNER JOIN Vivienda ON Anuncio.id_vivienda=Vivienda.id_viv
+						INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv
 						INNER JOIN ciudad ON ciudad.id_ciudad = Vivienda.id_ciudad
 						WHERE Anuncio.minimo_de_dias <= $numDias ";
 

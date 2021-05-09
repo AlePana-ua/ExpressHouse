@@ -124,7 +124,7 @@
 <br>
 <div class="row d-flex justify-content-center">
     <form method="POST" action="buscador_facturas.php">
-        <button type="submit">Volver</button>
+        <button type="submit" class="btn btn-volver">Volver</button>
     </form>
 </div>
 <?php 

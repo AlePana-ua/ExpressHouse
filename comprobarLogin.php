@@ -4,15 +4,14 @@
 
     $usuario = $_POST['usuario'];
     $clave = $_POST['password'];
-    
-    $query_user = "SELECT * FROM Usuario WHERE correo = '$usuario' and contrasenya = '$clave';";
-    
+    //Comprobamos que existe el usuario
+    $query_user = "SELECT id_user, contrasenya FROM Usuario WHERE correo = '$usuario';";
     if($query=$link->query($query_user)) {
         if($row = mysqli_fetch_assoc($query)) {
-        //Validamos si el nombre del administrador existe en la base de datos o es correcto
-        //Si el usuario es correcto ahora validamos su contraseña
-            if($row["contrasenya"] == $clave) {
+            //Si el usuario es correcto ahora validamos su contraseña
+            if(password_verify($clave, $row['contrasenya'])) {
                 $esAdmin = False;
+                $esAnfitrion = False;
                 // Una vez comprobado sus credenciales comprobamos si es Admin, Huesped o Anfitrion.
                 $query_user_admin = "SELECT u.nombre 
                                     FROM Usuario u, Administrador a 
@@ -24,7 +23,7 @@
                         $esAdmin = True;
                     }
                 }
-
+                // Comprobamos si es anfitrión
                 $query_user_afitrion = "SELECT u.nombre 
                                     FROM Usuario u, Anfitrion a 
                                     WHERE a.id_user = u.id_user 
@@ -41,10 +40,12 @@
                 $_SESSION["anfitrion"] = $esAnfitrion;
                 //Redireccionamos a la pagina: admin.php
                 header('Location: index.php');
+            }else {
+                //Contraseña incorrecta
             }
         } else {
     
-            //En caso que la contraseña sea incorrecta enviamos un msj y redireccionamos a login.php
+            //En caso que el usuario sea incorrecto redireccionamos a login.php
             $_SESSION["error"]=1;
             header('Location: login.php');
         }
