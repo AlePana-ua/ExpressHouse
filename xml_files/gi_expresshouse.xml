@@ -1,20 +1,30 @@
 <?xml version="1.0"  encoding="UTF-8" standalone="no"?> 
-<?xml-stylesheet href="./xml_files/gi_expresshouse.xsl" type="text/xsl" ?>
+<?xml-stylesheet href="gi_expresshouse.xsl" type="text/xsl" ?>
 
-<!DOCTYPE factura SYSTEM "./xml_files/gi_expresshouse.dtd">
+<!DOCTYPE factura SYSTEM "gi_expresshouse.dtd">
 
 <factura>
+    <datos_empresa>ExpressHouse Sl, Carr. de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante</datos_empresa>
     <idFactura>1234</idFactura>
     <nombre>Dr. Philip Sherman</nombre>
     <fecha>29/01/2020</fecha>
     <metodo_pago>Tarjeta </metodo_pago>
-    <domicilio>Calle Wallaby 42, Sidney, Australia</domicilio>
-    <importe>501</importe>
+    <domicilio> 4Calle Wallaby 42, Sidney, Australia</domicilio>
+    <iva>21%</iva>
+    <importe_sin_iva>413.22</importe_sin_iva>
+    <importe_iva>86.77</importe_iva>
+    <importe_total>500</importe_total>
     <!--Mostramos los detalles de la reserva -->
     <reserva>
         <idReserva>4546</idReserva>
         <fecha_inicio>29/02/2020</fecha_inicio>
         <fecha_fin>02/03/2020</fecha_fin>
         <num_huespedes>4</num_huespedes>
+        <servicios>
+            <Fiesta>Si</Fiesta>
+            <Mascotas>No</Mascotas>
+            <Limpieza>Si</Limpieza>
+            <Fumador>No</Fumador>
+        </servicios>
     </reserva>
 </factura>
