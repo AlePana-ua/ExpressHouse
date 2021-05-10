@@ -33,7 +33,7 @@ html, body {
 }
 
 .search-box {
-    width: 45%;
+    width: fit-content;
     min-height: 100px;
     border-radius: 90px 90px 90px 90px;
     background-color: #ffffff;
@@ -47,20 +47,24 @@ html, body {
     text-align: center;
 }
 
+.db-data {
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgb(204, 204, 204);
+}
+
 #lista-ciudades {
     width: 200px;
 }
 
 .search-box .col:hover{
     border-radius: 40px;
-    background-color:#5c5c5c25;
+    background-color:#5c5c5c0e;
 }
 
-
-
-#lista-ciudades, #llegada, #salida, #cities-title, #zone-type {
+#lista-ciudades, #llegada, #salida, #cities-title, #zone-type-title {
     color: #5c5c5c;
 }
+
 #lista-ciudades, #llegada, #salida {
     font-weight: bold;
 }
@@ -77,34 +81,32 @@ html, body {
     background: rgba(110, 110, 110, 0.5);
 }
 
-/* Tarjetas de las ciudades de la vista de inicio*/
-#city-card, #city-card-img {
+/* Tarjetas */
+#city-card, #type-card{
+    min-height: 100px;
+    min-width: 50px;
+    height: 300px;
+    width: 225px;
+    border: none;
+    border-radius: 15px;
+    /*margin-top: 15px;
+    margin-right: 45px;*/
+}
+
+#city-card:hover, #type-card:hover {
+    box-shadow: 0px 40px 60px -15px rgba(29, 29, 29, 0.4);
+    transform: scale(1.01);
+}
+
+/* Imagenes de las tarjetas */
+#city-card-img, #type-card-img {
+    min-height: 50px;
+    min-width: 50px;
     height: 200px;
-    width: 200px;
+    width: 225px;
     border: none;
     border-radius: 15px;
-    margin-top: 15px;
-    margin-right: 45px;
-}
-
-#city-card:hover {
-    box-shadow: 0 40px 60px -20px rgba(29, 29, 29, 0.3);
-    transform: scale(1.01);
-}
-
-/* Tarjetas de los tipos de casa de la vista de inicio*/
-#type-card, #type-card-img {
-    min-height: 240px;
-    min-width: 240px;
-    border: none;
-    border-radius: 15px;
-    margin-top: 15px;
-    margin-right: 10px;
-}
-
-#type-card:hover {
-    box-shadow: 0 40px 60px -20px rgba(29, 29, 29, 0.3);
-    transform: scale(1.01);
+    margin-left: 0px;
 }
 
 #hazte-anfitrion-container, #hazte-anfitrion-img {
@@ -115,15 +117,24 @@ html, body {
     border-radius: 15px;
 }
 
-.btn_buscador{
-    width: 100px;
-    background-color: #ff5d55;
+.card-title {
+    font-size: 20px;
+    font-weight:normal;
+    color: #5c5c5c;
+}
+
+.btn-buscador{
+    width: 60px;
     color: #ffffff;
-    border-radius: 10px 10px 10px 10px;
-    font-family: "Helvetica";
+    background-color: #ff5d55;
+    border-radius: 50px 50px 50px 50px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 30px;
     text-align: center;
+}
+
+.btn-buscador:hover{
+    transform: scale(1.05);
 }
 
 /* Modificación para todos los botones*/
@@ -142,7 +153,7 @@ html, body {
 
 .btn-detalles {
     border: #ff5d55 solid 1px;
-    background-color: #ffffff;
+    background-color: transparent;
     border-radius: 5px 5px 5px 5px;
     color:#5c5c5c;
     font-family: "Helvetica";
@@ -153,7 +164,7 @@ html, body {
 .btn-detalles:hover {
     border: #ff5d55 solid 2px;
 }
-
+/* Boton tarjeta de haztee anfitrion del index */
 .btn_anfitrion {
     width: 200px;
     background-color: #ffffff;
@@ -163,6 +174,45 @@ html, body {
     font-size: 20px;
     text-align: center; 
 }
+.btn_anfitrion:hover {
+    transform: scale(1.04);
+}
+
+ /* Estilo botones tarjetas de index */
+.btn-listas {
+    width: fit-content;
+    background-color: transparent;
+    border: #000000 solid 0.5px;
+    border-radius: 5px 5px 5px 5px;
+    color:#000000;
+    font-family: "Helvetica";
+    font-size: 15px;
+    text-align: center; 
+}
+
+.btn-listas:hover {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+/*Estilo boton buscar facturas XML*/
+.btn-buscar-factura, .btn-volver {
+    width: fit-content;
+    color:#ff5d55;
+    font-family: "Helvetica";
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    border: #ff5d55 solid 0.5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.btn-buscar-factura:hover, .btn-volver:hover {
+    color:#ffffff;
+    background-color: #ff5d55;
+    border: #ff5d55 solid 0.5px;
+    border-radius: 5px 5px 5px 5px;
+}
 
 .dot {
     height: 5px;
@@ -170,6 +220,10 @@ html, body {
     background-color: rgb(0, 0, 0);
     border-radius: 50%;
     display: inline-block;
+}
+
+.bg-color {
+    background-color: #5c5c5c;
 }
 
 /* Modificación para las estrellas*/
