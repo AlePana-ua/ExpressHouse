@@ -53,7 +53,7 @@
     }
 
 	/**
-	 * Esta función se encarga de devolver las tarjetas de los tipos dee casa que se 
+	 * Esta función se encarga de devolver las tarjetas de los tipos de casa que se 
 	 * encuentra en la base de datos.
 	 * 
 	 * @param string $type Tipo de vivienda (p.e "Playa")
@@ -87,21 +87,28 @@
 	 * 
 	 * @return string Con el código HTML de la tarjeta que muestra una vivienda.
 	 */
-    function get_house_cards($idVivienda, $foto, $descripcion, $ubicacion, $precioDia, $dormitorios, $aseos, $numHuespedes ){
+    function get_house_cards($idVivienda, $foto, $nombre, $descripcion, $ubicacion, $precioDia, $dormitorios, $aseos, $numHuespedes ){
 		echo 	'<div class="col-md-8">
-					<div class="row p-2 bg-white">
-						
-							<div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="img/Alicante.jpg"></div>
+					<div class="row p-2 bg-white">	
+							<div class="col-md-3 mt-1">
+								<img class="img-fluid img-responsive rounded product-image" src="img/Alicante.jpg">
+							</div>
 							<div class="col-md-6 mt-1">
-								<h5>Casa</h5>
+								<h5>'.utf8_encode($nombre).'</h5>
 								<div class="d-flex flex-row">
-									<div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>'.$ubicacion.'</span>
+									<div class="ratings mr-2">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+									<span>'.utf8_encode($ubicacion).'</span>
 								</div>
 								<hr style="width:50px; background: rgba(110, 110, 110, 0.5); margin-left:0;">
 								<div class="mt-1 mb-1 spec-1">
 									<span>'.$numHuespedes.' huéspedes </span><span>&#183;</span><span> '.$dormitorios.' dormitorios </span><span>&#183;</span><span> '.$aseos.' baño</span>
 								</div>
-								<p class="text-justify text-truncate para mb-0">'.$descripcion.'.<br><br></p>
+								<p class="text-justify text-truncate para mb-0">'.utf8_encode($descripcion).'.<br><br></p>
 							</div>
 							<div class="align-items-center align-content-center col-md-3 mt-1">
 								<div class="d-flex flex-row align-items-center">
@@ -110,7 +117,7 @@
 								<br>
 								<div class="d-flex flex-column mt-4">
 									<form action="casa.php" method="POST">
-										<p name="id-vivienda">'.$idVivienda.'<p>
+										<input id="id-vivienda" name="id-vivienda" type="hidden" value="'.utf8_encode($idVivienda).'">
 										<button class="btn btn-sm btn-detalles" type="submit" method="POST">Detalles</button>
 									</form>
 								</div>

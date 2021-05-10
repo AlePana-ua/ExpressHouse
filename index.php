@@ -1,9 +1,13 @@
 <?php 
     session_start();
+
+    // Título de la página 
     $pageTitle = 'Inicio';
+    
     include 'header.php';
     include "conexionBD.inc"; 
     include 'utils.php';
+    
 ?>
 
 <!-- Inicio Buscador -->
@@ -111,27 +115,24 @@
       <div class="card-deck">
         <?php
           // Seleccionamos una lista de tipos de vivienda
-          if ($query = $link->query("SELECT DISTINCT tipo FROM Vivienda;")) {
+          if ($query = $link->query("SELECT DISTINCT zona FROM Vivienda;")) {
             if ($query->num_rows == 0) {
               echo "<h2>No se encontro ninguna zona</h2>";
             } else {
-                if($row = mysqli_fetch_array($query)) {
-                  foreach ($house_type_array as $house_type) {
-                    echo get_house_type_cards($house_type);
-                  }
-                }else {
-                    echo "<h3> Error al mostrar las zonas, intente de nuevo mas tarde</h3>";
-                }
+              while($row = mysqli_fetch_array($query)) {
+                $house_type = $row['zona'];
+                echo get_house_type_cards($house_type);
+              }
             }
-
+            
             /* En caso que la conexión falle, comentar el código anterior
             * y utilizar el siguiente.
             */
-            $house_type_array = array("Playa", "Montana", "Ciudad", "Pueblo", "Camping");
+            /* $house_type_array = array("Playa", "Montana", "Ciudad", "Pueblo", "Camping");
             foreach ($house_type_array as $house_type) {
               echo get_house_type_cards($house_type);
             
-            }
+            }*/
           }
         ?>
       </div>
