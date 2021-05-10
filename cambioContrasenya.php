@@ -1,9 +1,9 @@
 <?php
     include "conexionBD.inc";
-    //echo "1";
-    $query_usuarios = "SELECT correo, contrasenya FROM Usuario;";
+    // Este sript sirve para cambiar todas las contraseñas de la base de datos
+    /*$query_usuarios = "SELECT correo, contrasenya FROM Usuario;";
     
-    /*if($query = $link->query($query_usuarios)){
+    if($query = $link->query($query_usuarios)){
         while($row = mysqli_fetch_array($query)) {
             $correo = $row['correo'];
             $query_update = "UPDATE Usuario SET contrasenya='12345' WHERE correo='".$correo."';";
@@ -18,8 +18,7 @@
     }else {
         echo "SELECT Error:";
         echo $link->error;
-    }*/
-    
+    }
     $correctas = 0;
     $incorrectas = 0;
     $passwordCorr = 0;
@@ -58,5 +57,6 @@
     echo "Correctas: $passwordCorr";
     echo "<br>";
     echo "Incorrectas: $incorrectas";
+    */
     include "desconexionBD.inc";
 ?>
