@@ -1,15 +1,19 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+    $idUsuario = $_SESSION['usuario'];
+    $idAnfitrion = $_POST['idAnfitrion'];
+?>
+
 <div class="row h-100">
     <div class="col-sm-12 my-auto">
         <div class="card card-block w-25 mx-auto" style="border-radius: 20px 20px 20px 20px;">
             <div class="card-body" >
                 <h2 class="title">Enviar mensaje</h2>
                 <hr>
-                <form method="POST">
+                <form method="POST" action="/ExpressHouse/crearMensaje.php">
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label class="label">Asunto</label>
-                            <input class="form-control" type="text" name="first_name">
+                            <input class="form-control" type="text" name="asunto">
                         </div>
                     </div>
                     <div class="form-row">
@@ -21,6 +25,7 @@
                     <hr>
                     <div class="form-row">
                         <div class="form-group col-md-6">
+                            <input class="form-control" name="idAnfitrion" type ="hidden" value="<?php echo $idAnfitrion?>">                        
                             <button class="btn btn_custom" type="submit">Enviar</button>
                         </div>
                     </div>
