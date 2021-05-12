@@ -1,4 +1,18 @@
-<?php include 'header.php'; ?>
+<?php 
+  include 'header.php';
+  include "conexionBD.inc";
+  $fecha_llegada = isset($_GET["fecha_llegada"]) ? $_GET["fecha_llegada"] : "";
+  $fecha_salida = isset($_GET["fecha_salida"]) ? $_GET["fecha_salida"] : "";
+  $id_vivienda = isset($_GET["id-vivienda"]) ? $_GET["id-vivienda"] : "";
+  $precio_total = date_diff(date('Y-m-d', strtotime($fecha_llegada)), date('Y-m-d', strtotime($fecha_salida)));
+
+  echo $precio_total;
+
+  $query = "SELECT precioDia FROM Vivienda WHERE id_viv = '".$id_vivienda."' LIMIT 1";
+  $queryResult = $link->query($query);
+
+  $row = mysqli_fetch_array($queryResult);
+?>
 
 <div class="row">
     <div class="col-6" style="padding: 20px; margin-left: 30px">
@@ -9,9 +23,18 @@
     <div class="col-5" style="padding: 10px; margin-left: 30px">
         <h4>Tu viaje</h4>
         <h5>Fechas</h5>
-        <p>11-mar-2021 hasta 13-mar-2021  <a class="btn btn-primary" href="#" role="button">Editar</a></p>
+        <p>
+          <?php echo $fecha_llegada?> hasta <?php echo $fecha_salida?> 
+          <form action="casa.php" method="GET">
+            <input id="id-vivienda" name="id-vivienda" type="hidden" value="<?php echo $id_vivienda ?>">
+            <button class="btn btn-primary" type="submit" method="POST">Editar</button>
+          </form>
+         </p>
         <h5>Huespedes</h5>
-        <p>1 huésped <a class="btn btn-primary" href="#" role="button">Editar</a></p>
+        <input type="number" min="0" name="huespedes" value="1">
+
+        <h3>PRECIO NOCHE: <?php echo $row["precioDia"]?></h3>
+        <h3>PRECIO TOTAL: </h3>
     </div>
 
     <div class="col-5" style="padding: 10px; margin-left: 10px">
