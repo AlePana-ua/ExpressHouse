@@ -116,7 +116,7 @@
 								</div>
 								<br>
 								<div class="d-flex flex-column mt-4">
-									<form action="casa.php" method="POST">
+									<form action="casa.php" method="GET">
 										<input id="id-vivienda" name="id-vivienda" type="hidden" value="'.utf8_encode($idVivienda).'">
 										<button class="btn btn-sm btn-detalles" type="submit" method="POST">Detalles</button>
 									</form>

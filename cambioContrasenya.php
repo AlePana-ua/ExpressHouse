@@ -1,5 +1,6 @@
 <?php
     include "conexionBD.inc";
+    // NO TOCAR NI QUITAR LOS COMENTARIOS
     // Este sript sirve para cambiar todas las contraseñas de la base de datos
     /*$query_usuarios = "SELECT correo, contrasenya FROM Usuario;";
     

@@ -1,9 +1,13 @@
 <?php
     session_start(); 
-    $pageTitle = 'Control BD';
-    include 'header.php';
-    include "conexionBD.inc";
+    // Título de la página 
+    $pageTitle = 'Control BB.DD';
+    
     include "seguridadAdmin.php";
+    include "conexionBD.inc";
+    include 'header.php';
+    
+    
     
 ?>
 <br>
@@ -30,11 +34,11 @@
                     // Obtenemos los nombres de las tablas de la BD.
                     if ($query = $link->query("SELECT COUNT(*) FROM ciudad;")) {
                         while($row = mysqli_fetch_array($query)) {
-                            $totalResenas = $row[0];
+                            $totalCiudades = $row[0];
                         }
                     }
                 ?>
-                <h2><?php echo $totalResenas; ?></h2>
+                <h2><?php echo $totalCiudades; ?></h2>
                 <h1>Ciudades</h1>
             </div>
         </div>
@@ -70,14 +74,15 @@
             <div class="db-data" align="center">
                 <?php
                     // Obtenemos los nombres de las tablas de la BD.
-                    if ($query = $link->query("SELECT COUNT(*) FROM Vivienda;")) {
+                    if ($query = $link->query("SELECT COUNT(*) FROM resenya;")) {
+                        $totalResenas = 0;
                         while($row = mysqli_fetch_array($query)) {
-                            $totalViviendas = $row[0];
+                            $totalResenas = $row[0];
                         }
                     }
                 ?>
-                <h2><?php echo $totalViviendas; ?></h2>
-                <h1>Viviendas</h1>
+                <h2><?php echo $totalResenas; ?></h2>
+                <h1>Reseñas</h1>
             </div>
         </div>
         <div class="col-12 col-sm-2">

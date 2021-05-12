@@ -1,12 +1,12 @@
 <?php 
     // Comprobamos si un usuario a iniciado sesión
-    if (isset($_SESSION['usuario'])) {
+    if (isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])) {
         $usuario = $_SESSION['usuario'];
-        $esAfitrion = $_SESSION['anfitrion'];
+        $esAnfitrion = $_SESSION['anfitrion'];
         $esAdmin = $_SESSION['admin'];
     }else {
         $usuario = False;
-        $esAfitrion = False;
+        $esAnfitrion = False;
         $esAdmin = False;
     }
 ?>
@@ -62,7 +62,7 @@
                              * de ser anfitrión
                              */ 
 
-                            if($esAfitrion) { //Opción anfitrión
+                            if($esAnfitrion) { //Opción anfitrión
                 ?>          
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">Añadir casa</a>
@@ -86,17 +86,16 @@
                             <li class="nav-item">
                                 <a href="buscador_facturas.php" class="nav-link">Facturas XML</a>
                             </li>
-                            
+                            <li class="nav-item">
+                                <a href="cuenta.php" class="nav-link">Hola, <?php echo $_SESSION["usuario"]?></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="logout.php" class="nav-link">Logout</a>
+                            </li>
                 <?php
                         }
                     }
                 ?>
-                <li class="nav-item">
-                    <a href="cuenta.php" class="nav-link">Hola, <?php echo $_SESSION["usuario"]?></a>
-                </li>
-                <li class="nav-item">
-                    <a href="logout.php" class="nav-link">Logout</a>
-                </li>
             </ul>
         </nav>
         

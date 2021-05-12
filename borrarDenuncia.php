@@ -8,7 +8,7 @@
     if(isset($_GET['id'])){
         $idDenuncia = $_GET['id'];
     }
-
+    
     if($query= $link ->query("DELETE from Denuncia where id_denuncia='".$idDenuncia."'")){
 ?>
         <div class="alert alert-success alert-dismissable">
