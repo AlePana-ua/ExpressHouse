@@ -14,6 +14,22 @@
         <div class="row no-gutters">
             <!-- Inicio columna izquierda -->
             <div class="col-md-5 pr-2">
+            <?php
+                if(isset($_GET['id-vivienda']) && !empty($_GET['id-vivienda'])) 
+                {
+                    $id-vivienda = $_GET['id-vivienda'];
+                } 
+                $query_casa = "SELECT  Anuncio.id_anuncio
+								,Anuncio.id_vivienda
+								,Anuncio.foto
+								,Anuncio.descripcion
+								,Vivienda.direccion
+								,Vivienda.precioDia 
+								,Vivienda.habitaciones
+								,Vivienda.aseos
+						FROM Anuncio";
+
+            ?>
                 <!-- Inicio cuadro con las imagenes -->
                 <!-- $id_Anuncio = $_POST['id'];
                      $query = $link->query("SELECT * from Anuncio where id_Anuncio = $id_Anuncio")-->
@@ -142,9 +158,9 @@
                         <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-share-alt"></i></button>
                         <!-- FAVORITO -->
                         <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-heart-o"></i></button>
-                        <!-- DENUNCIAR, pasar id como parámetro -->
+                        <!-- DENUNCIAR, pasar id anuncio como parámetro -->
                         <button class="btn btn-light wishlist" href="/ExpressHouse/denunciar.php"><i class="fa fa-exclamation-triangle"></i></button>
-                        <!-- ENVIAR MENSAJE, pasar id como parámetro --> 
+                        <!-- ENVIAR MENSAJE, pasar id anfitrion como parámetro --> 
                         <button class="btn btn-light wishlist" href="/ExpressHouse/mensaje.php"><i class="fa fa-envelope-o"></i></button>
                     </div>
                     <!-- Fin botones casa -->
