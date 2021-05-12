@@ -1,0 +1,25 @@
+<?xml version=“1.0” encoding="UTF-8"?>
+
+<!DOCTYPE factura [
+	<!ELEMENT factura (datos_empresa, idFactura, nombre, fecha, metodo_pago, domicilio, iva, importe, reserva)>
+	    <!ELEMENT datos_empresa (#PCDATA)>
+        <!ELEMENT idFactura (#PCDATA)>
+        <!ELEMENT nombre (#PCDATA)>
+	    <!ELEMENT fecha (#PCDATA)>
+        <!ELEMENT metodo_pago (#PCDATA)>
+        <!ELEMENT domicilio (#PCDATA)>
+        <!ELEMENT iva (#PCDATA)>
+        <!ELEMENT importe_sin_iva (#PCDATA)>
+        <!ELEMENT import_iva (#PCDATA)>
+        <!ELEMENT importe_total (#PCDATA)>
+        <!ELEMENT reserva (idReserva, fecha_inicio, fecha_fin, num_huespedes, servicios)>
+            <!ELEMENT idReserva (#PCDATA)>
+            <!ELEMENT fecha_inicio (#PCDATA)>
+            <!ELEMENT fecha_fin (#PCDATA)>
+            <!ELEMENT num_huespedes (#PCDATA)>
+            <!ELEMENT servicios (fiesta, mascotas, limpieza, fumador)>
+                <!ELEMENT Fiesta (#PCDATA)>
+                <!ELEMENT Mascotas (#PCDATA)>
+                <!ELEMENT Limpieza (#PCDATA)>
+                <!ELEMENT Fumador (#PCDATA)>
+]>

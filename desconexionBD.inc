@@ -1,1 +1,1 @@
-<?mysql_close($link);?>
+<?php $link->close(); ?>

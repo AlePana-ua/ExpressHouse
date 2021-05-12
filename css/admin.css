@@ -1,0 +1,14 @@
+.sidebar {
+  border-right:2px solid grey;
+  width: 25%;
+  height: 100vh;
+  margin: 30px;
+  flex-direction: column;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+}
+
+a {
+  color: black;
+}
