@@ -14,6 +14,25 @@
         <div class="row no-gutters">
             <!-- Inicio columna izquierda -->
             <div class="col-md-5 pr-2">
+            <?php
+                if(isset($_GET['id-vivienda']) && !empty($_GET['id-vivienda'])) 
+                {
+                    $id-vivienda = $_GET['id-vivienda'];
+                } 
+                $query_casa = "SELECT  Anuncio.id_anuncio
+								,Anuncio.id_vivienda
+								,Anuncio.foto
+								,Anuncio.descripcion
+								,Vivienda.direccion
+								,Vivienda.precioDia 
+								,Vivienda.habitaciones
+								,Vivienda.aseos
+						FROM Anuncio
+                        INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv";
+
+                $row = mysqli_fetch_array($query);
+
+            ?>
                 <!-- Inicio cuadro con las imagenes -->
                 <!-- $id_Anuncio = $_POST['id'];
                      $query = $link->query("SELECT * from Anuncio where id_Anuncio = $id_Anuncio")-->
@@ -82,7 +101,7 @@
                 <div class="card">
                     <div class="align-items-center card-header">
                         <div class="about">
-                            <span class="font-weight-bold">Casa bonita</span>
+                       <?php echo .utf8_encode($row.Nombre); ?>
                         </div>
                         <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><span class="ml-1">5.0</span></div>
                     </div>
