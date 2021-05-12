@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" type="image/png" href="./img/favicon.png"/>
         <!-- Mostramos el titulo de la página asignado en cada vista -->
         <title><?= $pageTitle;?> | ExpressHouse</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
