@@ -14,6 +14,31 @@
         <div class="row no-gutters">
             <!-- Inicio columna izquierda -->
             <div class="col-md-5 pr-2">
+            <?php
+                if(isset($_GET['id-vivienda']) && !empty($_GET['id-vivienda'])) 
+                {
+                    $id-vivienda = $_GET['id-vivienda'];
+                } 
+                $query_casa = "SELECT  Anuncio.id_anuncio
+								,Anuncio.id_vivienda
+								,Anuncio.foto
+								,Anuncio.descripcion
+								,Vivienda.direccion
+								,Vivienda.precioDia 
+								,Vivienda.habitaciones
+								,Vivienda.aseos
+                                ,Vivienda.nombre
+                                ,Vivienda.aseos
+                                ,Vivienda.fiestas
+                                ,Vivienda.mascotas
+                                ,Vivienda.tipo
+                                ,Vivienda.idanfitrion
+						FROM Anuncio
+                        INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv";
+
+                $row = mysqli_fetch_array($query);
+
+            ?>
                 <!-- Inicio cuadro con las imagenes -->
                 <!-- $id_Anuncio = $_POST['id'];
                      $query = $link->query("SELECT * from Anuncio where id_Anuncio = $id_Anuncio")-->
@@ -82,7 +107,7 @@
                 <div class="card">
                     <div class="align-items-center card-header">
                         <div class="about">
-                            <span class="font-weight-bold">Casa bonita</span>
+                       <?php echo .utf8_encode($row.nombre);?>
                         </div>
                         <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><span class="ml-1">5.0</span></div>
                     </div>
@@ -90,15 +115,14 @@
                         <div class="product-description">
                             <div class="mt-4">
                                 <span class="font-weight-bold">Description</span>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                                <p> <?php echo .utf8_encode($row.descripcion);?></p>
                                 <div>
                                     <!-- Transformarlo a dinámico-->
-                                    <b>Habitaciones:</b>4</br>
-                                    <b>Baños: </b>2</br>
-                                    <b>Categoría: </b>Montaña</br>
-                                    <b>Fiestas: </b>Sí</br>
-                                    <b>Mascotas: </b>Sí</br>
-                                    <b>WiFi: </b>Sí</br>
+                                    <b>Habitaciones:</b> <?php echo .utf8_encode($row.habitaciones);?></br>
+                                    <b>Baños: </b> <?php echo .utf8_encode($row.aseos);?></br>
+                                    <b>Categoría: </b> <?php echo .utf8_encode($row.tipo);?></br>
+                                    <b>Fiestas: </b> <?php echo .utf8_encode($row.fiestas);?></br>
+                                    <b>Mascotas: </b> <?php echo .utf8_encode($row.mascotas);?></br>
                                 </div>
                                 <br>
                                 <!-- Tabla reservar -->
@@ -109,15 +133,20 @@
                                             <div class="form-row align-items-center">
                                                 <div class="col text-center">
                                                     <label for="Name">Llegada</label>
-                                                    <input id="datepicker" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-llegada"/>
+                                                    <input id="fecha-llegada" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-llegada"/>
                                                 </div>
                                                 <div id="verticle-line"></div>
                                                 <div class="col text-center">
                                                     <label for="Name">Salida</label>
-                                                    <input id="datepicker1" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-salida"/>
+                                                    <input id="fecha-salida" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-salida"/>
                                                 </div>
                                                 <div class="col">
-                                                    <button type="submit" class="btn btn_custom">Reservar</button>
+                                                <form method="GET" action="reservar.php">
+                                                    <input id="id-vivienda" name="id-vivienda" type="hidden" values="'.utf8_encode($idVivienda).'">
+                                                    <input id="fecha-llegada" name="fecha-llegada" type="hidden" values="'.utf8_encode($fechaLlegada).'">
+                                                    <input id="fecha-salida" name="fecha-salida" type="hidden" values="'.utf8_encode($fechaSalida).'">
+                                                    <button class="btn btn_custom" type="submit">Reservar</button>
+                                                </form>
                                                 </div>
                                             </div>
                                         </form>
@@ -143,9 +172,16 @@
                         <!-- FAVORITO -->
                         <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-heart-o"></i></button>
                         <!-- DENUNCIAR, pasar id anuncio como parámetro -->
-                        <button class="btn btn-light wishlist" href="/ExpressHouse/denunciar.php"><i class="fa fa-exclamation-triangle"></i></button>
+                        <form method="GET" action="denunciar.php">
+                            <input id="id-vivienda" name="id-vivienda" type="hidden" values="'.utf8_encode($idVivienda).'">
+                            <button class="btn btn-light wishlist" href="/ExpressHouse/denunciar.php"><i class="fa fa-exclamation-triangle"></i></button>
+                        </form>
                         <!-- ENVIAR MENSAJE, pasar id anfitrion como parámetro --> 
-                        <button class="btn btn-light wishlist" href="/ExpressHouse/mensaje.php"><i class="fa fa-envelope-o"></i></button>
+                        <form method="GET" action="mensaje.php">
+                            <input id="id-anfitrion" name="id-anfitrion" type="hidden" values="'.utf8_encode($idAnfitrion).'">
+                            <button class="btn btn-light wishlist" href="/ExpressHouse/mensaje.php"><i class="fa fa-envelope-o"></i></button>
+                        </form>
+                        
                     </div>
                     <!-- Fin botones casa -->
                 </div>

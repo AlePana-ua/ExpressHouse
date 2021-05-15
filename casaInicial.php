@@ -14,30 +14,6 @@
         <div class="row no-gutters">
             <!-- Inicio columna izquierda -->
             <div class="col-md-5 pr-2">
-            <?php
-                if(isset($_GET['id-vivienda']) && !empty($_GET['id-vivienda'])) 
-                {
-                    $id-vivienda = $_GET['id-vivienda'];
-                } 
-                $query_casa = "SELECT  Anuncio.id_anuncio
-								,Anuncio.id_vivienda
-								,Anuncio.foto
-								,Anuncio.descripcion
-								,Vivienda.direccion
-								,Vivienda.precioDia 
-								,Vivienda.habitaciones
-								,Vivienda.aseos
-                                ,Vivienda.nombre
-                                ,Vivienda.aseos
-                                ,Vivienda.fiestas
-                                ,Vivienda.mascotas
-                                ,Vivienda.tipo
-						FROM Anuncio
-                        INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv";
-
-                $row = mysqli_fetch_array($query);
-
-            ?>
                 <!-- Inicio cuadro con las imagenes -->
                 <!-- $id_Anuncio = $_POST['id'];
                      $query = $link->query("SELECT * from Anuncio where id_Anuncio = $id_Anuncio")-->
@@ -106,7 +82,7 @@
                 <div class="card">
                     <div class="align-items-center card-header">
                         <div class="about">
-                       <?php echo .utf8_encode($row.nombre);?>
+                            <span class="font-weight-bold">Casa bonita</span>
                         </div>
                         <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><span class="ml-1">5.0</span></div>
                     </div>
@@ -114,14 +90,15 @@
                         <div class="product-description">
                             <div class="mt-4">
                                 <span class="font-weight-bold">Description</span>
-                                <p> <?php echo .utf8_encode($row.descripcion);?></p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
                                 <div>
                                     <!-- Transformarlo a dinámico-->
-                                    <b>Habitaciones:</b> <?php echo .utf8_encode($row.habitaciones);?></br>
-                                    <b>Baños: </b> <?php echo .utf8_encode($row.aseos);?></br>
-                                    <b>Categoría: </b> <?php echo .utf8_encode($row.tipo);?></br>
-                                    <b>Fiestas: </b> <?php echo .utf8_encode($row.fiestas);?></br>
-                                    <b>Mascotas: </b> <?php echo .utf8_encode($row.mascotas);?></br>
+                                    <b>Habitaciones:</b>4</br>
+                                    <b>Baños: </b>2</br>
+                                    <b>Categoría: </b>Montaña</br>
+                                    <b>Fiestas: </b>Sí</br>
+                                    <b>Mascotas: </b>Sí</br>
+                                    <b>WiFi: </b>Sí</br>
                                 </div>
                                 <br>
                                 <!-- Tabla reservar -->
