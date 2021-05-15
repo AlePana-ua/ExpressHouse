@@ -27,6 +27,11 @@
 								,Vivienda.precioDia 
 								,Vivienda.habitaciones
 								,Vivienda.aseos
+                                ,Vivienda.nombre
+                                ,Vivienda.aseos
+                                ,Vivienda.fiestas
+                                ,Vivienda.mascotas
+                                ,Vivienda.tipo
 						FROM Anuncio
                         INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv";
 
@@ -101,7 +106,7 @@
                 <div class="card">
                     <div class="align-items-center card-header">
                         <div class="about">
-                       <?php echo .utf8_encode($row.Nombre); ?>
+                       <?php echo .utf8_encode($row.nombre);?>
                         </div>
                         <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><span class="ml-1">5.0</span></div>
                     </div>
@@ -109,15 +114,14 @@
                         <div class="product-description">
                             <div class="mt-4">
                                 <span class="font-weight-bold">Description</span>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                                <p> <?php echo .utf8_encode($row.descripcion);?></p>
                                 <div>
                                     <!-- Transformarlo a dinámico-->
-                                    <b>Habitaciones:</b>4</br>
-                                    <b>Baños: </b>2</br>
-                                    <b>Categoría: </b>Montaña</br>
-                                    <b>Fiestas: </b>Sí</br>
-                                    <b>Mascotas: </b>Sí</br>
-                                    <b>WiFi: </b>Sí</br>
+                                    <b>Habitaciones:</b> <?php echo .utf8_encode($row.habitaciones);?></br>
+                                    <b>Baños: </b> <?php echo .utf8_encode($row.aseos);?></br>
+                                    <b>Categoría: </b> <?php echo .utf8_encode($row.tipo);?></br>
+                                    <b>Fiestas: </b> <?php echo .utf8_encode($row.fiestas);?></br>
+                                    <b>Mascotas: </b> <?php echo .utf8_encode($row.mascotas);?></br>
                                 </div>
                                 <br>
                                 <!-- Tabla reservar -->
