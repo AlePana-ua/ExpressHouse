@@ -70,7 +70,7 @@ html, body {
 }
 
 #city, #datepicker, #datepicker1 {
-    min-width: 150px;
+    min-width: 100px;
     border: none;
     background-color:#ffffff00;
 }
@@ -262,4 +262,16 @@ label:hover ~ label {
 
 input[type="radio"]:checked ~ label {
     color: orange;
+}
+
+#btn-filtros, #datepicker-btn-filtros, #datepicker1-btn-filtros {
+    width: 120px;
+    height: 40px;
+    background-color: transparent;
+    border: #000000 solid 0.5px;
+    border-radius: 20px/50%;
+    color:#000000;
+    font-family: "Helvetica";
+    font-size: 15px;
+    text-align: center; 
 }

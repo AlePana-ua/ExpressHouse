@@ -68,7 +68,7 @@
 						<div class="card-body">
 							<form action="listaViviendas.php" method="POST">
 								<h3 class="card-title">'.$type.'</h3>
-								<input type="hidden" name="tipo-casa" value="'.$type.'">
+								<input type="hidden" name="zona-casa" value="'.$type.'">
 								<button type="submit" class="btn btn-listas">Ver</button>
 							</form>
 						</div>
