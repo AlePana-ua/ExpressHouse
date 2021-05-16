@@ -66,7 +66,7 @@
                             if($esAnfitrion) { //Opción anfitrión
                 ?>          
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Añadir casa</a>
+                                    <a href="addVivienda.php" class="nav-link">Añadir casa</a>
                                 </li>
                 <?php
                             }else { // Opción de huésped 
@@ -87,14 +87,17 @@
                             <li class="nav-item">
                                 <a href="buscador_facturas.php" class="nav-link">Facturas XML</a>
                             </li>
-                            <li class="nav-item">
+                            
+                <?php   } ?>
+                
+
+                        <li class="nav-item">
                                 <a href="cuenta.php" class="nav-link">Hola, <?php echo $_SESSION["usuario"]?></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="logout.php" class="nav-link">Logout</a>
-                            </li>
-                <?php
-                        }
+                        </li>
+                        <li class="nav-item">
+                            <a href="logout.php" class="nav-link">Logout</a>
+                        </li>
+                <?php    
                     }
                 ?>
             </ul>

@@ -1,4 +1,5 @@
 <?php
+	
 	/**
 	 * Función que recibe una ciudad y devuelve una option con 
 	 * los datos de esta.
@@ -138,7 +139,7 @@
 	}
 
 	/** 
-	 * Esta función deevueelve eel número de días entre dos fechas.
+	 * Esta función devuelve eel número de días entre dos fechas.
 	 * 
 	 * @param string $date1 Fecha inicial.
 	 * @param string $date1 Fecha final.
@@ -152,4 +153,28 @@
 
 		return $diff->days;
 	}
+	/**
+	 * Esta función dvuelve una lista con los posibles 
+	 * valores de una columna de tipo ENUM.
+	 * 
+	 */
+	function enum_values($table_name, $column_name) {
+		include "conexionBD.inc"; 
+		$enum_list = [];
+		$query = "
+			SELECT COLUMN_TYPE 
+			FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_NAME = '" .$table_name."' 
+				AND COLUMN_NAME = '".$column_name."';";
+		if ($result = $link->query($query)){
+			if($row = mysqli_fetch_array($result)) {
+				$enum_list = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
+			}
+		}
+		include "desconexionBD.inc";
+		return $enum_list;
+
+	}
+
+	
 ?>
