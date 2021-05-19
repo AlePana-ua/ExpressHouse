@@ -17,8 +17,8 @@
                 <h2>Añadir vivienda</h2>
             </div>
             <div class="card-body">
-                <form method="POST" action="/ExpressHouse/insertarVivienda.php">
-                <hr>
+                <form method="POST" action="/ExpressHouse/insertarVivienda.php" enctype="multipart/form-data">
+                    <hr>
                     <div class="form-row">
                         <div class="form-group col-md-6 ">
                             <label class="label">Nombre vivienda</label>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="label">Foto</label>
-                            <input required class="form-control" type="file" name="imagen" size="40">
+                            <input required type="file" name="imagen" size="40">
                         </div>
                     </div>
                     <br>
@@ -65,21 +65,21 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label class="label">Ciudad</label>
-                            <input required class="form-control" type="text" name="dir-vivienda">
+                            <input required class="form-control" type="text" name="ciudad-vivienda">
                         </div>
                         <div class="form-group col-md-2">
                             <label class="label">Código Postal</label>
-                            <input required class="form-control" type="text" name="dir-vivienda">
+                            <input required class="form-control" type="text" name="codpos-vivienda">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label class="label">Habitaciones</label>
-                            <input required class="form-control" type="number" name="dir-vivienda">
+                            <input required class="form-control" type="number" name="hab-vivienda">
                         </div>
                         <div class="form-group col-md-2">
                             <label class="label">Aseos</label>
-                            <input required class="form-control" type="number" name="dir-vivienda">
+                            <input required class="form-control" type="number" name="aseos-vivienda">
                         </div>
                     </div>
                     <!-- Reglas de la vivienda -->
@@ -93,11 +93,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label class="label">Fiesta</label>
-                            <input required class="form-control" type="text" name="dir-vivienda">
+                            <input required class="form-control" type="text" name="fiesta-vivienda">
                         </div>
                         <div class="form-group col-md-2">
                             <label class="label">Mascotas</label>
-                            <input required class="form-control" type="text" name="dir-vivienda">
+                            <input required class="form-control" type="text" name="mascota-vivienda">
                         </div>
                     </div>
                     <br>
@@ -105,7 +105,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-2 justify-content-right">
                             <label class="label">Precio por Día</label>
-                            <input required class="form-control" type="number" name="dir-vivienda">
+                            <input required class="form-control" type="number" name="precio-vivienda">
                         </div>
                     </div>
                     <br>
@@ -115,7 +115,7 @@
                             <a id="text-back" class="float-left" href="index.php">&#8592; Back</a>
                         </div>
                         <div class="form-group col-md-6 ">
-                            <button class="btn float-right btn-volver ">Añadir vivienda</button>
+                            <button class="btn float-right btn-volver " type="submit">Añadir vivienda</button>
                         </div>
                     </div>
                 </form>

@@ -66,7 +66,7 @@
                             if($esAnfitrion) { //Opción anfitrión
                 ?>          
                                 <li class="nav-item">
-                                    <a href="addVivienda.php" class="nav-link">Añadir casa</a>
+                                    <a href="crearVivienda.php" class="nav-link">Añadir casa</a>
                                 </li>
                 <?php
                             }else { // Opción de huésped 

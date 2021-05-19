@@ -6,7 +6,7 @@
     }
 
     $redSocial = $_POST['redSocial'];
-    $idAnuncio = 1;
+
     // Fecha actual
     $fechaActual = date('Y-m-d H:i:s');
 
