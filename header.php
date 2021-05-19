@@ -1,18 +1,19 @@
 <?php 
     // Comprobamos si un usuario a iniciado sesión
-    if (isset($_SESSION['usuario'])) {
+    if (isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])) {
         $usuario = $_SESSION['usuario'];
-        $esAfitrion = $_SESSION['anfitrion'];
+        $esAnfitrion = $_SESSION['anfitrion'];
         $esAdmin = $_SESSION['admin'];
     }else {
         $usuario = False;
-        $esAfitrion = False;
+        $esAnfitrion = False;
         $esAdmin = False;
     }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" type="image/png" href="./img/favicon.png"/>
         <!-- Mostramos el titulo de la página asignado en cada vista -->
         <title><?= $pageTitle;?> | ExpressHouse</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -62,10 +63,10 @@
                              * de ser anfitrión
                              */ 
 
-                            if($esAfitrion) { //Opción anfitrión
+                            if($esAnfitrion) { //Opción anfitrión
                 ?>          
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Añadir casa</a>
+                                    <a href="crearVivienda.php" class="nav-link">Añadir casa</a>
                                 </li>
                 <?php
                             }else { // Opción de huésped 
@@ -87,16 +88,18 @@
                                 <a href="buscador_facturas.php" class="nav-link">Facturas XML</a>
                             </li>
                             
-                <?php
-                        }
+                <?php   } ?>
+                
+
+                        <li class="nav-item">
+                                <a href="cuenta.php" class="nav-link">Hola, <?php echo $_SESSION["usuario"]?></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="logout.php" class="nav-link">Logout</a>
+                        </li>
+                <?php    
                     }
                 ?>
-                <li class="nav-item">
-                    <a href="cuenta.php" class="nav-link">Hola, <?php echo $_SESSION["usuario"]?></a>
-                </li>
-                <li class="nav-item">
-                    <a href="logout.php" class="nav-link">Logout</a>
-                </li>
             </ul>
         </nav>
         

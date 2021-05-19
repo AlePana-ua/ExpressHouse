@@ -10,6 +10,7 @@
         if($row = mysqli_fetch_assoc($query)) {
             //Si el usuario es correcto ahora validamos su contraseña
             if(password_verify($clave, $row['contrasenya'])) {
+                $idUsuario = $row['id_user'];
                 $esAdmin = False;
                 $esAnfitrion = False;
                 // Una vez comprobado sus credenciales comprobamos si es Admin, Huesped o Anfitrion.
@@ -38,6 +39,7 @@
                 $_SESSION["usuario"] = $usuario;
                 $_SESSION["admin"] = $esAdmin;
                 $_SESSION["anfitrion"] = $esAnfitrion;
+                $_SESSION["idUsuario"] = $idUsuario;
                 //Redireccionamos a la pagina: admin.php
                 header('Location: index.php');
             }else {

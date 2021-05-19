@@ -52,11 +52,15 @@
     </form>
   </div>
   <script>      
-    $('#datepicker').datepicker({
-      uiLibrary: 'bootstrap'
-    });
+    $('#datepicker').datepicker();
     $('#datepicker1').datepicker({
-      uiLibrary: 'bootstrap'
+      useCurrent: false
+    });
+    $("#datepicker").on("dp.change", function (e) {
+           $('#datepicker1').data("DatePicker").minDate(e.date);
+       });
+    $("#datepicker1").on("dp.change", function (e) {
+        $('#datepicker').data("DatePicker").maxDate(e.date);
     });
   </script>
 </div>

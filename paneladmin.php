@@ -9,7 +9,7 @@
       <ul>
         <h3>Administrador</h3>
         <li><a href="lista_usuarios.php">Usuarios</a></li>
-        <li><a href="#">Anuncios</a></li>
+        <li><a href="lista_anuncios.php">Anuncios</a></li>
         <li><a href="lista_denuncias.php">Denuncias</a></li>
         <li><a href="lista_resenyas.php">Reseñas</a></li>
       </ul>
