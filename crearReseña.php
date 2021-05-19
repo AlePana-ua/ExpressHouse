@@ -17,6 +17,8 @@
                       <?php  
                         if(isset($_POST['id_vivienda'])){
                             $id_vivienda=$_POST['id_vivienda'];
+                            $fecha=$_POST['fecha'];
+                            $id_usuario=$_POST['id_usuario'];
                             echo " casa nº " .$id_vivienda. "<br>";       
                         }
                         else 
@@ -24,6 +26,9 @@
                        ?> 
                      <!-- <input class="form-control" type="text" name="nombre" vale="ejemplo"> -->
                     
+                    <input type="hidden" name="id_vivienda" value=<?php $id_vivienda ?> > 
+                    <input type="hidden" name="fecha" value=<?php $fecha ?> >
+                    <input type="hidden" name="id_usuario" value=<?php $id_usuario ?> >
                   </div>
               </div>
               <div class="form-row">
@@ -66,6 +71,10 @@
                 </tbody>
                
             </table>
+
+            
+
+
             <div class="form-row" style="text-align: center;">
                 <div class="col text-center" >
                     <button class="btn btn-primary" type="submit" style="text-align: center;">Enviar</button>
@@ -85,10 +94,6 @@
 
 <!-- https://es.stackoverflow.com/questions/126046/valoracion-estrellas-1-5-dise%C3%B1o-estrellas-php-html 
 http://w3.unpocodetodo.info/css3/estrellas.php 
-
-
-
-$query_resenyas = "INSERT INTO resenya (id_resenya, puntuacion, descripcion, fecha,id_vivienda, id_usuario) VALUES ('".$id_resenya."', '".$puntuacion."', '".$descripcion."', '".$fecha."', '".$id_vivienda."', '".$id_usuario."' )"
 
 
 

@@ -1,4 +1,5 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+include "conexionBD.inc"; ?>
  <!-- Masthead -->
 <div class="row h-100">
   <div class="col-sm-12 my-auto">
@@ -14,8 +15,33 @@
                   echo " Puntuacion: " .$puntuacion. "<br>";
                   $descripcion=$_POST['descripcion'];
                   echo "Descripcion: " .$descripcion. "<br>";
+                 
+                  $id_vivienda=$_POST['id_vivienda'];
+                  $fecha=$_POST['fecha'];
+                  $id_usuario=$_POST['id_usuario'];
               }else { echo "Error , volver a crear Reseña" ;}
             ?>
+
+            <?php
+              // duda si id_resenya hay que insertarlo o es autoincremental al ser PK
+              $query_resenyas = "INSERT INTO resenya ( puntuacion, descripcion, fecha,id_vivienda, id_usuario) VALUES ( '".$puntuacion."', '".$descripcion."', '".$fecha."', '".$id_vivienda."', '".$id_usuario."' )";
+
+
+                  if($query= $link ->query($query_resenyas)){
+              ?>
+                      <div class="alert alert-success alert-dismissable">
+                          <h2><strong>Felicidades!</strong> Reseña publicada</h2>
+                      </div>
+                      <?php
+                  }else {
+              ?>
+                      <div class="alert alert-warning alert-dismissable"> 
+                          <h2><strong>Error!</strong> al insertar reseña</h2>
+                      </div>
+            <?php
+                }
+            ?>
+
 
             <div class="form-row" style="text-align: center;" >
                 <div class="col text-center" >
@@ -32,7 +58,9 @@
  
 </div>
 
-<?php include 'footer.php'; ?>
+<?php include 'footer.php'; 
+  include "desconexionBD.inc";
+?>
 
 
 <!--
