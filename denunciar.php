@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+    $idUsuario = $_SESSION['usuario'];
+    $idAnfitrion = $_POST['idAnfitrion'];
+?>
  <!-- Masthead -->
 <div class="row h-100">
   <div class="col-sm-12 my-auto">
@@ -6,23 +9,24 @@
       <div class="card-body" >
           <h2 class="title">Denunciar anuncio</h2>
           <hr>
-          <form method="POST">
+          <form method="POST" action="/ExpressHouse/crearDenuncia.php">
               <div class="form-row">
                   <div class="form-group col-md-6">
                       <label class="label">Motivo</label>
-                      <input class="form-control" type="text" name="first_name">
+                      <input class="form-control" type="text" name="motivo">
                   </div>
               </div>
               <div class="form-row">
                   <div class="form-group col-md-12">
                       <label class="label">Descripción</label>
-                      <input class="form-control" type="text" name="first_name">
+                      <textarea class="form-control" name="descripcion" rows="10" cols="30" placeholder="Descripción..."></textarea>
                   </div>
               </div>
               <hr>
               <div class="form-row">
                   <div class="form-group col-md-6">
-                      <button class="btn btn-primary" type="submit">Denunciar</button>
+                    <input class="form-control" name="idAnfitrion" type ="hidden" value="<?php echo $idAnfitrion?>">
+                    <button class="btn btn-primary" type="submit">Denunciar</button>
                   </div>
               </div>
           </form>
