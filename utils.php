@@ -80,7 +80,7 @@
 	/**
 	 * Esta función se eencarga de devolver las tarjetas de las casas.
 	 *  
-	 * @param integer $idVivienda Identificador de la vivienda.
+	 * @param integer $idAnuncio Identificador del anuncio.
 	 * @param string $foto URL de las fotos de la vivienda
 	 * @param string $descripcion Descripción de la vivienda.
 	 * @param integer $precioDia Precio por día de estadia en la vivienda.
@@ -88,7 +88,7 @@
 	 * 
 	 * @return string Con el código HTML de la tarjeta que muestra una vivienda.
 	 */
-    function get_house_cards($idVivienda, $foto, $nombre, $descripcion, $ubicacion, $precioDia, $dormitorios, $aseos, $numHuespedes ){
+    function get_house_cards($idAnuncio, $foto, $nombre, $descripcion, $ubicacion, $precioDia, $dormitorios, $aseos, $numHuespedes ){
 		echo 	'<div class="col-md-8">
 					<div class="row p-2 bg-white">	
 							<div class="col-md-3 mt-1">
@@ -118,8 +118,8 @@
 								<br>
 								<div class="d-flex flex-column mt-4">
 									<form action="casa.php" method="GET">
-										<input id="id-vivienda" name="id-vivienda" type="hidden" value="'.utf8_encode($idVivienda).'">
-										<button class="btn btn-sm btn-detalles" type="submit" method="POST">Detalles</button>
+										<input name="id-anuncio" type="hidden" value="'.utf8_encode($idAnuncio).'">
+										<button class="btn btn-sm btn-detalles" type="submit">Detalles</button>
 									</form>
 								</div>
 							</div>
