@@ -1,15 +1,24 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; include "conexionBD.inc"; ?>
+
+
+
 <div class="row h-100">
     <div class="col-sm-12 my-auto">
         <div class="card card-block w-25 mx-auto" id="tarjeta" style="border-radius: 20px 20px 20px 20px;">
             <div class="card-body" >
                 <h2 style="text-align: center;"class="title">Registrarse</h2>
                 <hr >
-                <form method="POST" action="/ExpressHouse/index.php">
+                <form method="POST" action="/insertarUsuario.php">
                     <div class="form-row" style="justify-content: center">
                         <div class="form-group col-md-6">
                             <label class="label">Nombre</label>
-                            <input placeholder="Nombre" class="form-control" type="text" name="first_name">
+                            <input placeholder="Nombre" class="form-control" type="text" name="nombre">
+                        </div>
+                    </div>
+                    <div class="form-row" style="justify-content: center">
+                        <div class="form-group col-md-6">
+                            <label class="label">Apellidos</label>
+                            <input placeholder="Apellidos" class="form-control" type="text" name="apellido">
                         </div>
                     </div>
                     <div class="form-row" style="justify-content: center">
@@ -19,15 +28,18 @@
                         </div> -->
                         <div class="form-group col-md-6">
                             <label class="label">Correo electrónico</label>
-                            <input placeholder="Correo electrónico" class="form-control" type="email" name="email">
+                            <input placeholder="Correo electrónico" class="form-control" type="correo" name="correo">
                         </div>
                     </div>
                     <div class="form-row" style="justify-content: center">
                         <div class="form-group col-md-6">
                             <label class="label">Contraseña</label>
-                            <input placeholder="Contraseña" style="margin-bottom: 10px" class="form-control" type="text" name="first_name">
-                            <input placeholder="Repite Contraseña" class="form-control" type="text" name="first_name">
+                            <input placeholder="Contraseña" style="margin-bottom: 10px" class="form-control" type="text" name="contraseña">
+                            <input placeholder="Repite Contraseña" class="form-control" type="text" name="contraseña2">
                         </div>
+                    </div>
+                    <div style="text-align: center">
+                        <input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Registrarme como admin</label>
                     </div>
                     <div style="text-align: center">
                         <input type="checkbox" required> Acepto los <a href="./terminos_y_condiciones.php"> términos y condiciones </a> de este servicio </input>
@@ -52,6 +64,9 @@
                 </form>
             </div>
         </div>
+
+
+
         <script>      
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap'
@@ -59,4 +74,8 @@
         </script>
     </div>
 </div>
-<?php include 'footer.php'; ?>
+<?php include 'footer.php';?>
+<?php 
+    include "desconexionBD.inc";
+?>
+
