@@ -38,7 +38,7 @@
 	 * @return string Con el código HTML de la tarjeta.
 	 */
     function get_cities_cards($city, $num) {
-		echo 	'<br>
+		echo   '<br>
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
 					<div id="type-card" class="card">
 						<img id="city-card-img" class="card-img" src="img/landscape_'.$num.'.jpg">
@@ -62,7 +62,7 @@
 	 * @return string Con el código HTML de la tarjeta.
 	 */
     function get_house_type_cards($type) {
-		echo 	'<br>
+		echo   '<br>
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
 					<div id="type-card" class="card">
 						<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">

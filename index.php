@@ -111,7 +111,7 @@
   <!-- Fin lista de ciudades -->
 
   <!-- Inicio lista de zonas -->
-  <div id="zone-type-list" class="container-fluid">
+  <div  class="container-fluid">
     <br>
     <h2 id="zone-type-title" class="zone-type">Eres más de ...</h2>
     <br>
