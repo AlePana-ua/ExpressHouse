@@ -1,65 +1,64 @@
-<?php include 'header.php'; ?>
-
+<?php 
+    include 'header.php';
+    include "conexionBD.inc"; 
+?>
 <!DOCTYPE html>
 <html>
     <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/casa.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="css/casa.css" rel="stylesheet">
+        <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
     </head>
-
-<body>	
-    <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
+    <?php
+                    if(isset($_GET['id-anuncio']) && !empty($_GET['id-anuncio'])) 
+                    {
+                        $idAnuncio = $_GET['id-anuncio'];
+                    } 
+                    
+                    $query_casa = "SELECT Anuncio.id_anuncio
+                                    ,Anuncio.id_vivienda
+                                    ,Anuncio.descripcion
+                                    ,Vivienda.direccion
+                                    ,Vivienda.precioDia 
+                                    ,Vivienda.habitaciones
+                                    ,Vivienda.aseos
+                                    ,Vivienda.nombre
+                                    ,Vivienda.aseos
+                                    ,Vivienda.fiestas
+                                    ,Vivienda.mascotas
+                                    ,Vivienda.tipo
+                                    ,Vivienda.id_anfitrion
+                            FROM Anuncio
+                            INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv 
+                            WHERE Anuncio.id_anuncio = '$idAnuncio';";
+                    echo $query_casa;
+                    if ($query = $link->query($query_casa)) {
+                        if($row = mysqli_fetch_array($query)) {
+                ?>
     <div class="container-fluid mt-2 mb-3">
         <div class="row no-gutters">
             <!-- Inicio columna izquierda -->
             <div class="col-md-5 pr-2">
-            <?php
-                if(isset($_GET['id-vivienda']) && !empty($_GET['id-vivienda'])) 
-                {
-                    $id-vivienda = $_GET['id-vivienda'];
-                } 
-                $query_casa = "SELECT  Anuncio.id_anuncio
-								,Anuncio.id_vivienda
-								,Anuncio.foto
-								,Anuncio.descripcion
-								,Vivienda.direccion
-								,Vivienda.precioDia 
-								,Vivienda.habitaciones
-								,Vivienda.aseos
-                                ,Vivienda.nombre
-                                ,Vivienda.aseos
-                                ,Vivienda.fiestas
-                                ,Vivienda.mascotas
-                                ,Vivienda.tipo
-                                ,Vivienda.idanfitrion
-						FROM Anuncio
-                        INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv";
-
-                $row = mysqli_fetch_array($query);
-
-            ?>
                 <!-- Inicio cuadro con las imagenes -->
-                <!-- $id_Anuncio = $_POST['id'];
-                     $query = $link->query("SELECT * from Anuncio where id_Anuncio = $id_Anuncio")-->
                 <div class="card">
                     <div class="demo">
                         <ul id="lightSlider">
-                            <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img src="https://i.imgur.com/KZpuufK.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img src="https://i.imgur.com/c9uUysL.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img src="https://i.imgur.com/KZpuufK.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img src="https://i.imgur.com/c9uUysL.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img src="https://i.imgur.com/KZpuufK.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img src="https://i.imgur.com/c9uUysL.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img id="fotos-casa" src="https://i.imgur.com/KZpuufK.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img id="fotos-casa" src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img id="fotos-casa" src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img id="fotos-casa" src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img id="fotos-casa" src="https://i.imgur.com/c9uUysL.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img id="fotos-casa" src="https://i.imgur.com/KZpuufK.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img id="fotos-casa" src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img id="fotos-casa" src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img id="fotos-casa" src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img id="fotos-casa" src="https://i.imgur.com/c9uUysL.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img id="fotos-casa" src="https://i.imgur.com/KZpuufK.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img id="fotos-casa" src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img id="fotos-casa" src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img id="fotos-casa" src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
+                            <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img id="fotos-casa" src="https://i.imgur.com/c9uUysL.jpg" /> </li>
                         </ul>
                     </div>
                 </div>
@@ -107,7 +106,7 @@
                 <div class="card">
                     <div class="align-items-center card-header">
                         <div class="about">
-                       <?php echo .utf8_encode($row.nombre);?>
+                            <h2> <?php echo utf8_encode($row['nombre']);?> </h2>
                         </div>
                         <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><span class="ml-1">5.0</span></div>
                     </div>
@@ -115,14 +114,14 @@
                         <div class="product-description">
                             <div class="mt-4">
                                 <span class="font-weight-bold">Description</span>
-                                <p> <?php echo .utf8_encode($row.descripcion);?></p>
+                                <p> <?php echo utf8_encode($row['descripcion']);?></p>
                                 <div>
                                     <!-- Transformarlo a dinámico-->
-                                    <b>Habitaciones:</b> <?php echo .utf8_encode($row.habitaciones);?></br>
-                                    <b>Baños: </b> <?php echo .utf8_encode($row.aseos);?></br>
-                                    <b>Categoría: </b> <?php echo .utf8_encode($row.tipo);?></br>
-                                    <b>Fiestas: </b> <?php echo .utf8_encode($row.fiestas);?></br>
-                                    <b>Mascotas: </b> <?php echo .utf8_encode($row.mascotas);?></br>
+                                    <b>Habitaciones:</b> <?php echo utf8_encode($row['habitaciones']);?></br>
+                                    <b>Baños: </b> <?php echo utf8_encode($row['aseos']);?></br>
+                                    <b>Categoría: </b> <?php echo utf8_encode($row['tipo']);?></br>
+                                    <b>Fiestas: </b> <?php echo utf8_encode($row['fiestas']);?></br>
+                                    <b>Mascotas: </b> <?php echo utf8_encode($row['mascotas']);?></br>
                                 </div>
                                 <br>
                                 <!-- Tabla reservar -->
@@ -141,12 +140,12 @@
                                                     <input id="fecha-salida" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-salida"/>
                                                 </div>
                                                 <div class="col">
-                                                <form method="GET" action="reservar.php">
-                                                    <input id="id-vivienda" name="id-vivienda" type="hidden" values="'.utf8_encode($idVivienda).'">
-                                                    <input id="fecha-llegada" name="fecha-llegada" type="hidden" values="'.utf8_encode($fechaLlegada).'">
-                                                    <input id="fecha-salida" name="fecha-salida" type="hidden" values="'.utf8_encode($fechaSalida).'">
-                                                    <button class="btn btn_custom" type="submit">Reservar</button>
-                                                </form>
+                                                    <form method="GET" action="reservar.php">
+                                                        <input id="id-vivienda" name="id-vivienda" type="hidden" values="'.utf8_encode($idVivienda).'">
+                                                        <input id="fecha-llegada" name="fecha-llegada" type="hidden" values="'.utf8_encode($fechaLlegada).'">
+                                                        <input id="fecha-salida" name="fecha-salida" type="hidden" values="'.utf8_encode($fechaSalida).'">
+                                                        <button class="btn btn_custom" type="submit">Reservar</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </form>
@@ -168,9 +167,14 @@
                     <!-- Inicio botones casa -->                
                     <div class="card-footer buttons"> 
                     <!-- COMPARTIR -->
-                        <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-share-alt"></i></button>
+                        <form method="GET" action="crearPublicacionRedSocial.php">
+                            <input name="id-anuncio" type="hidden" value="<?= $idAnuncio?>">
+                            <button class="btn btn-light wishlist" type="summit"><i class="fa fa-share-alt"></i></button>
+                        </form>
                         <!-- FAVORITO -->
-                        <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-heart-o"></i></button>
+                        <form method="GET" action="denunciar.php">
+                            <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-heart-o"></i></button>
+                        </form>
                         <!-- DENUNCIAR, pasar id anuncio como parámetro -->
                         <form method="GET" action="denunciar.php">
                             <input id="id-vivienda" name="id-vivienda" type="hidden" values="'.utf8_encode($idVivienda).'">
@@ -238,7 +242,16 @@
             thumbItem: 9
         });
     </script>
-</body>
+<?php
+    // Fin del if de la query
+                }
+            }else {
+                echo $link->error;
+            }
+?>
 </html>
 
-<?php include 'footer.php'; ?>
+<?php 
+    include "desconexionBD.inc"; 
+    include 'footer.php'; 
+?>

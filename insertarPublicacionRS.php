@@ -4,7 +4,7 @@
     if(isset($_POST['idAnuncio']) ){
         $idAnuncio = $_POST['idAnuncio'];
     }
-
+    echo $idAnuncio;
     $redSocial = $_POST['redSocial'];
 
     // Fecha actual

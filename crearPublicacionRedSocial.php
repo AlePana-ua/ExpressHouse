@@ -4,14 +4,10 @@
     //Título de la Página 
     $pageTitle = 'Publicar en Redes Sociales';
     include "header.php";
-
     //Comprobamos que el anuncio este seleccionado
     if(isset($_GET['id-anuncio'])) {
         $idAnuncio = $_GET['id-anuncio'];
     }
-
-    
-
     // Lista de redes sociales
     $listaRedesSociales = ['Instagram', 'Facebook', 'Twitter'];
 ?>
@@ -41,7 +37,7 @@
                     <br>
                     <br>
                     <div class="form-row justify-content-center">
-                        <input id="idAnuncio" name="idAnuncio" type="hidden" value="<?=$idAnuncio?>">                    
+                        <input id="idAnuncio" name="idAnuncio" type="hidden" value="<?= $idAnuncio ?>">                    
                         <button class="btn btn-volver" type="summit">Compartir</button>
                     </div>
                 </form>
