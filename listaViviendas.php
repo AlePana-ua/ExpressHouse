@@ -138,8 +138,7 @@
 					while($row = mysqli_fetch_array($query1)) {		
 						echo get_house_cards($row['id_anuncio'], 0, $row['nombre'] ,$row['descripcion'], $row['direccion'], $row['precioDia'], $row['habitaciones'],$row['aseos'], $row['minimo_de_dias']);
 					}
-					mysqli_free_result($result);
-					mysqli_close($quer1);
+
 				}else {
 					echo $link->error;
 				}
