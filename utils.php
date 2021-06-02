@@ -1,4 +1,5 @@
 <?php
+	
 	/**
 	 * Función que recibe una ciudad y devuelve una option con 
 	 * los datos de esta.
@@ -37,7 +38,7 @@
 	 * @return string Con el código HTML de la tarjeta.
 	 */
     function get_cities_cards($city, $num) {
-		echo 	'<br>
+		echo   '<br>
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
 					<div id="type-card" class="card">
 						<img id="city-card-img" class="card-img" src="img/landscape_'.$num.'.jpg">
@@ -61,14 +62,14 @@
 	 * @return string Con el código HTML de la tarjeta.
 	 */
     function get_house_type_cards($type) {
-		echo 	'<br>
+		echo   '<br>
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
 					<div id="type-card" class="card">
 						<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
 						<div class="card-body">
 							<form action="listaViviendas.php" method="POST">
 								<h3 class="card-title">'.$type.'</h3>
-								<input type="hidden" name="tipo-casa" value="'.$type.'">
+								<input type="hidden" name="zona-casa" value="'.$type.'">
 								<button type="submit" class="btn btn-listas">Ver</button>
 							</form>
 						</div>
@@ -79,7 +80,7 @@
 	/**
 	 * Esta función se eencarga de devolver las tarjetas de las casas.
 	 *  
-	 * @param integer $idVivienda Identificador de la vivienda.
+	 * @param integer $idAnuncio Identificador del anuncio.
 	 * @param string $foto URL de las fotos de la vivienda
 	 * @param string $descripcion Descripción de la vivienda.
 	 * @param integer $precioDia Precio por día de estadia en la vivienda.
@@ -87,7 +88,7 @@
 	 * 
 	 * @return string Con el código HTML de la tarjeta que muestra una vivienda.
 	 */
-    function get_house_cards($idVivienda, $foto, $nombre, $descripcion, $ubicacion, $precioDia, $dormitorios, $aseos, $numHuespedes ){
+    function get_house_cards($idAnuncio, $foto, $nombre, $descripcion, $ubicacion, $precioDia, $dormitorios, $aseos, $numHuespedes ){
 		echo 	'<div class="col-md-8">
 					<div class="row p-2 bg-white">	
 							<div class="col-md-3 mt-1">
@@ -116,9 +117,9 @@
 								</div>
 								<br>
 								<div class="d-flex flex-column mt-4">
-									<form action="casa.php" method="POST">
-										<input id="id-vivienda" name="id-vivienda" type="hidden" value="'.utf8_encode($idVivienda).'">
-										<button class="btn btn-sm btn-detalles" type="submit" method="POST">Detalles</button>
+									<form action="casa.php" method="GET">
+										<input name="id-anuncio" type="hidden" value="'.utf8_encode($idAnuncio).'">
+										<button class="btn btn-sm btn-detalles" type="submit">Detalles</button>
 									</form>
 								</div>
 							</div>
@@ -138,7 +139,7 @@
 	}
 
 	/** 
-	 * Esta función deevueelve eel número de días entre dos fechas.
+	 * Esta función devuelve eel número de días entre dos fechas.
 	 * 
 	 * @param string $date1 Fecha inicial.
 	 * @param string $date1 Fecha final.
@@ -152,4 +153,28 @@
 
 		return $diff->days;
 	}
+	/**
+	 * Esta función dvuelve una lista con los posibles 
+	 * valores de una columna de tipo ENUM.
+	 * 
+	 */
+	function enum_values($table_name, $column_name) {
+		include "conexionBD.inc"; 
+		$enum_list = [];
+		$query = "
+			SELECT COLUMN_TYPE 
+			FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_NAME = '" .$table_name."' 
+				AND COLUMN_NAME = '".$column_name."';";
+		if ($result = $link->query($query)){
+			if($row = mysqli_fetch_array($result)) {
+				$enum_list = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
+			}
+		}
+		include "desconexionBD.inc";
+		return $enum_list;
+
+	}
+
+	
 ?>

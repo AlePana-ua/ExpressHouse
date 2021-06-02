@@ -52,11 +52,15 @@
     </form>
   </div>
   <script>      
-    $('#datepicker').datepicker({
-      uiLibrary: 'bootstrap'
-    });
+    $('#datepicker').datepicker();
     $('#datepicker1').datepicker({
-      uiLibrary: 'bootstrap'
+      useCurrent: false
+    });
+    $("#datepicker").on("dp.change", function (e) {
+           $('#datepicker1').data("DatePicker").minDate(e.date);
+       });
+    $("#datepicker1").on("dp.change", function (e) {
+        $('#datepicker').data("DatePicker").maxDate(e.date);
     });
   </script>
 </div>
@@ -107,7 +111,7 @@
   <!-- Fin lista de ciudades -->
 
   <!-- Inicio lista de zonas -->
-  <div id="zone-type-list" class="container-fluid">
+  <div  class="container-fluid">
     <br>
     <h2 id="zone-type-title" class="zone-type">Eres más de ...</h2>
     <br>

@@ -1,7 +1,8 @@
 <?php 
-    session_start();
+    
     $usuario = $_SESSION['usuario'];
     $esAdmin = $_SESSION['admin'];
+    
     // Validamos si se ha hecho o no el inicio de sesion correctamente
     // Si el usuario no esta asignado o no es admin.
     if((!isset($usuario) || $esAdmin == False)) {

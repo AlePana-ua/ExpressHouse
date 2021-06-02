@@ -67,7 +67,6 @@
                     <tr>
                         <td><?php echo utf8_encode($id_anfitrion);?></td>
                         <td><?php echo utf8_encode($viviendaNombre);?></td>
-                        <td><?php echo utf8_encode($fecha);?></td>
                         <td><?php echo utf8_encode($viviendaDir);?></td>
                         <td><?php echo utf8_encode($ciudad);?></td>
                         <td>

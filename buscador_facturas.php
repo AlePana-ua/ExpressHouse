@@ -1,8 +1,14 @@
 <?php 
+    // Iniciamos session
+    session_start();
+    
+    //Título de la Página 
     $pageTitle = 'Buscador facturas';
-    include 'header.php'; 
-    include "conexionBD.inc";
+
     include "seguridadAdmin.php";
+    include "conexionBD.inc";
+    include 'header.php'; 
+
 ?>
 
 <!-- SOLO el ADMIN pueede acceder a esta página, si NO es ADMIN se volvera al inicio-->
