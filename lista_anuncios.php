@@ -1,11 +1,11 @@
 <?php 
     session_start();
+    // Titulo que se muestra en la pestaña del navegador.
+    $pageTitle = 'Lista Anuncios';
+    
     include "conexionBD.inc";
     include "seguridadAdmin.php";
     include 'header.php'; 
-    
-    // Titulo que se muestra en la pestaña del navegador.
-    $pageTitle = 'Lista Anuncios';
 
     // Comprobamos en que página de la lista estamos. 
     if(isset($_GET['page'])) {
@@ -65,10 +65,10 @@
                     
                 ?>
                     <tr>
-                        <td><?php echo utf8_encode($id_anfitrion);?></td>
-                        <td><?php echo utf8_encode($viviendaNombre);?></td>
-                        <td><?php echo utf8_encode($viviendaDir);?></td>
-                        <td><?php echo utf8_encode($ciudad);?></td>
+                        <td><?php echo $id_anfitrion;?></td>
+                        <td><?php echo $viviendaNombre;?></td>
+                        <td><?php echo $viviendaDir;?></td>
+                        <td><?php echo $ciudad;?></td>
                         <td>
                             <a href='confirmarBorradoAnuncio.php?id=<?=$id_anuncio?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;">
                                 <img class="" src="img/delete_icon.png" width="40" height="40">

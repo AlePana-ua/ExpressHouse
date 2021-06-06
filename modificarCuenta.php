@@ -1,7 +1,14 @@
 <?php 
-session_start();
-include 'header.php'; 
-include "conexionBD.inc";
+    session_start();
+    include "conexionBD.inc";
+    include 'seguridad.php';
+    include 'header.php'; 
+    
+    $idBuscar = $_SESSION['usuario'];
+    $queryID = $link->query("SELECT * FROM Usuario WHERE correo = '".$idBuscar."';"); 
+    
+    $row = mysqli_fetch_array($queryID);
+
 ?>
 <div class="row h-100">
     <div class="col-sm-12 my-auto">
@@ -13,32 +20,32 @@ include "conexionBD.inc";
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="label">Nombre</label>
-                            <input class="form-control" type="text" name="first_name">
+                            <input class="form-control" type="text" name="first_name" value="<?=$row["nombre"]?>">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="label">Apellidos</label>
-                            <input class="form-control" type="text" name="last_name">
+                            <input class="form-control" type="text" name="last_name" value="<?=$row["apellido"]?>">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="label">Correo electrónico</label>
-                            <input class="form-control" type="email" name="email">
+                            <input class="form-control" type="email" name="email" value="<?=$row["correo"]?>">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="label">Teléfono</label>
-                            <input class="form-control" type="text" name="phone">
+                            <input class="form-control" type="text" name="phone" value="<?=$row["telefono"]?>">
                         </div>
                   </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="label">Nueva contraseña</label>
-                            <input class="form-control" type="text" name="password">
+                            <input class="form-control" type="password" name="password" value= "<?=$row["contrasenya"]?>">
                         </div> 
                         <div class="form-group col-md-6">
                             <label class="label">Repite contraseña</label>
-                            <input class="form-control" type="text" name="password2">
+                            <input class="form-control" type="password" name="password2" value= "<?=$row["contrasenya"]?>">
                         </div>
                     </div>
                     <div>
@@ -65,4 +72,7 @@ include "conexionBD.inc";
         </script>
     </div>
 </div>
-<?php include 'footer.php'; ?>
+<?php 
+    include "desconexionBD.inc";
+    include 'footer.php'; 
+?>

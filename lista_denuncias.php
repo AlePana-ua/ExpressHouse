@@ -51,10 +51,10 @@
                         $descripcion = $row['descripcion'];
             ?>
                     <tr>
-                        <td><?php echo utf8_encode($huesped);?></td>
-                        <td><?php echo utf8_encode($anfitrion);?></td>
-                        <td><?php echo utf8_encode($motivo);?></td>
-                        <td><?php echo utf8_encode($descripcion);?></td>
+                        <td><?php echo $huesped;?></td>
+                        <td><?php echo $anfitrion;?></td>
+                        <td><?php echo $motivo;?></td>
+                        <td><?php echo $descripcion;?></td>
                         <td>
                             <a href='confirmarBorradoDenuncia.php?id=<?=$idDenun?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;">
                                 <img class="" src="img/delete_icon.png" width="40" height="40">

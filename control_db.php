@@ -14,7 +14,9 @@
 <!-- Vista exclusiva para el administrador -->
 <div class="container-fluid center">
     <div class="row">
-
+        <div class="col-12 col-sm-6">
+            <h3>Fecha: <?php echo date("d-M-Y H:i");?></h3>
+        </div>
     </div>
     <hr>
     <div class="row">
@@ -28,7 +30,7 @@
                         }
                     }
                 ?>
-                <h2 class="db-data-font"><?php echo $totalUsuarios; ?></h2>
+                <h2 class="db-data-font"><?php echo $totalUsuarios; ?><span class="material-icons md-48">person</span></h2>
                 <h1 class="db-data-font">Usuarios</h1>
             </div>
         </div>
@@ -42,7 +44,7 @@
                         }
                     }
                 ?>
-                <h2 class="db-data-font"><?php echo $totalCiudades; ?></h2>
+                <h2 class="db-data-font"><?php echo $totalCiudades; ?><span class="material-icons md-48">apartment</span></h2>
                 <h1 class="db-data-font">Ciudades</h1>
             </div>
         </div>
@@ -56,7 +58,7 @@
                         }
                     }
                 ?>
-                <h2 class="db-data-font"><?php echo $totalAnuncios; ?></h2>
+                <h2 class="db-data-font"><?php echo $totalAnuncios; ?><span class="material-icons md-48">feed</span></h2>
                 <h1 class="db-data-font">Anuncios</h1>
             </div>
         </div>
@@ -70,7 +72,7 @@
                         }
                     }
                 ?>
-                <h2 class="db-data-font"><?php echo $totalViviendas; ?></h2>
+                <h2 class="db-data-font"><?php echo $totalViviendas; ?><span class="material-icons md-48">home</span></h2>
                 <h1 class="db-data-font">Viviendas</h1>
             </div>
         </div>
@@ -85,7 +87,7 @@
                         }
                     }
                 ?>
-                <h2 class="db-data-font"><?php echo $totalResenas; ?></h2>
+                <h2 class="db-data-font"><?php echo $totalResenas;?><span class="material-icons md-48">reviews</span></h2>
                 <h1 class="db-data-font">Reseñas</h1>
             </div>
         </div>
@@ -99,7 +101,7 @@
                         }
                     }
                 ?>
-                <h2 class="db-data-font"><?php echo $totalDenuncias; ?></h2>
+                <h2 class="db-data-font"><?php echo $totalDenuncias; ?><span class="material-icons md-48">feedback</span></h2>
                 <h1 class="db-data-font">Denuncias</h1>
             </div>
         </div>
@@ -168,13 +170,7 @@
             </div>
         </div>
         <!-- Tamaño de la base de datos -->
-        <div class="col-12 col-sm-3">
-            <div class="table-responsive db-data" align="center">
-                <h2 class="db-data-font"><?php echo $databaseSize; ?> MB</h2>
-                <h1 class="db-data-font">Tamaño base de datos</h1>
-            </div>
-        </div>
-        <div class="col-12 col-sm-3">
+        <div class="col-12 col-sm-6">
             <div class="table-responsive db-data" align="center">
                 <h2 class="db-data-font"><?php echo $databaseSize; ?> MB</h2>
                 <h1 class="db-data-font">Tamaño base de datos</h1>

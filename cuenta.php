@@ -1,9 +1,10 @@
 <?php 
+$pageTitle = 'Perfil';
 session_start();
 include 'header.php'; 
 include 'utils.php';
 include "conexionBD.inc";
-$pageTitle = 'perfil';
+
 
 
 $queryUSER = $link ->query("SELECT id_user  ,foto,nombre FROM Usuario WHERE correo = '".$_SESSION["usuario"]."' ");
@@ -26,31 +27,60 @@ $nResenyas = mysqli_fetch_array($query_cResenyas)[0];
     <div class="card" style="margin-left: 5%; margin-top: 1%;">
     <img style="vertical-align: middle; width: 100px; height: 100px; border-radius: 50%;" src="data:image;base64,<?=$foto?>">
       <div>
-        <a class="card-text" style="text-decoration:underline;"><img src="./img/star.png" style="width:4%; padding:0.5%;"><?=$nResenyas?> reseñas</a> <!-- EL NÚMERO LO SACAMOS DE LA BBDD-->
         <p></p>
         <a href="./modificarCuenta.php" class="btn btn-primary">Modificar perfil</a>
       </div>
     </div>
     <div class="card" style="margin-left: 5%; margin-top: 1%;">
       <div class="card-body">
-        <h5 class="card-text" >Hola, soy <?php echo utf8_encode($nombre)?></p>
+        <h5 class="card-text" >Hola, soy <?= $nombre?></p>
 
-    <div class="card" style="margin-left: 5%; margin-top: 1%;">
+    <div class="card" style="margin-left: 5%; margin-top: 1%; width: 75%;">
     <?php
-     if ($query = $link->query($query_resenyas)) {
-            if ($query->num_rows == 0) {
-              echo "<h2>No se encontro ninguna resenya</h2>";
+     if (!$_SESSION["anfitrion"]) {
+            if ($nResenyas == 0) {
+              echo "<h5>No se encontro ninguna reseña</h5>";
             } else {
-                while($row = mysqli_fetch_array($query)) {
-                   
-                    echo '<pre style="font-size: 15px;">
-                            '.$fecha.'  '.$puntuacion.'
-                              '.$descripcion.'
-                          </pre>';                
-                }
+              echo "<h5>Reseñas escritas</h5>";
+              while($row = mysqli_fetch_array($query_cResenyas)) {   
+                echo '<a style="font-size: 15px;">
+                       fecha: '.$row["fecha"].' <br></br> Puntuación: '.$row["puntuacion"].' <br></br>
+                        Descripción:  '.$row["descripcion"].'
+                      </a>';                
             }
-            $query->close();
+            }
+            $query_cResenyas->close();
+    }else{
+        echo "<h5>Reseñas recibidas</h5>";
+        $query_viviendas = "SELECT id_viv  FROM Vivienda WHERE id_anfitrion = '".$id."';";
+        $resenyas = array();
+        if($query = $link->query($query_viviendas)){
+          while($row = mysqli_fetch_array($query)){
+            $query_resenya = "SELECT id_resenya FROM resenya WHERE id_vivienda = '".$row['id_viv']."';";
+            if($query2 = $link->query($query_resenya)){
+              if($query2->num_rows != 0){
+                $resenya = mysqli_fetch_array($query2);
+                array_push($resenyas,$resenya[0]);
+              }
+            }
           }
+        }
+        if(count($resenyas) == 0){
+          echo "<h5>nadie ha escrito ninguna reseña sobre este anfitrión</h5>";
+        }else{
+          for($i=0;$i<count($resenyas);$i++){
+            $query_resenya = "SELECT * FROM resenya WHERE id_resenya = '".$resenyas[$i]."';";
+            if($query2 = $link->query($query_resenya)){
+              while($row = mysqli_fetch_array($query2)) {   
+                echo '<a style="font-size: 15px;">
+                       fecha: '.$row["fecha"].' <br></br> Puntuación: '.$row["puntuacion"].' <br></br>
+                        Descripción:  '.$row["descripcion"].'
+                      </a>';                
+              }
+            }
+          }
+        }
+    }
           ?>
       </div>
     </div>

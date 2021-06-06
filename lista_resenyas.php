@@ -1,11 +1,11 @@
 <?php 
     session_start();
+    // Titulo que se muestra en la pestaña del navegador.
+    $pageTitle = 'Lista Reseñas';
+    
     include "conexionBD.inc";
     include "seguridadAdmin.php";
     include 'header.php'; 
-    
-    // Titulo que se muestra en la pestaña del navegador.
-    $pageTitle = 'Lista Reseñas';
 
     // Comprobamos en que página de la lista estamos. 
     if(isset($_GET['page'])) {
@@ -57,11 +57,11 @@
                         $descripcion = $row['descripcion'];
                 ?>
                     <tr>
-                        <td><?php echo utf8_encode($id_usuario);?></td>
-                        <td><?php echo utf8_encode($id_vivienda);?></td>
-                        <td><?php echo utf8_encode($fecha);?></td>
-                        <td><?php echo utf8_encode($puntuacion);?></td>
-                        <td><?php echo utf8_encode($descripcion);?></td>
+                        <td><?php echo $id_usuario;?></td>
+                        <td><?php echo $id_vivienda;?></td>
+                        <td><?php echo $fecha;?></td>
+                        <td><?php echo $puntuacion;?></td>
+                        <td><?php echo $descripcion;?></td>
                         <td>
                             <a href='confirmarBorrarResenya.php?id=<?=$id_resenya?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;">
                                 <img class="" src="img/delete_icon.png" width="40" height="40">
