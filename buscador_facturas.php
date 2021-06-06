@@ -2,7 +2,7 @@
     // Iniciamos session
     session_start();
     
-    //Título de la Página 
+    // Título de la Página 
     $pageTitle = 'Buscador facturas';
 
     include "seguridadAdmin.php";
@@ -34,7 +34,6 @@
         </div>
     </div>
 </div>
-
 
 <?php 
     include "desconexionBD.inc";

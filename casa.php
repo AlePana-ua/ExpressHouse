@@ -1,6 +1,12 @@
 <?php 
+    session_start();
+
+    // Título de la página 
+    $pageTitle = 'Casa';
+
     include 'header.php';
     include "conexionBD.inc"; 
+    $idUsuario = $_SESSION['idUsuario'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,31 +17,39 @@
         <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
     </head>
     <?php
-                    if(isset($_GET['id-anuncio']) && !empty($_GET['id-anuncio'])) 
-                    {
-                        $idAnuncio = $_GET['id-anuncio'];
-                    } 
-                    
-                    $query_casa = "SELECT Anuncio.id_anuncio
-                                    ,Anuncio.id_vivienda
-                                    ,Anuncio.descripcion
-                                    ,Vivienda.direccion
-                                    ,Vivienda.precioDia 
-                                    ,Vivienda.habitaciones
-                                    ,Vivienda.aseos
-                                    ,Vivienda.nombre
-                                    ,Vivienda.aseos
-                                    ,Vivienda.fiestas
-                                    ,Vivienda.mascotas
-                                    ,Vivienda.tipo
-                                    ,Vivienda.id_anfitrion
-                            FROM Anuncio
-                            INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv 
-                            WHERE Anuncio.id_anuncio = '$idAnuncio';";
-                    echo $query_casa;
-                    if ($query = $link->query($query_casa)) {
-                        if($row = mysqli_fetch_array($query)) {
-                ?>
+        if(isset($_GET['id-anuncio']) && !empty($_GET['id-anuncio'])) 
+        {
+            $idAnuncio = $_GET['id-anuncio'];
+        } 
+        if(isset($_GET['fecha-inicio']) && !empty($_GET['fecha-inicio'])) 
+        {
+            $fechaLlegada = $_GET['fecha-inicio'];
+        } 
+        if(isset($_GET['fecha-fin']) && !empty($_GET['fecha-fin'])) 
+        {
+            $fechaSalida = $_GET['fecha-fin'];
+        } 
+        
+        $query_casa = "SELECT a.id_anuncio
+                        ,a.id_vivienda
+                        ,a.descripcion
+                        ,v.direccion
+                        ,v.precioDia 
+                        ,v.habitaciones
+                        ,v.aseos
+                        ,v.nombre
+                        ,v.aseos
+                        ,v.fiestas
+                        ,v.mascotas
+                        ,v.tipo
+                        ,v.foto
+                        ,v.id_anfitrion
+                FROM Anuncio a
+                INNER JOIN Vivienda v ON a.id_vivienda = v.id_viv 
+                WHERE a.id_anuncio = '$idAnuncio';";
+        if ($query = $link->query($query_casa)) {
+            if($row = mysqli_fetch_array($query)) {
+    ?>
     <div class="container-fluid mt-2 mb-3">
         <div class="row no-gutters">
             <!-- Inicio columna izquierda -->
@@ -44,21 +58,19 @@
                 <div class="card">
                     <div class="demo">
                         <ul id="lightSlider">
-                            <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img id="fotos-casa" src="https://i.imgur.com/KZpuufK.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img id="fotos-casa" src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img id="fotos-casa" src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img id="fotos-casa" src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img id="fotos-casa" src="https://i.imgur.com/c9uUysL.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img id="fotos-casa" src="https://i.imgur.com/KZpuufK.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img id="fotos-casa" src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img id="fotos-casa" src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img id="fotos-casa" src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img id="fotos-casa" src="https://i.imgur.com/c9uUysL.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img id="fotos-casa" src="https://i.imgur.com/KZpuufK.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img id="fotos-casa" src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img id="fotos-casa" src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img id="fotos-casa" src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
-                            <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img id="fotos-casa" src="https://i.imgur.com/c9uUysL.jpg" /> </li>
+                        <?php
+                            $imagenes = glob($row['foto']."*");
+                            sort($imagenes);
+                            if(count($imagenes) > 0){
+                                foreach($imagenes as $image) {
+                                    echo '<li data-thumb="'.$image.'"> <img id="fotos-casa" src="'.$image.'" /> </li>';
+                                }
+                            }else {
+                                // En caso de error muestra una imagen por defecto.
+                                $image = 'img/Alicante.jpg';
+                                echo '<li data-thumb="'.$image.'"> <img id="fotos-casa" src="'.$image.'" /> </li>';
+                            }
+                        ?>
                         </ul>
                     </div>
                 </div>
@@ -88,7 +100,13 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-row align-items-center"> <img src="https://i.imgur.com/tmdHXOY.jpg" class="rounded-circle profile-image">
                                     <div class="d-flex flex-column ml-1 comment-profile">
-                                        <div class="comment-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"> </i> </div> <span class="username">Timona Simaung</span>
+                                        <div class="comment-ratings">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"> </i> 
+                                        </div> 
+                                        <span class="username">Timona Simaung</span>
                                     </div>
                                 </div>
                                 <div class="date"> <span class="text-muted">12 May</span> </div>
@@ -106,7 +124,7 @@
                 <div class="card">
                     <div class="align-items-center card-header">
                         <div class="about">
-                            <h2> <?php echo utf8_encode($row['nombre']);?> </h2>
+                            <h2> <?php echo $row['nombre'];?> </h2>
                         </div>
                         <div class="p-ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><span class="ml-1">5.0</span></div>
                     </div>
@@ -114,38 +132,36 @@
                         <div class="product-description">
                             <div class="mt-4">
                                 <span class="font-weight-bold">Description</span>
-                                <p> <?php echo utf8_encode($row['descripcion']);?></p>
+                                <p> <?= $row['descripcion']?></p>
                                 <div>
                                     <!-- Transformarlo a dinámico-->
-                                    <b>Habitaciones:</b> <?php echo utf8_encode($row['habitaciones']);?></br>
-                                    <b>Baños: </b> <?php echo utf8_encode($row['aseos']);?></br>
-                                    <b>Categoría: </b> <?php echo utf8_encode($row['tipo']);?></br>
-                                    <b>Fiestas: </b> <?php echo utf8_encode($row['fiestas']);?></br>
-                                    <b>Mascotas: </b> <?php echo utf8_encode($row['mascotas']);?></br>
+                                    <b>Habitaciones:</b> <?= $row['habitaciones']?></br>
+                                    <b>Baños: </b> <?= $row['aseos']?></br>
+                                    <b>Categoría: </b> <?= $row['tipo'] ?></br>
+
+                                    <b>Fiestas: </b> <?= ($row['fiestas'] == 1 ? 'Si':'No' )?></br>
+                                    <b>Mascotas: </b> <?= ($row['mascotas'] == 1 ? 'Si':'No' )?></br>
                                 </div>
                                 <br>
                                 <!-- Tabla reservar -->
                                 <div class="col-12 reserva">
                                     <!-- Inicio Buscador -->
                                     <div class="col-auto border">
-                                        <form action="" method="POST">
+                                        <form action="/ExpressHouse/solicitarReserva.php" method="GET">
                                             <div class="form-row align-items-center">
                                                 <div class="col text-center">
                                                     <label for="Name">Llegada</label>
-                                                    <input id="fecha-llegada" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-llegada"/>
+                                                    <input id="fecha_llegada" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-llegada" value="<?= $fechaLlegada?>"/>
                                                 </div>
                                                 <div id="verticle-line"></div>
                                                 <div class="col text-center">
                                                     <label for="Name">Salida</label>
-                                                    <input id="fecha-salida" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-salida"/>
+                                                    <input id="fecha_salida" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-salida" value="<?= $fechaSalida?>"/>
                                                 </div>
                                                 <div class="col">
-                                                    <form method="GET" action="reservar.php">
-                                                        <input id="id-vivienda" name="id-vivienda" type="hidden" values="'.utf8_encode($idVivienda).'">
-                                                        <input id="fecha-llegada" name="fecha-llegada" type="hidden" values="'.utf8_encode($fechaLlegada).'">
-                                                        <input id="fecha-salida" name="fecha-salida" type="hidden" values="'.utf8_encode($fechaSalida).'">
-                                                        <button class="btn btn_custom" type="submit">Reservar</button>
-                                                    </form>
+                                                    <input name="id_vivienda" type="hidden" value="<?= $row['id_vivienda'];?>">  
+                                                    <input name="id_anuncio" type="hidden" value="<?= $idAnuncio?>">   
+                                                    <button class="btn btn_custom" type="submit">Reservar</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -166,14 +182,16 @@
                     <br>
                     <!-- Inicio botones casa -->                
                     <div class="card-footer buttons"> 
-                    <!-- COMPARTIR -->
+                        <!-- COMPARTIR -->
                         <form method="GET" action="crearPublicacionRedSocial.php">
                             <input name="id-anuncio" type="hidden" value="<?= $idAnuncio?>">
                             <button class="btn btn-light wishlist" type="summit"><i class="fa fa-share-alt"></i></button>
                         </form>
                         <!-- FAVORITO -->
-                        <form method="GET" action="denunciar.php">
-                            <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-heart-o"></i></button>
+                        <form method="GET" action="/ExpressHouse/Vistas_Favorito/crearFavorito.php">
+                            <input name="id_huesped" type="hidden" value="<?= $idUsuario?>">
+                            <input name="id_anuncio" type="hidden" value="<?= $idAnuncio?>">
+                            <button class="btn btn-light wishlist" type="summit"><i class="fa fa-heart-o"></i></button>
                         </form>
                         <!-- DENUNCIAR, pasar id anuncio como parámetro -->
                         <form method="GET" action="denunciar.php">
@@ -185,7 +203,6 @@
                             <input id="id-anfitrion" name="id-anfitrion" type="hidden" values="'.utf8_encode($idAnfitrion).'">
                             <button class="btn btn-light wishlist" href="/ExpressHouse/mensaje.php"><i class="fa fa-envelope-o"></i></button>
                         </form>
-                        
                     </div>
                     <!-- Fin botones casa -->
                 </div>

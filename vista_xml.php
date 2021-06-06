@@ -1,4 +1,7 @@
 <?php 
+    // Iniciamos session
+    session_start();
+    // Título de la página
     $pageTitle = 'Vista Factura';
     include 'header.php'; 
     include "conexionBD.inc";

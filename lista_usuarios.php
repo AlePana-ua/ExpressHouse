@@ -1,11 +1,12 @@
 <?php 
     session_start();
-    include "conexionBD.inc";
-    include "seguridadAdmin.php";
-    include 'header.php'; 
-    
+
     // Titulo que se muestra en la pestaña del navegador.
     $pageTitle = 'Lista Usuarios';
+    
+    include "seguridadAdmin.php";
+    include "conexionBD.inc";
+    include 'header.php'; 
 
     // Comprobamos en que página de la lista estamos. 
     if(isset($_GET['page'])) {
@@ -55,10 +56,10 @@
                         $telefono = $row['telefono'];
                 ?>
                     <tr>
-                        <td><?php echo utf8_encode($nombre);?></td>
-                        <td><?php echo utf8_encode($apellidos);?></td>
-                        <td><?php echo utf8_encode($correo);?></td>
-                        <td><?php echo utf8_encode($telefono);?></td>
+                        <td><?php echo $nombre;?></td>
+                        <td><?php echo $apellidos;?></td>
+                        <td><?php echo $correo;?></td>
+                        <td><?php echo $telefono;?></td>
                         <td><a href='.php?user=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;"><img class="" src="img/update_icon.png" width="40" height="40"></a></td>
                         <td>
                             <a href='confirmarBorradoUsuario.php?correo=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=320'); return false;">

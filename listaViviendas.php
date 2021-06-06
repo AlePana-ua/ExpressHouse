@@ -2,7 +2,7 @@
 	session_start();
 
 	// Título de la página 
-	$pageTitle = 'Lista viviendas';
+	$pageTitle = 'Viviendas';
 
 	include 'header.php';
 	include "conexionBD.inc"; 
@@ -22,7 +22,7 @@
 	}
 
 	// Lista de ciudades
-	$query_cities = "SELECT nombre FROM ciudad;";
+	$query_cities = "SELECT nombre FROM ciudad ORDER BY nombre ASC;";
 
 	// Lista de zonas
 	$query_zones = "SELECT DISTINCT zona FROM Vivienda;";
@@ -49,6 +49,7 @@
 										,v.precioDia 
 										,v.habitaciones
 										,v.aseos
+										,v.foto
 								FROM Anuncio a
 								INNER JOIN Vivienda v ON a.id_vivienda = v.id_viv
 								INNER JOIN ciudad c ON c.id_ciudad = v.id_ciudad
@@ -59,8 +60,8 @@
 					$destino = $_POST['destino'];
 					$query_casas .= " AND c.nombre='$destino'";
 				}else {
-					$destino = utf8_decode('España');
-					$query_casas .= " AND c.pais='".$destino."'";
+					$destino = 'Alicante';
+					$query_casas .= " AND c.nombre='".$destino."'";
 				}
 
 				//Si se selecciono el tipo de vivienda filtramos la busqueda. 
@@ -80,14 +81,15 @@
 				// Mostramos las casas que cumplen con los criterios de busqueda.
 				if ($query1 = $link->query($query_casas)) {
 					echo '<p>Mostrando '.$query1->num_rows.' resultados <span>&#183;</span> '.$fecha_llegada.' - '.$fecha_salida.' </p>';
-					echo '<h2>Viviendas en '.utf8_encode($destino).'</h2>';
+					echo '<h2>Viviendas en '.utf8_decode($destino).'</h2>';
 ?>					
 					<br>
+					<!-- Lista de filtros -->
 					<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 						
 						<div class="d-flex justify-content-start">
 							<select id="btn-filtros" class="btn" name="destino">
-								<option selected="selected" value=<?= utf8_encode($destino)?>> <?= utf8_encode($destino) ?> </option>
+								<option selected="selected" value=<?=$destino?>> <?= $destino?> </option>
 								<?php 
 								// Seleccionamos el nombre de todas las ciudades con viviendas.
 								if ($query = $link->query($query_cities)) {
@@ -104,7 +106,7 @@
 							</select>
 							<span>&nbsp;</span>
 							<select id="btn-filtros" class="btn" name="zona-casa">
-								<option selected="selected" value=<?= utf8_encode($tipoCasa)?>> <?= utf8_encode($tipoCasa) ?> </option>
+								<option selected="selected" value=<?= $tipoCasa?>> <?= $tipoCasa ?> </option>
 								<?php 
 								// Seleccionamos zonas con viviendas.
 								if ($query = $link->query($query_zones)) {
@@ -112,7 +114,7 @@
 										echo "<option disabled=\"disabled\">No hay zonas</option>";
 									} else {
 										while($row = mysqli_fetch_array($query)) {  
-											echo '<option value="'.utf8_encode($row['0']).'">'.utf8_encode($row['0']).'</option>';
+											echo '<option value="'.$row['0'].'">'.$row['0'].'</option>';
 										}
 									}
 									$query->close();
@@ -128,15 +130,18 @@
 							
 						</div>
 					</form>
+					<!-- Fin Lista de filtros -->
 					<br>
 					<hr class="mb-5">
 					<script>      
 						$('#datepicker-btn-filtros').datepicker();
 						$('#datepicker1-btn-filtros').datepicker();
 					</script>
-<?php				
+			<?php				
 					while($row = mysqli_fetch_array($query1)) {		
-						echo get_house_cards($row['id_anuncio'], 0, $row['nombre'] ,$row['descripcion'], $row['direccion'], $row['precioDia'], $row['habitaciones'],$row['aseos'], $row['minimo_de_dias']);
+						echo get_house_cards($row['id_anuncio'], $row['foto'], $row['nombre'] ,$row['descripcion'], 
+											 $row['direccion'], $row['precioDia'], $row['habitaciones'],$row['aseos'], 
+											 $row['minimo_de_dias'], $fecha_llegada, $fecha_salida);
 					}
 
 				}else {

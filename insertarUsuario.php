@@ -1,8 +1,7 @@
-<?php include 'header.php'; include "conexionBD.inc"; ?>
+<?php 
+    include 'header.php'; 
+    include "conexionBD.inc"; 
 
-
-
-<?php
 
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -16,8 +15,8 @@
                 </div>
 <?php
         }else{
-        
-            $query_usuario = "INSERT INTO Usuario (nombre, apellido, correo, contrasenya) VALUES('$nombre', '$apellido', '$correo', '$contraseña')";
+            $encrypPasswd = password_hash($contraseña, PASSWORD_DEFAULT, [10]);
+            $query_usuario = "INSERT INTO Usuario (nombre, apellido, correo, contrasenya) VALUES ('$nombre', '$apellido', '$correo', '$encrypPasswd')";
             if($query = $link->query($query_usuario)){
         ?>            
                 <div class="alert alert-success alert-dismissable">
@@ -31,8 +30,8 @@
             
 ?>
 
-<?php include 'footer.php';?>
 <?php 
     include "desconexionBD.inc";
+    include 'footer.php';
 ?>
 

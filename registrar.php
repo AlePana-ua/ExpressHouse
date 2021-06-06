@@ -8,7 +8,7 @@
             <div class="card-body" >
                 <h2 style="text-align: center;"class="title">Registrarse</h2>
                 <hr >
-                <form method="POST" action="/insertarUsuario.php">
+                <form method="POST" action="insertarUsuario.php">
                     <div class="form-row" style="justify-content: center">
                         <div class="form-group col-md-6">
                             <label class="label">Nombre</label>
