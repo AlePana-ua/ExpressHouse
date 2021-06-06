@@ -65,11 +65,11 @@
 		echo   '<br>
 				<div class="col-12 col-sm-4 col-md-2 col-lg-2">
 					<div id="type-card" class="card">
-						<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
+						<img id="type-card-img" class="card-img" src="img/tipo_'.utf8_encode($type).'.jpg">
 						<div class="card-body">
 							<form action="listaViviendas.php" method="POST">
-								<h3 class="card-title">'.$type.'</h3>
-								<input type="hidden" name="zona-casa" value="'.$type.'">
+								<h3 class="card-title">'.utf8_encode($type).'</h3>
+								<input type="hidden" name="zona-casa" value="'.utf8_encode($type).'">
 								<button type="submit" class="btn btn-listas">Ver</button>
 							</form>
 						</div>
@@ -153,6 +153,7 @@
 
 		return $diff->days;
 	}
+	
 	/**
 	 * Esta función dvuelve una lista con los posibles 
 	 * valores de una columna de tipo ENUM.

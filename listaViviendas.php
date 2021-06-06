@@ -2,7 +2,7 @@
 	session_start();
 
 	// Título de la página 
-	$pageTitle = 'Lista viviendas';
+	$pageTitle = 'Viviendas';
 
 	include 'header.php';
 	include "conexionBD.inc"; 
@@ -22,7 +22,7 @@
 	}
 
 	// Lista de ciudades
-	$query_cities = "SELECT nombre FROM ciudad;";
+	$query_cities = "SELECT nombre FROM ciudad ORDER BY nombre ASC;";
 
 	// Lista de zonas
 	$query_zones = "SELECT DISTINCT zona FROM Vivienda;";
@@ -80,14 +80,15 @@
 				// Mostramos las casas que cumplen con los criterios de busqueda.
 				if ($query1 = $link->query($query_casas)) {
 					echo '<p>Mostrando '.$query1->num_rows.' resultados <span>&#183;</span> '.$fecha_llegada.' - '.$fecha_salida.' </p>';
-					echo '<h2>Viviendas en '.utf8_encode($destino).'</h2>';
+					echo '<h2>Viviendas en '.$destino.'</h2>';
 ?>					
 					<br>
+					<!-- Lista de filtros -->
 					<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 						
 						<div class="d-flex justify-content-start">
 							<select id="btn-filtros" class="btn" name="destino">
-								<option selected="selected" value=<?= utf8_encode($destino)?>> <?= utf8_encode($destino) ?> </option>
+								<option selected="selected" value=<?=$destino?>> <?= $destino?> </option>
 								<?php 
 								// Seleccionamos el nombre de todas las ciudades con viviendas.
 								if ($query = $link->query($query_cities)) {
@@ -128,13 +129,14 @@
 							
 						</div>
 					</form>
+					<!-- Fin Lista de filtros -->
 					<br>
 					<hr class="mb-5">
 					<script>      
 						$('#datepicker-btn-filtros').datepicker();
 						$('#datepicker1-btn-filtros').datepicker();
 					</script>
-<?php				
+			<?php				
 					while($row = mysqli_fetch_array($query1)) {		
 						echo get_house_cards($row['id_anuncio'], 0, $row['nombre'] ,$row['descripcion'], $row['direccion'], $row['precioDia'], $row['habitaciones'],$row['aseos'], $row['minimo_de_dias']);
 					}
