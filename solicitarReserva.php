@@ -1,12 +1,19 @@
-<?php 
+<?php
   include 'header.php';
   include "conexionBD.inc";
   $fecha_llegada = isset($_GET["fecha_llegada"]) ? $_GET["fecha_llegada"] : "";
   $fecha_salida = isset($_GET["fecha_salida"]) ? $_GET["fecha_salida"] : "";
-  $id_vivienda = isset($_GET["id-vivienda"]) ? $_GET["id-vivienda"] : "";
+  $id_vivienda = isset($_GET["id_vivienda"]) ? $_GET["id_vivienda"] : "";
+  $id_anuncio = isset($_GET["id_anuncio"]) ? $_GET["id_anuncio"] : "";
   $num_dias_reserva = (strtotime($fecha_salida) - strtotime($fecha_llegada)) / (60 * 60 * 24) ;
 
-  $query = "SELECT precioDia FROM Vivienda WHERE id_viv = '".$id_vivienda."' LIMIT 1";
+
+$query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDia
+                FROM Anuncio
+                INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv 
+                WHERE Anuncio.id_anuncio = '".$id_anuncio."'
+                LIMIT 1;";
+
   $queryResult = $link->query($query);
 
   $row = mysqli_fetch_array($queryResult);
@@ -18,17 +25,17 @@
     <h3>Solicitar una reserva</h3>
     </div>
 </div>
-<form class="needs-validation" novalidate>
+<form action="pagar.php" method="POST" class="needs-validation" novalidate>
   <input type="hidden" name="fecha_llegada" value="<?php echo $fecha_llegada?>">
   <input type="hidden" name="fecha_salida" value="<?php echo $fecha_salida?>">
-  <input type="hidden" name="id_vivienda" value="<?php echo $id_vivienda?>">
+  <input type="hidden" name="id_anuncio" value="<?php echo $id_anuncio?>">
   <div class="row">
       <div class="col-5" style="padding: 10px; margin-left: 30px">
           <h4>Tu viaje</h4>
           <h5>Fechas</h5>
           <p>
-            <?php echo $fecha_llegada?> hasta <?php echo $fecha_salida?> 
-            <a class="btn btn-primary" href="casa.php?id-vivienda=<?php echo $id_vivienda?>">Editar</a>
+            <?php echo $fecha_llegada?> hasta <?php echo $fecha_salida?>
+            <a class="btn btn-primary" href="casa.php?id-anuncio=<?php echo $id_anuncio?>">Editar</a>
           </p>
           <h5>Huespedes</h5>
           <input type="number" min="0" name="huespedes" value="1">
@@ -115,6 +122,12 @@
       </div>
     </div>
   </div>
+
+    <div class="row">
+        <div class="col-4 offset-6">
+            <button type="submit" class="btn btn-detalles">Continuar</button>
+        </div>
+    </div>
 </form>
 
 <?php include 'footer.php'; ?>
