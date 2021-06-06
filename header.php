@@ -13,9 +13,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" type="image/png" href="./img/favicon.png"/>
+        <link rel="icon" type="image/png" href="../img/favicon.png"/>
         <!-- Mostramos el titulo de la página asignado en cada vista -->
-        <title><?= $pageTitle;?> | ExpressHouse</title>
+        <title><?= $pageTitle;?> &#183 ExpressHouse</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -27,14 +27,14 @@
         <!------ Include the above in your HEAD tag ---------->
 
         <!-- Custom styles for this template -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/ExpressHouse/css/style.css" rel="stylesheet">
     </head>
     <body>
         <!-- example 7 - center on mobile 2  fixed-top-->
         <nav class="navbar navbar-expand-sm navbar-custom">
             <!-- Logo de la página -->
             <a class="navbar-brand" href="/ExpressHouse/">
-                <img src="./img/Logo_ExpressHouse.png" height="35" alt="Express House"/>
+                <img src="./img/Logo_ExpressHouse.png" height="35"/>
                 Express House
             </a>   
             <!-- Opciones del menú -->

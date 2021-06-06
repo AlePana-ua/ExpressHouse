@@ -14,6 +14,10 @@
 <!-- Vista exclusiva para el administrador -->
 <div class="container-fluid center">
     <div class="row">
+
+    </div>
+    <hr>
+    <div class="row">
         <div class="col-12 col-sm-2">
             <div class="db-data" align="center">
                 <?php
@@ -38,8 +42,8 @@
                         }
                     }
                 ?>
-                <h2><?php echo $totalCiudades; ?></h2>
-                <h1>Ciudades</h1>
+                <h2 class="db-data-font"><?php echo $totalCiudades; ?></h2>
+                <h1 class="db-data-font">Ciudades</h1>
             </div>
         </div>
         <div class="col-12 col-sm-2">
@@ -52,8 +56,8 @@
                         }
                     }
                 ?>
-                <h2><?php echo $totalAnuncios; ?></h2>
-                <h1>Anuncios</h1>
+                <h2 class="db-data-font"><?php echo $totalAnuncios; ?></h2>
+                <h1 class="db-data-font">Anuncios</h1>
             </div>
         </div>
         <div class="col-12 col-sm-2">
@@ -66,8 +70,8 @@
                         }
                     }
                 ?>
-                <h2><?php echo $totalViviendas; ?></h2>
-                <h1>Viviendas</h1>
+                <h2 class="db-data-font"><?php echo $totalViviendas; ?></h2>
+                <h1 class="db-data-font">Viviendas</h1>
             </div>
         </div>
         <div class="col-12 col-sm-2">
@@ -81,8 +85,8 @@
                         }
                     }
                 ?>
-                <h2><?php echo $totalResenas; ?></h2>
-                <h1>Reseñas</h1>
+                <h2 class="db-data-font"><?php echo $totalResenas; ?></h2>
+                <h1 class="db-data-font">Reseñas</h1>
             </div>
         </div>
         <div class="col-12 col-sm-2">
@@ -95,8 +99,8 @@
                         }
                     }
                 ?>
-                <h2><?php echo $totalDenuncias; ?></h2>
-                <h1>Denuncias</h1>
+                <h2 class="db-data-font"><?php echo $totalDenuncias; ?></h2>
+                <h1 class="db-data-font">Denuncias</h1>
             </div>
         </div>
         <div class="col-12 col-sm-2">

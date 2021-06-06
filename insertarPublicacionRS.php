@@ -1,19 +1,18 @@
 <?php
     include "conexionBD.inc";
 
-    if(isset($_POST['idAnuncio']) ){
+    if(isset($_POST['idAnuncio']) && isset($_POST['redSocial'])){
         $idAnuncio = $_POST['idAnuncio'];
+        $redSocial = $_POST['redSocial'];
     }
-    echo $idAnuncio;
-    $redSocial = $_POST['redSocial'];
-
+    
     // Fecha actual
     $fechaActual = date('Y-m-d H:i:s');
 
     $query_insert = "INSERT INTO  Publicaciones_Redes_Sociales (fecha, redSocial, id_anun) 
                     VALUES ('$fechaActual', '$redSocial', '$idAnuncio');";
     echo $query_insert;
-    if($query= $link ->query($query_insert)){
+    if($query= $link->query($query_insert)){
 ?>
         <div class="alert alert-success alert-dismissable">
             <h2><strong>Felicidades!</strong> Anuncio publicado</h2>

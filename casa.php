@@ -1,6 +1,12 @@
 <?php 
+    session_start();
+
+    // Título de la página 
+    $pageTitle = 'Casa';
+
     include 'header.php';
     include "conexionBD.inc"; 
+    $idUsuario = $_SESSION['idUsuario'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,31 +17,30 @@
         <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
     </head>
     <?php
-                    if(isset($_GET['id-anuncio']) && !empty($_GET['id-anuncio'])) 
-                    {
-                        $idAnuncio = $_GET['id-anuncio'];
-                    } 
-                    
-                    $query_casa = "SELECT Anuncio.id_anuncio
-                                    ,Anuncio.id_vivienda
-                                    ,Anuncio.descripcion
-                                    ,Vivienda.direccion
-                                    ,Vivienda.precioDia 
-                                    ,Vivienda.habitaciones
-                                    ,Vivienda.aseos
-                                    ,Vivienda.nombre
-                                    ,Vivienda.aseos
-                                    ,Vivienda.fiestas
-                                    ,Vivienda.mascotas
-                                    ,Vivienda.tipo
-                                    ,Vivienda.id_anfitrion
-                            FROM Anuncio
-                            INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv 
-                            WHERE Anuncio.id_anuncio = '$idAnuncio';";
-                    echo $query_casa;
-                    if ($query = $link->query($query_casa)) {
-                        if($row = mysqli_fetch_array($query)) {
-                ?>
+        if(isset($_GET['id-anuncio']) && !empty($_GET['id-anuncio'])) 
+        {
+            $idAnuncio = $_GET['id-anuncio'];
+        } 
+        
+        $query_casa = "SELECT Anuncio.id_anuncio
+                        ,Anuncio.id_vivienda
+                        ,Anuncio.descripcion
+                        ,Vivienda.direccion
+                        ,Vivienda.precioDia 
+                        ,Vivienda.habitaciones
+                        ,Vivienda.aseos
+                        ,Vivienda.nombre
+                        ,Vivienda.aseos
+                        ,Vivienda.fiestas
+                        ,Vivienda.mascotas
+                        ,Vivienda.tipo
+                        ,Vivienda.id_anfitrion
+                FROM Anuncio
+                INNER JOIN Vivienda ON Anuncio.id_vivienda = Vivienda.id_viv 
+                WHERE Anuncio.id_anuncio = '$idAnuncio';";
+        if ($query = $link->query($query_casa)) {
+            if($row = mysqli_fetch_array($query)) {
+    ?>
     <div class="container-fluid mt-2 mb-3">
         <div class="row no-gutters">
             <!-- Inicio columna izquierda -->
@@ -172,8 +177,10 @@
                             <button class="btn btn-light wishlist" type="summit"><i class="fa fa-share-alt"></i></button>
                         </form>
                         <!-- FAVORITO -->
-                        <form method="GET" action="denunciar.php">
-                            <button class="btn btn-light wishlist" href="/ExpressHouse/registrar.php"><i class="fa fa-heart-o"></i></button>
+                        <form method="GET" action="/ExpressHouse/Vistas_Favorito/crearFavorito.php">
+                            <input name="id_huesped" type="hidden" value="<?= $idUsuario?>">
+                            <input name="id_anuncio" type="hidden" value="<?= $idAnuncio?>">
+                            <button class="btn btn-light wishlist" type="summit"><i class="fa fa-heart-o"></i></button>
                         </form>
                         <!-- DENUNCIAR, pasar id anuncio como parámetro -->
                         <form method="GET" action="denunciar.php">

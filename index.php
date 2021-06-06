@@ -21,7 +21,7 @@
             <option selected="selected" disabled="disabled">Buscar ciudad ...</option>
             <?php 
               // Seleccionamos el nombre de todas las ciudades con viviendas.
-              $query_cities = "SELECT nombre FROM ciudad;";
+              $query_cities = "SELECT nombre FROM ciudad  ORDER BY nombre ASC;";
               if ($query = $link->query($query_cities)) {
                 if ($query->num_rows == 0) {
                   echo "<option disabled=\"disabled\">No hay ciudades</option>";
@@ -70,7 +70,7 @@
   <!-- Inicio lista de ciudades -->
   <div class="container-fluid">
     <br>
-    <h1 id="cities-title">¿Tú próximo destino?</h2>
+    <h2 id="cities-title">¿Tú próximo destino?</h2>
     <br>
     <div class="row">
       <div class="card-deck">
@@ -82,8 +82,7 @@
               echo "<h2>No se encontro ninguna ciudad</h2>";
             } else {
                 $num_city = 0;
-                while($row = mysqli_fetch_array($query)) {
-                   
+                while($row = mysqli_fetch_array($query)) {  
                     echo get_cities_cards(utf8_encode($row[0]), $num_city);
                     $num_city += 1;
                 
@@ -137,6 +136,7 @@
               echo get_house_type_cards($house_type);
             
             }*/
+            $query->close();
           }
         ?>
       </div>
@@ -150,7 +150,7 @@
     <div class="row align-items-center">
       <div class="col-10">
         <div id="hazte-anfitrion-container" class="card">
-          <img id="hazte-anfitrion-img" class="card-img" src="img/tipo_Montana.jpg">
+          <img id="hazte-anfitrion-img" class="card-img" src="img/tipo_Montaña.jpg">
           <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
             <h1>Hazte anfitrión</h1>
             <p>Sácate un extra y abre la puerta a todo un mundo de oportunidades compartiendo tu alojamiento.</p>
