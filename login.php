@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h2 class="title">Iniciar Sesión</h2>
                 <hr>
-                <form method="POST" action="/ExpressHouse/index.php">
+                <form method="POST" action="/ExpressHouse/comprobarLogin.php">
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label class="label">Usuario</label>
