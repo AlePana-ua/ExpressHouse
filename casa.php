@@ -151,12 +151,12 @@
                                             <div class="form-row align-items-center">
                                                 <div class="col text-center">
                                                     <label for="Name">Llegada</label>
-                                                    <input id="fecha_llegada" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-llegada" value="<?= $fechaLlegada?>"/>
+                                                    <input class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha_llegada" value="<?= $fechaLlegada?>"/>
                                                 </div>
                                                 <div id="verticle-line"></div>
                                                 <div class="col text-center">
                                                     <label for="Name">Salida</label>
-                                                    <input id="fecha_salida" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-salida" value="<?= $fechaSalida?>"/>
+                                                    <input class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha_salida" value="<?= $fechaSalida?>"/>
                                                 </div>
                                                 <div class="col">
                                                     <input name="id_vivienda" type="hidden" value="<?= $row['id_vivienda'];?>">  
