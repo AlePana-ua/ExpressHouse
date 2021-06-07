@@ -48,7 +48,7 @@ $query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDi
   <div class="row">
     <div class="col-12">  
       <div class="col-md-7 col-lg-8">
-            <h4 class="mb-3">Datos del pago</h4>
+            <h4 class="mb-3">Datos del usuario</h4>
               <div class="row g-3">
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">Nombre</label>
@@ -64,27 +64,6 @@ $query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDi
                   <div class="invalid-feedback">
                     Introduzca un apellido válido
                   </div>
-                </div>
-
-                <div class="col-12">
-                  <label for="email" class="form-label">Tarjeta de crédito</label>
-                  <input type="email" class="form-control" id="tarjeta" placeholder="Nº Tarjeta crédito" required>
-                  <div class="invalid-feedback">
-                    Introduzca tarjeta de crédito válida
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <label for="address" class="form-label"> Fecha caducidad </label>
-                  <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                  <div class="invalid-feedback">
-                    Selecciona una fecha de caducidad válida.
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <label for="address2" class="form-label">CVC</label>
-                  <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" required>
                 </div>
 
                 <div class="col-6">
