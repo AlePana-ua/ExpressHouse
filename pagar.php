@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="label">CVC</label>
-                                    <input class="form-control" type="email" name="cvc">
+                                    <input class="form-control" type="text" name="cvc">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="label">Nombre</label>
