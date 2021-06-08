@@ -24,6 +24,7 @@
 ?>
         <div class="alert alert-danger alert-dismissable"> 
             <h2><strong>Error!</strong> No se pudo añadir a favoritos.</h2>
+            <p><?= $link->error ?></p>
         </div>
 <?php
     }
