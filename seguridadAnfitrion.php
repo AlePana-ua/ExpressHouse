@@ -1,5 +1,4 @@
 <?php 
-    session_start();
 
     $usuario = $_SESSION['usuario'];
     $esAnfitrion = $_SESSION['anfitrion'];
