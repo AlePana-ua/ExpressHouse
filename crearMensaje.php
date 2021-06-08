@@ -1,12 +1,13 @@
-<?php include 'header.php';
-        include "conexionBD.inc";
+<?php 
+    include 'header.php';
+    include "conexionBD.inc";
 ?>
     
 
 <?php
         $idAnfitrion = $_POST['idAnfitrion']; 
         $contenido = $_POST['message'];
-        $asunto = $_POST['asunto']
+        $asunto = $_POST['asunto'];
         $idUsuario = $_SESSION['usuario'];
         //$idAnfitrion = 3; 
         //$contenido = "Mensaje de prueba";

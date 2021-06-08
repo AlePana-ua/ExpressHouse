@@ -1,4 +1,9 @@
-<?php include 'header.php';
+<?php 
+    session_start();
+    // Título de la página
+    $pageTitle = 'Mensaje';
+    include 'header.php';
+    
     $idUsuario = $_SESSION['usuario'];
     $idAnfitrion = $_POST['idAnfitrion'];
 ?>
@@ -35,4 +40,6 @@
     </div>
 </div>
 
-<?php include 'footer.php'; ?>
+<?php 
+    include 'footer.php'; 
+?>
