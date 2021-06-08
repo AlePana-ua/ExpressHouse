@@ -1,12 +1,6 @@
-<?php 
-    session_start();
-    
-    // Titulo que se muestra en la pestaña del navegador.
-    $pageTitle = 'Registro';
+<?php include 'header.php'; include "conexionBD.inc"; ?>
 
-    include 'header.php'; 
-    include "conexionBD.inc"; 
-?>
+
 
 <div class="row h-100">
     <div class="col-sm-12 my-auto">
@@ -45,7 +39,7 @@
                         </div>
                     </div>
                     <div style="text-align: center">
-                        <input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Registrarme como anfitrion</label>
+                        <input type="checkbox" name="anfitrion" value="1" id="cbox2" value="second_checkbox"> <label for="cbox2">Registrarme como anfitrion</label>
                     </div>
                     <div style="text-align: center">
                         <input type="checkbox" name="terminos" value="1" required> Acepto los <a href="./terminos_y_condiciones.php"> términos y condiciones </a> de este servicio </input>
@@ -72,6 +66,9 @@
 
             </div>
         </div>
+
+
+
         <script>      
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap'
@@ -79,7 +76,7 @@
         </script>
     </div>
 </div>
+<?php include 'footer.php';?>
 <?php 
-    include 'footer.php';
     include "desconexionBD.inc";
 ?>
