@@ -19,12 +19,11 @@ $query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDi
   $row = mysqli_fetch_array($queryResult);
   $precio_final = $row["precioDia"] * $num_dias_reserva;
 ?>
-
-<div class="row">
-    <div class="col-6" style="padding: 20px; margin-left: 30px">
-    <h3>Solicitar una reserva</h3>
-    </div>
-</div>
+<div class="row h-100">
+    <div class="col-sm-12 my-auto">
+        <div class="card card-block w-50 mx-auto" id="tarjeta" style="border-radius: 20px 20px 20px 20px;">
+            <div class="card-body">
+            <h2 class="title" style="text-align:center;">Solicitar Reserva</h2>
 <form action="pagar.php" method="POST" class="needs-validation" novalidate>
   <input type="hidden" name="fecha_llegada" value="<?php echo $fecha_llegada?>">
   <input type="hidden" name="fecha_salida" value="<?php echo $fecha_salida?>">
@@ -40,15 +39,17 @@ $query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDi
           <h5>Huespedes</h5>
           <input type="number" min="0" name="huespedes" value="1">
 
-          <h3>PRECIO NOCHE: <?php echo $row["precioDia"]?>€</h3>
-          <h3>PRECIO TOTAL: <?php echo $precio_final?>€</h3>
+      </div>
+      <div class="col-5" style="padding: 10px; margin-left: 30px">
+        <h3>PRECIO NOCHE: <?php echo $row["precioDia"]?>€</h3>
+        <h3>PRECIO TOTAL: <?php echo $precio_final?>€</h3>
       </div>
   </div>
 
   <div class="row">
     <div class="col-12">  
       <div class="col-md-7 col-lg-8">
-            <h4 class="mb-3">Datos del pago</h4>
+            <h4 class="mb-3">Datos del usuario</h4>
               <div class="row g-3">
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">Nombre</label>
@@ -64,27 +65,6 @@ $query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDi
                   <div class="invalid-feedback">
                     Introduzca un apellido válido
                   </div>
-                </div>
-
-                <div class="col-12">
-                  <label for="email" class="form-label">Tarjeta de crédito</label>
-                  <input type="email" class="form-control" id="tarjeta" placeholder="Nº Tarjeta crédito" required>
-                  <div class="invalid-feedback">
-                    Introduzca tarjeta de crédito válida
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <label for="address" class="form-label"> Fecha caducidad </label>
-                  <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                  <div class="invalid-feedback">
-                    Selecciona una fecha de caducidad válida.
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <label for="address2" class="form-label">CVC</label>
-                  <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" required>
                 </div>
 
                 <div class="col-6">
@@ -109,16 +89,6 @@ $query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDi
               </div>
 
               <hr class="my-4">
-
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="same-address">
-                <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-              </div>
-
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="save-info">
-                <label class="form-check-label" for="save-info">Save this information for next time</label>
-              </div>
       </div>
     </div>
   </div>
@@ -129,5 +99,10 @@ $query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDi
         </div>
     </div>
 </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <?php include 'footer.php'; ?>
