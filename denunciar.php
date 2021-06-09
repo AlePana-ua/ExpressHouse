@@ -5,7 +5,7 @@
   include 'header.php'; 
 
   $idUsuario = $_SESSION['usuario'];
-  $idAnfitrion = $_POST['idAnfitrion'];
+  $idAnfitrion = $_GET['idAnfitrion'];
 ?>
  <!-- Masthead -->
 <div class="row h-100">
