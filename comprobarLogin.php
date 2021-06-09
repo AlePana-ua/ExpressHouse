@@ -44,9 +44,9 @@
                 header('Location: index.php');
             }else {
                 //Contraseña incorrecta
+                header('Location: login.php');
             }
         } else {
-    
             //En caso que el usuario sea incorrecto redireccionamos a login.php
             $_SESSION["error"]=1;
             header('Location: login.php');
