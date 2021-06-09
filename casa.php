@@ -193,9 +193,9 @@
                             <input name="id_anuncio" type="hidden" value="<?= $idAnuncio?>">
                             <button class="btn btn-light wishlist" type="summit"><i class="fa fa-heart-o"></i></button>
                         </form>
-                        <!-- DENUNCIAR, pasar id anuncio como parámetro -->
+                        <!-- DENUNCIAR, pasar id anfitrion como parámetro -->
                         <form method="GET" action="denunciar.php">
-                            <input id="id-vivienda" name="id-vivienda" type="hidden" values="'.utf8_encode($idVivienda).'">
+                            <input id="id-anfitrion" name="id-anfitrion" type="hidden" values="'.utf8_encode($idAnfitrion).'">
                             <button class="btn btn-light wishlist" href="/ExpressHouse/denunciar.php"><i class="fa fa-exclamation-triangle"></i></button>
                         </form>
                         <!-- ENVIAR MENSAJE, pasar id anfitrion como parámetro --> 
