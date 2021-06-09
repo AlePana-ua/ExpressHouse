@@ -26,7 +26,8 @@
                     FROM Factura f 
                     INNER JOIN Reserva r ON f.id_reserva = r.id_reserva 
                     INNER JOIN Anuncio a ON a.id_anuncio = r.id_anuncio
-                    INNER JOIN Vivienda v ON v.id_viv = a.id_vivienda;";
+                    INNER JOIN Vivienda v ON v.id_viv = a.id_vivienda
+                    WHERE f.id_factura = $idFactura;";
 
     if ($query = $link->query($query_factura)) {
         /*while($row = mysqli_fetch_array($query)) {
