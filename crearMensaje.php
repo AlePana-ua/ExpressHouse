@@ -5,6 +5,7 @@
     
 
 <?php
+        session_start();
         $idAnfitrion = $_POST['idAnfitrion']; 
         $contenido = $_POST['message'];
         $asunto = $_POST['asunto'];
