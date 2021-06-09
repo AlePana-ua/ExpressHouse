@@ -70,9 +70,6 @@
                 <?php
                             }else { // Opción de huésped 
                 ?>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">Ser anfitrión</a>
-                                </li>
                 <?php 
                             }
                         }else { // Opciones de administrador 
