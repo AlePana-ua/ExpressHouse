@@ -148,6 +148,7 @@
                     </thead>
                     <tbody>
                         <?php 
+                            $databaseSize = 0;
                             // Seleccionamos todas las tablas de la base de datos y mostramos su tamanyo en MB.
                             if ($query = $link->query("SELECT TABLE_NAME AS 'Table', ROUND((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024) AS 'Size (MB)' 
                                 FROM information_schema.TABLES

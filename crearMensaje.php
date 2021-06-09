@@ -1,33 +1,30 @@
 <?php 
+    session_start();
+    // Título de la página
+    $pageTitle = 'Mensaje';
+
     include 'header.php';
     include "conexionBD.inc";
-?>
-    
 
-<?php
-        session_start();
-        $idAnfitrion = $_POST['idAnfitrion']; 
-        $contenido = $_POST['message'];
-        $asunto = $_POST['asunto'];
-        $idUsuario = $_SESSION['usuario'];
-        //$idAnfitrion = 3; 
-        //$contenido = "Mensaje de prueba";
-        //$asunto = "Esto es un asunto";
-        //$idUsuario = 2;
-        $query_insert = "INSERT INTO Mensaje (asunto, contenido, emisor, receptor) VALUES ('".$asunto."', '".$contenido."', '".$idUsuario."', '".$idAnfitrion."')";
-        
-        
-        if($query=$link -> query($query_insert)){
+    $idAnfitrion = $_POST['idAnfitrion']; 
+    $contenido = $_POST['message'];
+    $asunto = $_POST['asunto'];
+    $idUsuario = $_SESSION['idUsuario'];
+
+    $query_insert = "INSERT INTO Mensaje (asunto, contenido, emisor, receptor) VALUES ('".$asunto."', '".$contenido."', '".$idUsuario."', '".$idAnfitrion."')";
+    
+    echo $query_insert;
+    if($query=$link -> query($query_insert)){
 ?> 
-            <div class="alert alert-success alert-dismissable">
-                <h2><strong>Mensaje enviado correctamente</strong></h2>
-            </div>
+        <div class="alert alert-success alert-dismissable">
+            <h2><strong>Mensaje enviado correctamente</strong></h2>
+        </div>
 <?php
     }else{
-        echo $link -> error;
-        ?>
+?>
         <div class="alert alert-danger alert-dismissable">
             <h2><strong>El mensaje no se ha podido enviar.</strong></h2>
+            <p><?= $link->error ?></p>
         </div>
 <?php
     }
@@ -45,6 +42,5 @@ function cargar(){
 
 <?php 
     include "desconexionBD.inc";
+    include 'footer.php';
 ?>
-
-<?php include 'footer.php';?>

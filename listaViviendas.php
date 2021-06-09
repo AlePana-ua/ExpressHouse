@@ -60,10 +60,10 @@
 					$destino = $_POST['destino'];
 					$query_casas .= " AND c.nombre='$destino'";
 				}else {
-					$destino = 'Alicante';
-					$query_casas .= " AND c.nombre='".$destino."'";
+					$destino = 'España';
+					$query_casas .= " AND c.pais='".$destino."'";
 				}
-
+				
 				//Si se selecciono el tipo de vivienda filtramos la busqueda. 
 				// Si se accede a traves del tipo de casa (p.e Playa)
 				if(isset($_POST['zona-casa']) && !empty($_POST['zona-casa']) && ('Zona' != $_POST['zona-casa'])) {
@@ -75,8 +75,8 @@
 
 				// Cerramos la consulta.
 				$query_casas .= ";";
-
-				//echo $query_casas;
+				
+				echo $query_casas;
 
 				// Mostramos las casas que cumplen con los criterios de busqueda.
 				if ($query1 = $link->query($query_casas)) {

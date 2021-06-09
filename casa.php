@@ -49,6 +49,7 @@
                 WHERE a.id_anuncio = '$idAnuncio';";
         if ($query = $link->query($query_casa)) {
             if($row = mysqli_fetch_array($query)) {
+                $idAnfitrion = $row['id_anfitrion'];
     ?>
     <div class="container-fluid mt-2 mb-3">
         <div class="row no-gutters">
@@ -195,12 +196,12 @@
                         </form>
                         <!-- DENUNCIAR, pasar id anfitrion como parámetro -->
                         <form method="GET" action="denunciar.php">
-                            <input id="id-anfitrion" name="id-anfitrion" type="hidden" values="'.utf8_encode($idAnfitrion).'">
+                            <input id="id-anfitrion" name="id-anfitrion" type="hidden" value="'<?= $idAnfitrion?>.'">
                             <button class="btn btn-light wishlist" href="/ExpressHouse/denunciar.php"><i class="fa fa-exclamation-triangle"></i></button>
                         </form>
                         <!-- ENVIAR MENSAJE, pasar id anfitrion como parámetro --> 
                         <form method="GET" action="mensaje.php">
-                            <input id="id-anfitrion" name="id-anfitrion" type="hidden" values="'.utf8_encode($idAnfitrion).'">
+                            <input id="id-anfitrion" name="id-anfitrion" type="hidden" value="<?= $idAnfitrion ?>">
                             <button class="btn btn-light wishlist" href="/ExpressHouse/mensaje.php"><i class="fa fa-envelope-o"></i></button>
                         </form>
                     </div>
