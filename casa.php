@@ -60,7 +60,7 @@
                     <div class="demo">
                         <ul id="lightSlider">
                         <?php
-                            $imagenes = glob($row['foto']."*");
+                            $imagenes = glob($row['foto']."/*.*");
                             sort($imagenes);
                             if(count($imagenes) > 0){
                                 foreach($imagenes as $image) {

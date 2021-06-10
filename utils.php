@@ -104,10 +104,13 @@
     function get_house_cards($idAnuncio, $foto, $nombre, $descripcion, $ubicacion, 
 							 $precioDia, $dormitorios, $aseos, $numHuespedes, $fechaInicio, $fechaFin){
 		//Extraemos la primera imagen del directorio
-		$imagenes = glob($foto."*");
+		$imagenes = glob($foto."/*.*");
 		sort($imagenes);
+		
 		if(count($imagenes) > 0){
 			$img = $imagenes[0];
+			echo $img;
+			//echo '<img class="img-fluid img-responsive rounded product-image" src="./imagenes_casas/defecto/1/C.jpg">';
 		}else {
 			// En caso de error muestra una imagen por defecto.
 			$img = 'img/Alicante.jpg';
