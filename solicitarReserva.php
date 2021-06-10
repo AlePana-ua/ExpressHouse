@@ -1,11 +1,11 @@
 <?php
+  session_start();
 
   $pageTitle = 'Reservar';
   include 'header.php';
   include "conexionBD.inc";
   include 'seguridad.php';
 
-  session_start();
   $fecha_llegada = isset($_GET["fecha_llegada"]) ? $_GET["fecha_llegada"] : "";
   $fecha_salida = isset($_GET["fecha_salida"]) ? $_GET["fecha_salida"] : "";
   $id_vivienda = isset($_GET["id_vivienda"]) ? $_GET["id_vivienda"] : "";

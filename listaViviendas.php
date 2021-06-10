@@ -76,7 +76,7 @@
 				// Cerramos la consulta.
 				$query_casas .= "LIMIT 15;";
 				
-				echo $query_casas;
+				//echo $query_casas;
 
 				// Mostramos las casas que cumplen con los criterios de busqueda.
 				if ($query1 = $link->query($query_casas)) {
