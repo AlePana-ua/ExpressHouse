@@ -1,6 +1,8 @@
-<?php $pageTitle = 'Registrar'; include 'header.php'; include "conexionBD.inc";  ?>
-
-
+<?php 
+    $pageTitle = 'Registrar';
+    include 'header.php'; 
+    include "conexionBD.inc";  
+?>
 
 <div class="row h-100">
     <div class="col-sm-12 my-auto">
@@ -66,8 +68,6 @@
 
             </div>
         </div>
-
-
 
         <script>      
         $('#datepicker').datepicker({

@@ -3,6 +3,7 @@
   $pageTitle = 'Reservar';
   include 'header.php';
   include "conexionBD.inc";
+  include 'seguridad.php';
 
   session_start();
   $fecha_llegada = isset($_GET["fecha_llegada"]) ? $_GET["fecha_llegada"] : "";

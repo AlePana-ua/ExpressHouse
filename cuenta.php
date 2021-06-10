@@ -1,9 +1,12 @@
 <?php 
-$pageTitle = 'Perfil';
-session_start();
-include 'header.php'; 
-include 'utils.php';
-include "conexionBD.inc";
+  session_start();
+  $pageTitle = 'Perfil';
+
+  include "seguridad.php";
+  include 'header.php'; 
+  include 'utils.php';
+  include "conexionBD.inc";
+
 
 
 

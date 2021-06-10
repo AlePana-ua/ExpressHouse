@@ -1,22 +1,18 @@
 <?php
+    session_start();
+    
     $pageTitle = 'Denuncia';
     include 'header.php';
-        include "conexionBD.inc";
-?>
-    
-
-<?php
-        session_start();
+    include "conexionBD.inc";
+    include 'seguridad.php';
+        
         $idAnfitrion = $_POST['idAnfitrion']; 
         $descripcion = $_POST['descripcion'];
-        $motivo = $_POST['motivo']
+        $motivo = $_POST['motivo'];
         $idUsuario = $_SESSION['usuario'];
-        //$idAnfitrion = 3; 
-        //$descripcion = "denuncia de prueba";
-        //$motivo = "Esto es un motivo";
-        //$idUsuario = 2;
-        //$query_insert = "INSERT INTO Denuncia (id_huesped, id_anfitrion, motivo, descripcion) VALUES ('".$idUsuario."', '".$idAnfitrion."', '".$motivo."', '".$descripcion."')";
         
+        $query_insert = "INSERT INTO Denuncia (id_huesped, id_anfitrion, motivo, descripcion) 
+                         VALUES ('".$idUsuario."', '".$idAnfitrion."', '".$motivo."', '".$descripcion."')";    
         
         if($query=$link -> query($query_insert)){
 ?> 

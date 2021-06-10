@@ -1,10 +1,11 @@
 <?php
-
+    session_start();
+    
     $pageTitle = 'Reserva';
     include 'header.php';
+    include 'seguridad.php';
     include "conexionBD.inc";
 
-    session_start();
 
     $done = false;
     $fecha_llegada = isset($_POST["fecha_llegada"]) ? $_POST["fecha_llegada"] : "";

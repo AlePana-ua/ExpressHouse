@@ -4,7 +4,8 @@
     $pageTitle = 'Mensaje';
 
     include 'header.php';
-
+    include 'seguridad.php';
+    
     $idAnfitrion = $_GET['id-anfitrion'];
 ?>
 

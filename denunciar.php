@@ -2,7 +2,9 @@
   session_start();
   // Título de la página
   $pageTitle = 'Denuncia';
-  include 'header.php'; 
+  
+  include 'header.php';
+  include 'seguridad.php'; 
 
   $idUsuario = $_SESSION['usuario'];
   $idAnfitrion = $_GET['idAnfitrion'];
