@@ -6,8 +6,7 @@
     
     include 'header.php';
     include "conexionBD.inc"; 
-    include 'utils.php';
-    
+    include 'utils.php';  
 ?>
 
 <!-- Inicio Buscador -->

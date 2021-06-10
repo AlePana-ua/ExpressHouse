@@ -39,7 +39,6 @@
             $direccion = $row['domiciliofiscal'];
             $metodoPago = $row['metodopago'];
             $importeTotal = $row['importe_total'];
-
             $fechaInicio = $row['fecha_inicio'];
             $fechaFin = $row['fecha_final'];
             $numHuespedes = $row['numero_huespedes'];
@@ -54,7 +53,9 @@
             
             $importeIVA = $importeTotal - $importeSinIVA;
         
-            $xml = "<?xml version=\"1.0\"  encoding=\"UTF-8\" standalone=\"no\"?><?xml-stylesheet href=\"./xml_files/gi_expresshouse.xsl\" type=\"text/xsl\" ?> <!DOCTYPE factura SYSTEM \"./xml_files/gi_expresshouse.dtd\">";
+            $xml = "<?xml version=\"1.0\"  encoding=\"UTF-8\" standalone=\"no\"?>
+                    <?xml-stylesheet href=\"./xml_files/gi_expresshouse.xsl\" type=\"text/xsl\" ?> 
+                    <!DOCTYPE factura SYSTEM \"./xml_files/gi_expresshouse.dtd\">";
 
             $xml .= "<factura>";
             $xml .= "<datos_empresa>".$datosEmpresa."</datos_empresa>";

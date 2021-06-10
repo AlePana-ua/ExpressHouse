@@ -6,9 +6,6 @@
     include "seguridadAdmin.php";
     include "conexionBD.inc";
     include 'header.php';
-    
-    
-    
 ?>
 <br>
 <!-- Vista exclusiva para el administrador -->
@@ -172,9 +169,77 @@
         </div>
         <!-- Tamaño de la base de datos -->
         <div class="col-12 col-sm-6">
-            <div class="table-responsive db-data" align="center">
-                <h2 class="db-data-font"><?php echo $databaseSize; ?> MB</h2>
-                <h1 class="db-data-font">Tamaño base de datos</h1>
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <div class="db-data" align="center">
+                        <?php
+                            // Obtenemos los nombres de las tablas de la BD.
+                            if ($query = $link->query("SELECT COUNT(*) FROM Marcar_favorito;")) {
+                                $totalResenas = 0;
+                                while($row = mysqli_fetch_array($query)) {
+                                    $totalResenas = $row[0];
+                                }
+                            }
+                        ?>
+                        <h2 class="db-data-font"><?php echo $totalResenas;?><span class="material-icons md-48">star</span></h2>
+                        <h1 class="db-data-font">Favoritos</h1>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <div class="db-data" align="center">
+                        <?php
+                            // Obtenemos los nombres de las tablas de la BD.
+                            if ($query = $link->query("SELECT COUNT(*) FROM Mensaje;")) {
+                                $totalResenas = 0;
+                                while($row = mysqli_fetch_array($query)) {
+                                    $totalResenas = $row[0];
+                                }
+                            }
+                        ?>
+                        <h2 class="db-data-font"><?php echo $totalResenas;?><span class="material-icons md-48">message</span></h2>
+                        <h1 class="db-data-font">Mensaje</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <div class="db-data" align="center">
+                        <?php
+                            // Obtenemos los nombres de las tablas de la BD.
+                            if ($query = $link->query("SELECT COUNT(*) FROM Factura;")) {
+                                $totalResenas = 0;
+                                while($row = mysqli_fetch_array($query)) {
+                                    $totalResenas = $row[0];
+                                }
+                            }
+                        ?>
+                        <h2 class="db-data-font"><?php echo $totalResenas;?><span class="material-icons md-48">receipt</span></h2>
+                        <h1 class="db-data-font">Facturas</h1>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <div class="db-data" align="center">
+                        <?php
+                            // Obtenemos los nombres de las tablas de la BD.
+                            if ($query = $link->query("SELECT COUNT(*) FROM Reserva;")) {
+                                $totalResenas = 0;
+                                while($row = mysqli_fetch_array($query)) {
+                                    $totalResenas = $row[0];
+                                }
+                            }
+                        ?>
+                        <h2 class="db-data-font"><?php echo $totalResenas;?><span class="material-icons md-48">bookmark_border</span></h2>
+                        <h1 class="db-data-font">Reserva</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <div class="table-responsive db-data" align="center">
+                        <h2 class="db-data-font"><?php echo $databaseSize; ?> MB</h2>
+                        <h1 class="db-data-font">Tamaño base de datos</h1>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

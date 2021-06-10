@@ -53,12 +53,12 @@
 								FROM Anuncio a
 								INNER JOIN Vivienda v ON a.id_vivienda = v.id_viv
 								INNER JOIN ciudad c ON c.id_ciudad = v.id_ciudad
-								WHERE a.minimo_de_dias <= '$numDias' ";
+								WHERE a.minimo_de_dias <= '$numDias'";
 
 				// Si no se realiza la busqueda en una ciudad, mostramos la lista de casa de España.
 				if(isset($_POST['destino']) && !empty($_POST['destino'])) {
 					$destino = $_POST['destino'];
-					$query_casas .= " AND c.nombre='$destino'";
+					$query_casas .= " AND c.nombre='".utf8_decode($destino)."'";
 				}else {
 					$destino = 'España';
 					$query_casas .= " AND c.pais='".$destino."'";
@@ -74,7 +74,7 @@
 				}
 
 				// Cerramos la consulta.
-				$query_casas .= ";";
+				$query_casas .= "LIMIT 15;";
 				
 				//echo $query_casas;
 
@@ -89,7 +89,7 @@
 						
 						<div class="d-flex justify-content-start">
 							<select id="btn-filtros" class="btn" name="destino">
-								<option selected="selected" value=<?=$destino?>> <?= $destino?> </option>
+								<option selected="selected" value=<?=utf8_decode($destino)?>> <?= utf8_decode($destino)?> </option>
 								<?php 
 								// Seleccionamos el nombre de todas las ciudades con viviendas.
 								if ($query = $link->query($query_cities)) {
