@@ -1,4 +1,4 @@
-<?php include 'header.php'; $pageTitle = 'Terms and Conditions'; ?>
+<?php $pageTitle = 'Terms and Conditions'; include 'header.php';  ?>
 
 <div class="row h-100">
             <h2>Términos y Condiciones </h2>

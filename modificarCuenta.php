@@ -1,9 +1,10 @@
 <?php 
     session_start();
+
+    $pageTitle = 'Perfil';
     include "conexionBD.inc";
     include 'seguridad.php';
-    include 'header.php';
-    $pageTitle = 'Perfil'; 
+    include 'header.php'; 
     
     $idBuscar = $_SESSION['usuario'];
     $queryID = $link->query("SELECT * FROM Usuario WHERE correo = '".$idBuscar."';"); 

@@ -1,9 +1,9 @@
 <?php
+
+    $pageTitle = 'Pagar';
     include 'header.php';
     include "conexionBD.inc";
 
-    $pageTitle = 'Pagar';
-    
     $fecha_llegada = isset($_POST["fecha_llegada"]) ? $_POST["fecha_llegada"] : "";
     $fecha_salida = isset($_POST["fecha_salida"]) ? $_POST["fecha_salida"] : "";
     $id_anuncio = isset($_POST["id_anuncio"]) ? $_POST["id_anuncio"] : "";

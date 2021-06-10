@@ -1,4 +1,6 @@
-<?php include 'header.php';
+<?php
+    $pageTitle = 'Denuncia';
+    include 'header.php';
         include "conexionBD.inc";
 ?>
     

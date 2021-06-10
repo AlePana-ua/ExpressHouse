@@ -1,4 +1,4 @@
-<?php include 'header.php'; include "conexionBD.inc"; $pageTitle = 'Registrar'; ?>
+<?php $pageTitle = 'Registrar'; include 'header.php'; include "conexionBD.inc";  ?>
 
 
 
