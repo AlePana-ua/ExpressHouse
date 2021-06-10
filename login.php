@@ -1,4 +1,9 @@
-<?php include 'header.php'; ?>
+<?php 
+    
+    $pageTitle = 'Login';
+    include 'header.php';
+?>
+
 
 <div class="row h-100">
     <div class="col-sm-12 my-auto">

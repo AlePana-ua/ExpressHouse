@@ -1,5 +1,6 @@
 <?php
     include "conexionBD.inc";
+    $pageTitle = 'Compartir';
 
     if(isset($_POST['idAnuncio']) && isset($_POST['redSocial'])){
         $idAnuncio = $_POST['idAnuncio'];

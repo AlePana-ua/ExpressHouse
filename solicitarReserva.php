@@ -1,6 +1,8 @@
 <?php
   include 'header.php';
   include "conexionBD.inc";
+
+  $pageTitle = 'Realizar reserva';
   session_start();
   $fecha_llegada = isset($_GET["fecha_llegada"]) ? $_GET["fecha_llegada"] : "";
   $fecha_salida = isset($_GET["fecha_salida"]) ? $_GET["fecha_salida"] : "";

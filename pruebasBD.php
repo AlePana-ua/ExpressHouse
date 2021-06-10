@@ -2,6 +2,8 @@
 
     #########PARA HACER PRUEBAS Y MEDICIONES EN LA BD####################################
 
+  $pageTitle = 'Login';
+
   $numrepeticiones=100;
   $sqlProbar = "SELECT  a.id_anuncio
 										,a.id_vivienda

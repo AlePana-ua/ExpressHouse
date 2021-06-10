@@ -1,6 +1,8 @@
 <?php
     include 'header.php';
     include "conexionBD.inc";
+
+    $pageTitle = 'Realizar Reserva';
     session_start();
 
     $done = false;

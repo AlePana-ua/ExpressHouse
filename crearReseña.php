@@ -1,5 +1,7 @@
 <?php include 'header.php';
-    include "conexionBD.inc"; ?>
+    include "conexionBD.inc";
+    $pageTitle = 'Reseña';
+    ?>
  <!-- Masthead -->
 <div class="row h-100">
   <div class="col-sm-12 my-auto">
