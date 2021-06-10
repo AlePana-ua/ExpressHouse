@@ -2,7 +2,7 @@
     $pageTitle = 'Reseña';
     include 'header.php';
     include "conexionBD.inc";
-    
+
     ?>
  <!-- Masthead -->
 <div class="row h-100">
