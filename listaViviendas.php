@@ -21,6 +21,17 @@
 		$fecha_salida = Date('m/d/Y', strtotime('+5 days'));
 	}
 
+	// Comprobamos en que página de la lista estamos. 
+    if(isset($_GET['page'])) {
+        $page = $_GET['page'];
+    }else {
+        $page = 1;
+    }
+    // Cantidad de anuncios por página.
+    $resultados_por_pagina = 75;
+    // Número de página donde comenzar la nueva query 
+    $start_from = ($page-1) * $resultados_por_pagina;
+
 	// Lista de ciudades
 	$query_cities = "SELECT nombre FROM ciudad ORDER BY nombre ASC;";
 
@@ -32,11 +43,11 @@
 ?>
 
 <br>
-<div class="container-fluid h-100">
+<div class="container-fluid h-content">
 	<div class="row">
 		<div class="col-sm-12">
 			<?php require_once 'utils.php';
-				
+
 				// Obtenemos el número de dias entre las fechas.
 				$numDias = get_days_between_dates($fecha_llegada, $fecha_salida);
 
@@ -74,7 +85,7 @@
 				}
 
 				// Cerramos la consulta.
-				$query_casas .= "LIMIT 15;";
+				$query_casas .= "LIMIT $start_from, $resultados_por_pagina;";
 				
 				//echo $query_casas;
 
@@ -82,7 +93,7 @@
 				if ($query1 = $link->query($query_casas)) {
 					echo '<p>Mostrando '.$query1->num_rows.' resultados <span>&#183;</span> '.$fecha_llegada.' - '.$fecha_salida.' </p>';
 					echo '<h2>Viviendas en '.utf8_decode($destino).'</h2>';
-?>					
+			?>					
 					<br>
 					<!-- Lista de filtros -->
 					<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -148,6 +159,31 @@
 					echo $link->error;
 				}
 			?>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<!-- Lista de páginas con anuncios -->
+			<div class="row d-flex justify-content-center">
+            <?php
+                $query_paginas = "SELECT COUNT(a.id_anuncio) as total
+								  FROM Anuncio a
+								  INNER JOIN Vivienda v ON a.id_vivienda = v.id_viv
+								  INNER JOIN ciudad c ON c.id_ciudad = v.id_ciudad
+								  WHERE a.minimo_de_dias <= '$numDias';";
+                if($query2 = $link->query($query_paginas)){
+                    while($row = mysqli_fetch_array($query2)) {
+                        // Calculamos el número de páginas para mostrar la información
+                        $total_pages = ceil( $row['total']/ $resultados_por_pagina);
+                    }
+                    for($i=1; $i<=$total_pages ;$i++) {
+                        //echo "<a href=\"listaViviendas.php?page=$i\">$i&nbsp</a>&#183";
+                    }
+                }else {
+                    echo $link->error;
+                }
+            ?>
+        	</div>
 		</div>
 	</div>
 </div>

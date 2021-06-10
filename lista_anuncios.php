@@ -13,7 +13,7 @@
     }else {
         $page = 1;
     }
-    // Cantidad de usuarios por página.
+    // Cantidad de anuncios por página.
     $resultados_por_pagina = 250;
     // Número de página donde comenzar la nueva query 
     $start_from = ($page-1) * $resultados_por_pagina;
