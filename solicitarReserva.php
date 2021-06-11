@@ -42,7 +42,7 @@ $query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDi
             <a class="btn btn-primary" href="casa.php?id-anuncio=<?php echo $id_anuncio?>">Editar</a>
           </p>
           <h5>Huespedes</h5>
-          <input type="number" min="0" name="huespedes" value="1">
+          <input type="number" min="1" name="huespedes" value="1">
 
       </div>
       <div class="col-5" style="padding: 10px; margin-left: 30px">
@@ -86,7 +86,7 @@ $query = "SELECT Anuncio.id_anuncio as id_anuncio,Vivienda.precioDia as precioDi
 
                 <div class="col-6">
                   <label for="zip" class="form-label">Código postal</label>
-                  <input type="text" class="form-control" id="zip" placeholder="" required>
+                  <input type="number" class="form-control" id="zip" placeholder="" required>
                   <div class="invalid-feedback">
                     El código postal es necesario.
                   </div>
