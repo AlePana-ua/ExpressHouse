@@ -7,8 +7,9 @@
         $apellido = $_POST['apellido'];
         $correo = $_POST['correo'];
         $contraseña = $_POST['contraseña'];
+        $email_comprobacion=NULL;
 
-    $comprobacion="SELECT correo FROM Usuario WHERE correo='$correo' AND nombre='$nombre';";
+    $comprobacion="SELECT correo FROM Usuario WHERE correo='$correo';";
                     if($query = $link->query($comprobacion  )){
                         if($row = mysqli_fetch_array($query)){
                             $email_comprobacion  = $row['correo'];
@@ -21,7 +22,7 @@
     if($email_comprobacion == NULL){
 
 
-        if(isset($_POST['anditrion']) && $_POST['anfitrion'] == 1){
+        if(isset($_POST['anfitrion']) && $_POST['anfitrion'] == 1){
 
                 if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['correo']) || empty($_POST['contraseña'])){
         ?>      
@@ -102,13 +103,12 @@
         }
 }
 else{
-      ?>            
-                    <div class="alert alert-danger alert-dismissable">
-                        <h2><strong>Usuario ya existente</h2>
-                    </div>
-            <?php
-}
-            
+?>            
+        <div class="alert alert-danger alert-dismissable">
+            <h2><strong>Usuario ya existente</h2>
+        </div>
+<?php
+}            
 ?>
 
 <?php 
