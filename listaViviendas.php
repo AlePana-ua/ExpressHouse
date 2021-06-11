@@ -8,15 +8,15 @@
 	include "conexionBD.inc"; 
 
 	// Si no se especifica una fecha de llegada se selecciona la fecha actual.
-	if(isset($_POST['fecha-llegada']) && !empty($_POST['fecha-llegada'])) {
-		$fecha_llegada = $_POST['fecha-llegada'];
+	if(isset($_GET['fecha-llegada']) && !empty($_GET['fecha-llegada'])) {
+		$fecha_llegada = $_GET['fecha-llegada'];
 	}else {
 		$fecha_llegada = date("m/d/Y");
 	}
 
 	// Si no se especifica una fecha de salida se selecciona la fecha actual mas 4 días.
-	if(isset($_POST['fecha-salida']) && !empty($_POST['fecha-salida'])){
-		$fecha_salida = $_POST['fecha-salida'];
+	if(isset($_GET['fecha-salida']) && !empty($_GET['fecha-salida'])){
+		$fecha_salida = $_GET['fecha-salida'];
 	}else {
 		$fecha_salida = Date('m/d/Y', strtotime('+5 days'));
 	}
@@ -28,7 +28,7 @@
         $page = 1;
     }
     // Cantidad de anuncios por página.
-    $resultados_por_pagina = 75;
+    $resultados_por_pagina = 25;
     // Número de página donde comenzar la nueva query 
     $start_from = ($page-1) * $resultados_por_pagina;
 
@@ -67,9 +67,9 @@
 								WHERE a.minimo_de_dias <= '$numDias'";
 
 				// Si no se realiza la busqueda en una ciudad, mostramos la lista de casa de España.
-				if(isset($_POST['destino']) && !empty($_POST['destino'])) {
-					$destino = $_POST['destino'];
-					$query_casas .= " AND c.nombre='".utf8_decode($destino)."'";
+				if(isset($_GET['destino']) && !empty($_GET['destino'])) {
+					$destino = $_GET['destino'];
+					$query_casas .= " AND c.nombre='".$destino."'";
 				}else {
 					$destino = 'España';
 					$query_casas .= " AND c.pais='".$destino."'";
@@ -77,30 +77,29 @@
 				
 				//Si se selecciono el tipo de vivienda filtramos la busqueda. 
 				// Si se accede a traves del tipo de casa (p.e Playa)
-				if(isset($_POST['zona-casa']) && !empty($_POST['zona-casa']) && ('Zona' != $_POST['zona-casa'])) {
-					$tipoCasa = $_POST['zona-casa'];
+				if(isset($_GET['zona-casa']) && !empty($_GET['zona-casa']) && ('Zona' != $_GET['zona-casa'])) {
+					$tipoCasa = $_GET['zona-casa'];
 					$query_casas .= " AND v.zona = '$tipoCasa'";
 				}else {
 					$tipoCasa = "Zona";
 				}
 
 				// Cerramos la consulta.
-				$query_casas .= "LIMIT $start_from, $resultados_por_pagina;";
+				$query_casas .= " LIMIT $start_from, $resultados_por_pagina;";
 				
 				//echo $query_casas;
 
 				// Mostramos las casas que cumplen con los criterios de busqueda.
 				if ($query1 = $link->query($query_casas)) {
 					echo '<p>Mostrando '.$query1->num_rows.' resultados <span>&#183;</span> '.$fecha_llegada.' - '.$fecha_salida.' </p>';
-					echo '<h2>Viviendas en '.utf8_decode($destino).'</h2>';
+					echo '<h2>Viviendas en '.$destino.'</h2>';
 			?>					
 					<br>
 					<!-- Lista de filtros -->
-					<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-						
+					<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">	
 						<div class="d-flex justify-content-start">
 							<select id="btn-filtros" class="btn" name="destino">
-								<option selected="selected" value=<?=utf8_decode($destino)?>> <?= utf8_decode($destino)?> </option>
+								<option selected="selected" value="<?=$destino?>"> <?= $destino?> </option>
 								<?php 
 								// Seleccionamos el nombre de todas las ciudades con viviendas.
 								if ($query = $link->query($query_cities)) {
@@ -117,7 +116,7 @@
 							</select>
 							<span>&nbsp;</span>
 							<select id="btn-filtros" class="btn" name="zona-casa">
-								<option selected="selected" value=<?= $tipoCasa?>> <?= $tipoCasa ?> </option>
+								<option selected="selected" value="<?= $tipoCasa ?>"> <?= $tipoCasa ?> </option>
 								<?php 
 								// Seleccionamos zonas con viviendas.
 								if ($query = $link->query($query_zones)) {
@@ -170,14 +169,24 @@
 								  FROM Anuncio a
 								  INNER JOIN Vivienda v ON a.id_vivienda = v.id_viv
 								  INNER JOIN ciudad c ON c.id_ciudad = v.id_ciudad
-								  WHERE a.minimo_de_dias <= '$numDias';";
+								  WHERE a.minimo_de_dias <= '$numDias' AND c.nombre='$destino'";
+
+				if($destino != 'España') {
+					$query_paginas .= " AND c.nombre='".$destino."'";
+				}else {
+					$query_paginas .= " AND c.pais='".$destino."'";
+				}
+				if($tipoCasa != 'Zona') {
+					$query_paginas .= " AND v.zona = '$tipoCasa'";
+				}
+
                 if($query2 = $link->query($query_paginas)){
                     while($row = mysqli_fetch_array($query2)) {
                         // Calculamos el número de páginas para mostrar la información
                         $total_pages = ceil( $row['total']/ $resultados_por_pagina);
                     }
                     for($i=1; $i<=$total_pages ;$i++) {
-                        //echo "<a href=\"listaViviendas.php?page=$i\">$i&nbsp</a>&#183";
+                        echo "<a href=\"listaViviendas.php?page=$i&fecha-llegada=$fecha_llegada&fecha-salida=$fecha_salida&destino=$destino&zona-casa=$tipoCasa\">$i&nbsp</a>&#183";
                     }
                 }else {
                     echo $link->error;

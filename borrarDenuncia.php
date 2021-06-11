@@ -1,4 +1,5 @@
 <?php
+    session_start();
     // Titulo de la página
     $pageTitle = 'Eliminar Denuncia'; 
 

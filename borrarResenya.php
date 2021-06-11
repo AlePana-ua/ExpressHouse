@@ -1,4 +1,5 @@
 <?php
+    session_start();
     // Título de la página
     $pageTitle = 'Eliminar usuario';
 

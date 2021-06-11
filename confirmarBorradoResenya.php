@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include "conexionBD.inc";
     include "seguridadAdmin.php";
     $pageTitle = 'Eliminar usuario'; 
