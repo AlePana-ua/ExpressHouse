@@ -22,10 +22,11 @@
         echo "SELECT Error:";
         echo $link->error;
     }*/
-    /*$query_usuarios = "SELECT correo, contrasenya FROM Usuario;";
+    /*
+    $query_usuarios = "SELECT correo, contrasenya FROM Usuario;";
    
     $encryptPasswd = password_hash('12345', PASSWORD_DEFAULT,[10]);
-    $query_update = "UPDATE Usuario SET contrasenya='".$encryptPasswd."' WHERE id_user >= 500000 AND id_user < 600000 AND contrasenya='12345';";
+    $query_update = "UPDATE Usuario SET contrasenya='".$encryptPasswd."' WHERE id_user >= 400000 AND id_user < 600000 AND contrasenya='12345';";
     if($query = $link->query($query_update)){
         echo "Fin";
     }else {
