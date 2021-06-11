@@ -7,9 +7,6 @@
   include 'utils.php';
   include "conexionBD.inc";
 
-
-
-
 $queryUSER = $link ->query("SELECT id_user  ,foto,nombre FROM Usuario WHERE correo = '".$_SESSION["usuario"]."' ");
 if($row = mysqli_fetch_array($queryUSER))
 {
@@ -28,7 +25,11 @@ $nResenyas = mysqli_fetch_array($query_cResenyas)[0];
 <div class="container-fluid">
   <div class="row">
     <div class="card" style="margin-left: 5%; margin-top: 1%;">
-    <img style="vertical-align: middle; width: 100px; height: 100px; border-radius: 50%;" src="data:image;base64,<?=$foto?>">
+    <?php if($foto != null){ ?>
+      <img style="vertical-align: middle; width: 100px; height: 100px; border-radius: 50%;" src="data:image;base64,<?=$foto?>">
+    <?php }else {?>
+      <img style="vertical-align: middle; width: 100px; height: 100px; border-radius: 50%;" src="./img/profile_default.png">
+    <?php }?>  
       <div>
         <p></p>
         <?php
@@ -38,7 +39,7 @@ $nResenyas = mysqli_fetch_array($query_cResenyas)[0];
               <li><a href="listaMensajes.php".">Mis mensajes</a></li>
               <li><a href="listaViviendasAnf.php">Mis viviendas</a></li>
               <li><a href="listaDenuncias.php">Mis denuncias</a></li>
-              <li><a href="listaResenyas.php">Mis facturas</a></li>
+              <li><a href="listarResenya.php">Mis Reseñas</a></li>
             </ul>';
           }else{
             echo '<ul style="">
