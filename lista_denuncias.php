@@ -12,7 +12,7 @@
     }else {
         $page = 1;
     }
-    $resultados_por_pagina = 20;
+    $resultados_por_pagina = 250;
     $start_from = ($page-1) * $resultados_por_pagina;
 ?>
 

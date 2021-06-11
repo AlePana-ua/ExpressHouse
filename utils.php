@@ -22,7 +22,7 @@
 	 * @return String Con código HTML de la opción.
 	 */
 	function get_id_list_of_cities($idCiudad, $ciudad){
-		echo '<option value="'.$idCiudad.'">'.$ciudad.'</option>';
+		echo '<option value="'.$idCiudad.'">'.utf8_decode($ciudad).'</option>';
 	}
 
 	/**
@@ -56,7 +56,7 @@
 					<div id="type-card" class="card">
 						<img id="city-card-img" class="card-img" src="img/landscape_'.$num.'.jpg">
 						<div class="card-body">
-							<form action="listaViviendas.php" method="POST">
+							<form action="listaViviendas.php" method="GET">
 								<h3 class="card-title">'.utf8_decode($city).'</h3>		
 								<input type="hidden" name="destino" value="'.$city.'">
 								<button type="submit" class="btn btn-listas">Ver</button>
@@ -80,7 +80,7 @@
 					<div id="type-card" class="card">
 						<img id="type-card-img" class="card-img" src="img/tipo_'.$type.'.jpg">
 						<div class="card-body">
-							<form action="listaViviendas.php" method="POST">
+							<form action="listaViviendas.php" method="GET">
 								<h3 class="card-title">'.$type.'</h3>
 								<input type="hidden" name="zona-casa" value="'.$type.'">
 								<button type="submit" class="btn btn-listas">Ver</button>
@@ -104,8 +104,9 @@
     function get_house_cards($idAnuncio, $foto, $nombre, $descripcion, $ubicacion, 
 							 $precioDia, $dormitorios, $aseos, $numHuespedes, $fechaInicio, $fechaFin){
 		//Extraemos la primera imagen del directorio
-		$imagenes = glob($foto."*");
+		$imagenes = glob($foto."/*.*");
 		sort($imagenes);
+		
 		if(count($imagenes) > 0){
 			$img = $imagenes[0];
 		}else {

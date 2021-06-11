@@ -1,6 +1,13 @@
-<?php include 'header.php'; 
-    $idUsuario = $_SESSION['usuario'];
-    $idAnfitrion = $_POST['idAnfitrion'];
+<?php 
+  session_start();
+  // Título de la página
+  $pageTitle = 'Denuncia';
+  
+  include 'header.php';
+  include 'seguridad.php'; 
+
+  $idUsuario = $_SESSION['usuario'];
+  $idAnfitrion = $_GET['idAnfitrion'];
 ?>
  <!-- Masthead -->
 <div class="row h-100">

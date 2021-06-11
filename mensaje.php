@@ -1,6 +1,12 @@
-<?php include 'header.php';
-    $idUsuario = $_SESSION['usuario'];
-    $idAnfitrion = $_POST['idAnfitrion'];
+<?php 
+    session_start();
+    // Título de la página
+    $pageTitle = 'Mensaje';
+
+    include 'header.php';
+    include 'seguridad.php';
+    
+    $idAnfitrion = $_GET['id-anfitrion'];
 ?>
 
 <div class="row h-100">
@@ -25,7 +31,7 @@
                     <hr>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input class="form-control" name="idAnfitrion" type ="hidden" value="<?php echo $idAnfitrion?>">                        
+                            <input class="form-control" name="idAnfitrion" type ="hidden" value="<?= $idAnfitrion?>">                        
                             <button class="btn btn_custom" type="submit">Enviar</button>
                         </div>
                     </div>
@@ -35,4 +41,6 @@
     </div>
 </div>
 
-<?php include 'footer.php'; ?>
+<?php 
+    include 'footer.php'; 
+?>

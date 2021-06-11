@@ -39,14 +39,13 @@
     */
     // Lista de errores
     $msgError = array(0 =>"No hay error, el fichero se subio con Éxito",
-                      1 =>"a",
-                      2 =>"a",
-                      3 =>"a",
-                      4 =>"a",
-                      5 =>"a",
-                      6 =>"a",
-                      7 =>"a",
-                      8 =>"A");
+                      1 =>'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+                      2 =>'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+                      3 =>'The uploaded file was only partially uploaded',
+                      4 =>'No file was uploaded',
+                      6 =>'Missing a temporary folder',
+                      7 =>'Failed to write file to disk.',
+                      8 =>'A PHP extension stopped the file upload.');
     // Remplazamos los espacios en blanco ' ' del nombre de la vivienda por '_' 
     // para usarlo en el url de almacenamiento.
     $nombreViv = str_replace(" ", "_", $nombre);

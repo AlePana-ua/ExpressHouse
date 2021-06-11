@@ -15,7 +15,7 @@
         $page = 1;
     }
     // Cantidad de usuarios por página.
-    $resultados_por_pagina = 20;
+    $resultados_por_pagina = 250;
     // Número de página donde comenzar la nueva query 
     $start_from = ($page-1) * $resultados_por_pagina;
 ?>
@@ -43,7 +43,6 @@
                         <th>Apellido</th>
                         <th>Correo</th>
                         <th>Teléfono</th>
-                        <th>Editar</th>
                         <th>Borrar</th>
                     </tr>
                 </thead>
@@ -60,7 +59,6 @@
                         <td><?php echo $apellidos;?></td>
                         <td><?php echo $correo;?></td>
                         <td><?php echo $telefono;?></td>
-                        <td><a href='.php?user=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=620'); return false;"><img class="" src="img/update_icon.png" width="40" height="40"></a></td>
                         <td>
                             <a href='confirmarBorradoUsuario.php?correo=<?=$correo?>' target="popup" onClick="window.open(this.href, this.target, 'width=350,height=320'); return false;">
                                 <img class="" src="img/delete_icon.png" width="40" height="40">
@@ -87,8 +85,7 @@
                         $total_pages = ceil( $row['total']/ $resultados_por_pagina);
                     }
                     for($i=1; $i<=$total_pages ;$i++) {
-                        echo "<a href=\"lista_usuarios.php?page=$i\">$i&nbsp</a>";
-                        
+                        echo "<a href=\"lista_usuarios.php?page=$i\">$i&nbsp</a>&#183";
                     }
                 }
             ?>

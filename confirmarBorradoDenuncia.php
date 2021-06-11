@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     $pageTitle = 'Eliminar usuario'; 
     include "conexionBD.inc";
     include "seguridadAdmin.php";
@@ -7,7 +9,7 @@
 ?>
 
 <form id="borrarDenuncia" name="borrarDenuncia" method="GET" action="borrarDenuncia.php">
-    <a>Seguro que desea borrar el usuario:<?=utf8_encode($id_Denuncia)?></a>
+    <a>Seguro que desea borrar la denuncia: <?=utf8_encode($id_Denuncia)?></a>
     <input class="form-control" id="id_Denuncia" name="id" type="hidden"  value="<?php echo utf8_encode($id_Denuncia); ?>">
     <button class="btn btn-danger" type="submit">Borrar Denuncia</button>
 </form>

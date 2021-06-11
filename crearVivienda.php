@@ -8,7 +8,6 @@
     include 'header.php';
     include 'conexionBD.inc'; 
     include 'utils.php';
-    
 ?>
 <br>
 <section id="addVivienda">

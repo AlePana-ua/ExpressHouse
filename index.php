@@ -6,14 +6,13 @@
     
     include 'header.php';
     include "conexionBD.inc"; 
-    include 'utils.php';
-    
+    include 'utils.php';  
 ?>
 
 <!-- Inicio Buscador -->
 <div class="h-75 d-inline-block search-div">
   <div class="container-fluid">
-    <form action="listaViviendas.php" method="POST">
+    <form action="listaViviendas.php" method="GET">
       <div class="row align-items-center search-box">
         <div class="col">
           <label id="lista-ciudades" for="Name">Ciudad</label>

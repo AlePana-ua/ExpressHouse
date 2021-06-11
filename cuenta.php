@@ -1,11 +1,11 @@
 <?php 
-$pageTitle = 'Perfil';
-session_start();
-include 'header.php'; 
-include 'utils.php';
-include "conexionBD.inc";
+  session_start();
+  $pageTitle = 'Perfil';
 
-
+  include "seguridad.php";
+  include 'header.php'; 
+  include 'utils.php';
+  include "conexionBD.inc";
 
 $queryUSER = $link ->query("SELECT id_user  ,foto,nombre FROM Usuario WHERE correo = '".$_SESSION["usuario"]."' ");
 if($row = mysqli_fetch_array($queryUSER))
@@ -25,9 +25,33 @@ $nResenyas = mysqli_fetch_array($query_cResenyas)[0];
 <div class="container-fluid">
   <div class="row">
     <div class="card" style="margin-left: 5%; margin-top: 1%;">
-    <img style="vertical-align: middle; width: 100px; height: 100px; border-radius: 50%;" src="data:image;base64,<?=$foto?>">
+    <?php if($foto != null){ ?>
+      <img style="vertical-align: middle; width: 100px; height: 100px; border-radius: 50%;" src="data:image;base64,<?=$foto?>">
+    <?php }else {?>
+      <img style="vertical-align: middle; width: 100px; height: 100px; border-radius: 50%;" src="./img/profile_default.png">
+    <?php }?>  
       <div>
         <p></p>
+        <?php
+
+          if($_SESSION["anfitrion"]){
+            echo '<ul>
+              <li><a href="listaMensajes.php".">Mis mensajes</a></li>
+              <li><a href="listaViviendasAnf.php">Mis viviendas</a></li>
+              <li><a href="listaDenuncias.php">Mis denuncias</a></li>
+              <li><a href="listarResenya.php">Mis Reseñas</a></li>
+            </ul>';
+          }else{
+            echo '<ul style="">
+              <li><a href="listaMensajes.php".">Mis mensajes</a></li>
+              <li><a href="listaReservas.php">Mis reservas</a></li>
+              <li><a href="listadenuncias.php">Mis denuncias</a></li>
+              <li><a href="listaFavoritos.php">Mis favoritos</a></li>
+              <li><a href="listaFacturas.php">Mis facturas</a></li>
+            </ul>';
+          }
+        ?>          
+           
         <a href="./modificarCuenta.php" class="btn btn-primary">Modificar perfil</a>
       </div>
     </div>
@@ -35,7 +59,7 @@ $nResenyas = mysqli_fetch_array($query_cResenyas)[0];
       <div class="card-body">
         <h5 class="card-text" >Hola, soy <?= $nombre?></p>
 
-    <div class="card" style="margin-left: 5%; margin-top: 1%; width: 75%;">
+    
     <?php
      if (!$_SESSION["anfitrion"]) {
             if ($nResenyas == 0) {
@@ -43,7 +67,8 @@ $nResenyas = mysqli_fetch_array($query_cResenyas)[0];
             } else {
               echo "<h5>Reseñas escritas</h5>";
               while($row = mysqli_fetch_array($query_cResenyas)) {   
-                echo '<a style="font-size: 15px;">
+                echo '<div class="card" style="margin-left: 5%; margin-top: 1%; width: 75%;">
+                      <a style="font-size: 15px;">
                        fecha: '.$row["fecha"].' <br></br> Puntuación: '.$row["puntuacion"].' <br></br>
                         Descripción:  '.$row["descripcion"].'
                       </a>';                
@@ -72,7 +97,8 @@ $nResenyas = mysqli_fetch_array($query_cResenyas)[0];
             $query_resenya = "SELECT * FROM resenya WHERE id_resenya = '".$resenyas[$i]."';";
             if($query2 = $link->query($query_resenya)){
               while($row = mysqli_fetch_array($query2)) {   
-                echo '<a style="font-size: 15px;">
+                echo '<div class="card" style="margin-left: 5%; margin-top: 1%; width: 75%;">
+                      <a style="font-size: 15px;">
                        fecha: '.$row["fecha"].' <br></br> Puntuación: '.$row["puntuacion"].' <br></br>
                         Descripción:  '.$row["descripcion"].'
                       </a>';                

@@ -1,7 +1,11 @@
 <?php
-    include 'header.php';
-    include "conexionBD.inc";
     session_start();
+    
+    $pageTitle = 'Reserva';
+    include 'header.php';
+    include 'seguridad.php';
+    include "conexionBD.inc";
+
 
     $done = false;
     $fecha_llegada = isset($_POST["fecha_llegada"]) ? $_POST["fecha_llegada"] : "";
@@ -25,13 +29,13 @@
     $precio_final = $row["precioDia"] * $num_dias_reserva;
 
     $query = "INSERT INTO Reserva (id_anuncio, fecha_inicio, fecha_final, numero_huespedes, confirmada, id_huesped)
-     VALUES('$id_anuncio', '$fecha_llegada', '$fecha_salida', '$huespedes', '1', '$id_usuario')";
+     VALUES('$id_anuncio', STR_TO_DATE('$fecha_llegada', '%m/%d/%Y'), STR_TO_DATE('$fecha_salida', '%m/%d/%Y'), '$huespedes', '1', '$id_usuario')";
     $queryResult = $link->query($query);
     $id_reserva = $link->insert_id;
 
     $fecha = date("Y/m/d");
     $metodoPago = 'VISA';
-    $nombre = 'BENITO';
+    $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : 'Anonymous';
     $domiciliofiscal = 'TESTING';
     $pagada = 1;
 

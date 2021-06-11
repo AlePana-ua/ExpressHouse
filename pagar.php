@@ -1,6 +1,10 @@
 <?php
+    session_start();
+
+    $pageTitle = 'Pagar';
     include 'header.php';
     include "conexionBD.inc";
+
     $fecha_llegada = isset($_POST["fecha_llegada"]) ? $_POST["fecha_llegada"] : "";
     $fecha_salida = isset($_POST["fecha_salida"]) ? $_POST["fecha_salida"] : "";
     $id_anuncio = isset($_POST["id_anuncio"]) ? $_POST["id_anuncio"] : "";
@@ -36,17 +40,17 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label class="label">Nº Tarjeta</label>
-                                    <input class="form-control" type="text" name="tarjeta">
+                                    <input class="form-control" type="number" min="1" name="tarjeta">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="label">Fecha caducidad</label>
-                                    <input class="form-control" type="text" name="cad">
+                                    <input class="form-control" type="date" name="cad">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="label">CVC</label>
-                                    <input class="form-control" type="email" name="cvc">
+                                    <input class="form-control" type="number" min="100" max="999" name="cvc">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="label">Nombre</label>
@@ -66,7 +70,7 @@
                         </form>
                     </div>
                     <div class="col-6">
-                        <div class="card" card-block w-50 mx-auto" id="tarjeta" style="border-radius: 20px 20px 20px 20px;">
+                        <div class="card card-block w-50 mx-auto" id="tarjeta" style="border-radius: 20px 20px 20px 20px;">
                             <div class="card-body">
                                 <h4>Reserva</h4>
                                 <b>Fechas</b>

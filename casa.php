@@ -49,6 +49,7 @@
                 WHERE a.id_anuncio = '$idAnuncio';";
         if ($query = $link->query($query_casa)) {
             if($row = mysqli_fetch_array($query)) {
+                $idAnfitrion = $row['id_anfitrion'];
     ?>
     <div class="container-fluid mt-2 mb-3">
         <div class="row no-gutters">
@@ -59,7 +60,7 @@
                     <div class="demo">
                         <ul id="lightSlider">
                         <?php
-                            $imagenes = glob($row['foto']."*");
+                            $imagenes = glob($row['foto']."/*.*");
                             sort($imagenes);
                             if(count($imagenes) > 0){
                                 foreach($imagenes as $image) {
@@ -151,12 +152,12 @@
                                             <div class="form-row align-items-center">
                                                 <div class="col text-center">
                                                     <label for="Name">Llegada</label>
-                                                    <input id="fecha_llegada" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-llegada" value="<?= $fechaLlegada?>"/>
+                                                    <input class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha_llegada" value="<?= $fechaLlegada?>"/>
                                                 </div>
                                                 <div id="verticle-line"></div>
                                                 <div class="col text-center">
                                                     <label for="Name">Salida</label>
-                                                    <input id="fecha_salida" class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha-salida" value="<?= $fechaSalida?>"/>
+                                                    <input class="text-center" width="auto" placeholder="¿Cuándo?" name="fecha_salida" value="<?= $fechaSalida?>"/>
                                                 </div>
                                                 <div class="col">
                                                     <input name="id_vivienda" type="hidden" value="<?= $row['id_vivienda'];?>">  
@@ -180,6 +181,7 @@
                         </div>
                     </div>
                     <br>
+                    <?php if(!$_SESSION['anfitrion'] && !$_SESSION['admin']){?>
                     <!-- Inicio botones casa -->                
                     <div class="card-footer buttons"> 
                         <!-- COMPARTIR -->
@@ -193,18 +195,19 @@
                             <input name="id_anuncio" type="hidden" value="<?= $idAnuncio?>">
                             <button class="btn btn-light wishlist" type="summit"><i class="fa fa-heart-o"></i></button>
                         </form>
-                        <!-- DENUNCIAR, pasar id anuncio como parámetro -->
+                        <!-- DENUNCIAR, pasar id anfitrion como parámetro -->
                         <form method="GET" action="denunciar.php">
-                            <input id="id-vivienda" name="id-vivienda" type="hidden" values="'.utf8_encode($idVivienda).'">
+                            <input id="id-anfitrion" name="id-anfitrion" type="hidden" value="'<?= $idAnfitrion?>.'">
                             <button class="btn btn-light wishlist" href="/ExpressHouse/denunciar.php"><i class="fa fa-exclamation-triangle"></i></button>
                         </form>
                         <!-- ENVIAR MENSAJE, pasar id anfitrion como parámetro --> 
                         <form method="GET" action="mensaje.php">
-                            <input id="id-anfitrion" name="id-anfitrion" type="hidden" values="'.utf8_encode($idAnfitrion).'">
+                            <input id="id-anfitrion" name="id-anfitrion" type="hidden" value="<?= $idAnfitrion ?>">
                             <button class="btn btn-light wishlist" href="/ExpressHouse/mensaje.php"><i class="fa fa-envelope-o"></i></button>
                         </form>
                     </div>
                     <!-- Fin botones casa -->
+                    <?php }?>
                 </div>
                 <!-- Fin cuadro con datos -->
                 <br>

@@ -9,5 +9,5 @@ Datos de los diferentes tipos de usuarios disponibles en la aplicación:
     - Password: 12345
     
 * Anfitrión (5002-10001):
-    - Usuario: @.
+    - Usuario: @
     - Password: 12345

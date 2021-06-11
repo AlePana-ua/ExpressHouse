@@ -1,5 +1,7 @@
 <?php 
     session_start();
+
+    $pageTitle = 'Perfil';
     include "conexionBD.inc";
     include 'seguridad.php';
     include 'header.php'; 

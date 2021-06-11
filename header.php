@@ -46,9 +46,6 @@
                     if(!$usuario) {
                 ?>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Ser anfitrión</a>
-                        </li>
-                        <li class="nav-item">
                             <a href="registrar.php" class="nav-link">Registrarse</a>
                         </li>
                         <li class="nav-item">
@@ -73,9 +70,6 @@
                 <?php
                             }else { // Opción de huésped 
                 ?>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">Ser anfitrión</a>
-                                </li>
                 <?php 
                             }
                         }else { // Opciones de administrador 
