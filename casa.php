@@ -181,6 +181,7 @@
                         </div>
                     </div>
                     <br>
+                    <?php if(!$_SESSION['anfitrion'] && !$_SESSION['admin']){?>
                     <!-- Inicio botones casa -->                
                     <div class="card-footer buttons"> 
                         <!-- COMPARTIR -->
@@ -206,6 +207,7 @@
                         </form>
                     </div>
                     <!-- Fin botones casa -->
+                    <?php }?>
                 </div>
                 <!-- Fin cuadro con datos -->
                 <br>

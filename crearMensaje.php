@@ -13,7 +13,7 @@
 
     $query_insert = "INSERT INTO Mensaje (asunto, contenido, emisor, receptor) VALUES ('".$asunto."', '".$contenido."', '".$idUsuario."', '".$idAnfitrion."')";
     
-    echo $query_insert;
+    //echo $query_insert;
     if($query=$link -> query($query_insert)){
 ?> 
         <div class="alert alert-success alert-dismissable">

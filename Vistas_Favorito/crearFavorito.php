@@ -13,7 +13,8 @@
     }
    
     $query_insert = "INSERT INTO Marcar_favorito (id_anuncio, id_huesped) VALUES ('$idAnuncio', '$idHuesped');";
-    echo $query_insert;
+    //echo $query_insert;
+    
     if($query=$link->query($query_insert)){
 ?>
         <div class="alert alert-success alert-dismissable">
