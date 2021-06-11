@@ -1,13 +1,19 @@
-# ExpressHouse
+# Gestión de la Información - ExpressHouse
 ---
+El proyecto se encuentra een la rama final main, es necesario poneer el directorio del
+proyecto dentro del seervidor web.  
+
 Datos de los diferentes tipos de usuarios disponibles en la aplicación: 
 * Administrador (1):
-    - Usuario: rosauravalera@gmail.com
+    - id: 1
+    - Usuario: sandramolins@hotmail.com
     - Password: 12345
-* Huésped (2-5001):
-    - Usuario: humbertoocaña@yahoo.es
+* Huésped (2-400001):
+    - id: 4
+    - Usuario: candelasolano@hotmail.com
     - Password: 12345
     
-* Anfitrión (5002-10001):
-    - Usuario: @
+* Anfitrión (400002-500001):
+    - id: 400003
+    - Usuario: lopeamores@yahoo.es
     - Password: 12345

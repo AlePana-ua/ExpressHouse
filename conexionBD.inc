@@ -2,9 +2,9 @@
 	$db_host = 'bbdd.dlsi.ua.es';
 	$db_user = 'gi_expresshouse';
 	$db_pwd = ".gi_expresshouse.";
-	$database = "gi_expresshouse2";
+	$database = "gi_expresshouse";
 	
-    $link=new mysqli("bbdd.dlsi.ua.es","gi_expresshouse",".gi_expresshouse.","gi_expresshouse2");
+    $link=new mysqli("bbdd.dlsi.ua.es","gi_expresshouse",".gi_expresshouse.","gi_expresshouse");
 	
 	// Para evitar fallos con los acentos.
 	$link->set_charset("utf8");
