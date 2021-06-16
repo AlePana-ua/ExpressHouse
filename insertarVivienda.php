@@ -22,21 +22,7 @@
 
     $descripcion = $_POST['descripcion-vivienda'];;
     $minDias = $_POST['minDias-vivienda'];
-    
-    /*
-    $nombre = 'Casa en Alicante';
-    $direccion = 'Esto es una dirección';
-    $ciudad = 36;
-    $cPos = '03538';
-    $tipoViv = 'casa';
-    $zonaViv = 'Ciudad';
-    $habitaciones = 2;
-    $aseos= 2;
-    $fiestas = 1;
-    $mascotas = 0;
-    $precioDia = 25; 
-    $idAnfitrion = 3;
-    */
+
     // Lista de errores
     $msgError = array(0 =>"No hay error, el fichero se subio con Éxito",
                       1 =>'The uploaded file exceeds the upload_max_filesize directive in php.ini',
@@ -46,6 +32,7 @@
                       6 =>'Missing a temporary folder',
                       7 =>'Failed to write file to disk.',
                       8 =>'A PHP extension stopped the file upload.');
+
     // Remplazamos los espacios en blanco ' ' del nombre de la vivienda por '_' 
     // para usarlo en el url de almacenamiento.
     $nombreViv = str_replace(" ", "_", $nombre);
@@ -55,8 +42,10 @@
     // Comprobamos qu ese directorio no existe ya.
     if(!is_dir($uploadDir)) { 
     // Creamos el directorio
-        if(!mkdir($uploadDir, true)) {
+        if(!mkdir($uploadDir, 0777, true)) {
             die('Fallo al crear el directorio '.$uploadDir);
+        }else {
+            echo "Directorio creado";
         }
     }else {
         echo    '<div class="alert alert-warning alert-dismissable">
@@ -124,7 +113,7 @@
     }else {
         echo $link->error;
     }
+
     include "desconexionBD.inc"; 
     include "footer.php"; 
-
 ?>
