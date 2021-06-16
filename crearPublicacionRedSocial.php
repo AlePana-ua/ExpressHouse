@@ -11,7 +11,7 @@
     // Lista de redes sociales
     $listaRedesSociales = ['Instagram', 'Facebook', 'Twitter'];
 ?>
-<div class="row h-75">
+<div class="row h-content">
     <div class="col-sm-12 my-auto">
         <div class="card card-block w-25 mx-auto" id="tarjeta" style="border-radius: 20px 20px 20px 20px;">
             <div class="card-body">
@@ -45,8 +45,6 @@
         </div>
     </div>
 </div>
-
-
 
 <?php
     include "footer.php";
