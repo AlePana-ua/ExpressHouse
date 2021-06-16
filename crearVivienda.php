@@ -98,11 +98,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label class="label">Habitaciones</label>
-                            <input required class="form-control" type="number" name="hab-vivienda">
+                            <input required class="form-control" type="number" min="1" name="hab-vivienda">
                         </div>
                         <div class="form-group col-md-2">
                             <label class="label">Aseos</label>
-                            <input required class="form-control" type="number" name="aseos-vivienda">
+                            <input required class="form-control" type="number" min="1" name="aseos-vivienda">
                         </div>
                     </div>
                     <!-- Reglas de la vivienda -->
@@ -115,11 +115,11 @@
                     <br>
                     <div class="form-row">
                         <div class="form-group col-md-2">
-                            <label class="label">Fiesta</label>
+                            <label class="label">Fiesta (Si == 1, No == 0)</label>
                             <input required class="form-control" type="text" name="fiesta-vivienda">
                         </div>
                         <div class="form-group col-md-2">
-                            <label class="label">Mascotas</label>
+                            <label class="label">Mascotas (Si == 1, No == 0)</label>
                             <input required class="form-control" type="text" name="mascota-vivienda">
                         </div>
                     </div>
@@ -128,12 +128,12 @@
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label class="label">Mínimo de días</label>
-                            <input required class="form-control" type="number" name="minDias-vivienda">
+                            <input required class="form-control" type="number" min="1"  name="minDias-vivienda">
                         </div>
                         
                         <div class="form-group col-md-2 justify-content-right">
                             <label class="label">Precio por Día</label>
-                            <input required class="form-control" type="number" name="precio-vivienda">
+                            <input required class="form-control" type="number" min="1" name="precio-vivienda">
                         </div>
                     </div>
                     <br>

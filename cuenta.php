@@ -39,7 +39,7 @@ $nResenyas = mysqli_fetch_array($query_cResenyas)[0];
               <li><a href="listaMensajes.php".">Mis mensajes</a></li>
               <li><a href="listaViviendasAnf.php">Mis viviendas</a></li>
               <li><a href="listaDenuncias.php">Mis denuncias</a></li>
-              <li><a href="listarResenya.php">Mis Reseñas</a></li>
+              <li><a href="listarReseña.php">Mis Reseñas</a></li>
             </ul>';
           }else{
             echo '<ul style="">
@@ -112,4 +112,6 @@ $nResenyas = mysqli_fetch_array($query_cResenyas)[0];
     </div>
   </div>
 </div>
-<?php include 'footer.php'; ?>
+<?php 
+  include 'footer.php'; 
+?>

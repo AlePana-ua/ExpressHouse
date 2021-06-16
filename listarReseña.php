@@ -13,7 +13,6 @@
         $page = $_GET['page'];
         $id_usuario = $_POST['id_usuario'];
     }else {
-        echo "error usuario";
         $page = 1;
     }
     // Cantidad de usuarios por página.
@@ -80,7 +79,7 @@
         <!-- Lista de páginas con reseñas -->
         <div class="row d-flex justify-content-center">
             <?php
-                $query_paginas = "SELECT COUNT(id_resenya) AS total FROM resenya";
+                $query_paginas = "SELECT COUNT(id_resenya) AS total FROM resenya WHERE id_usuario='$id_usuario';";
                 if($query2 = $link->query($query_paginas)){
                     while($row = mysqli_fetch_array($query2)) {
                         $total_pages = ceil( $row['total']/ $resultados_por_pagina);

@@ -44,8 +44,6 @@
     // Creamos el directorio
         if(!mkdir($uploadDir, 0777, true)) {
             die('Fallo al crear el directorio '.$uploadDir);
-        }else {
-            echo "Directorio creado";
         }
     }else {
         echo    '<div class="alert alert-warning alert-dismissable">
@@ -81,7 +79,7 @@
         $ruta = $uploadDir."/";
         $query_vivienda = "INSERT INTO  Vivienda (nombre, direccion, habitaciones, aseos, fiestas, mascotas, precioDia, tipo, cPosta, zona, foto, id_ciudad, id_anfitrion) 
                     VALUES ('".$nombre."', '$direccion', '$habitaciones', '$aseos', '$fiestas', '$mascotas', '$precioDia', '$tipoViv', '$codPos', '$zonaViv', '$ruta', '$ciudad', '$idAnfitrion');";
-        echo $query_vivienda;
+        
         // Ejecutamos la query para insertar la vivienda.
         if($query = $link->query($query_vivienda)){
             echo    '<div class="alert alert-success alert-dismissable">
