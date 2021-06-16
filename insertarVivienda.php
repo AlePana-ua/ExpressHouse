@@ -52,8 +52,8 @@
     }
 
     // Comprobamos que el archivo se subio correctamente
-    if($_FILES['imagen']['error'] > 0) {
-        echo 'Error: '.$msgError[$_FILES['imagen']['error']].'<br>';
+    if($_FILES['imagenes']['error'] > 0) {
+        echo 'Error: '.$msgError[$_FILES['imagenes']['error']].'<br>';
     }else {    
         $extension = array('jpeg', 'jpg', 'png');
         foreach($_FILES['imagenes']['tmp_name'] as $key => $tmp_name) {
